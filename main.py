@@ -68,3 +68,6 @@ def cubic_roots_from_coefficients(a, b, c, d):
         return [r1, r2, r3]
     else:
         return [r1]
+
+print(cubic_coefficients_from_roots(1,2,3))
+print(cubic_roots_from_coefficients(1, 4, 11, -6))
