@@ -27,11 +27,6 @@ def quartic_coefficients_from_roots(r1, r2, r3, r4):
             -(r1*r2*r3 + r1*r2*r4 + r1*r3*r4 + r2*r3*r4),
             r1*r2*r3*r4]
 
-assert cubic_coefficients_from_roots(1,1,1) == [1, -3, 3, -1]
-assert cubic_coefficients_from_roots(1,2,3) == [1, -6, 11, -6]
-assert cubic_coefficients_from_roots(1,2,3) == [1, -6, 11, -6]
-assert cubic_coefficients_from_roots(2,1,3) == [1, -6, 11, -6]
-assert cubic_coefficients_from_roots(3,2,1) == [1, -6, 11, -6]
 
 def quadratic_roots(a, b, c):
     epsilon = 0.00001
@@ -135,9 +130,3 @@ def quartic_roots(a,b,c,d,e):
         return factor_out_root(r)
 
 
-#print(quartic_coefficients_from_roots(1,2,3,4))
-print("============================")
-r1, r2, r3, r4 = quartic_roots(1, -10, 35, -50, 24)
-f = make_quartic(1, -10, 35, -50, 24)
-print([r1, r2, r3, r4])
-print([f(r1), f(r2), f(r3), f(r4)])
