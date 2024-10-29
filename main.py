@@ -61,6 +61,19 @@ def find_quadratic_roots(a, b, c):
                 -b / (2 * a)]
 
 
+def search_root_left(upper, f, epsilon):
+    """search to the left of upper to find an x value for which f(x) is
+    sufficiently close to 0."""
+    if f
+    if f(upper) < 0:
+        print("case 2")
+        upper = inflection_points[1]
+        delta = 1
+        while f(upper - delta) < 0:
+            delta *= 2
+        r = find_root_in_range(upper - delta, upper, f, epsilon)
+        return factor_out_quartic_root(r, a, b, c, d)
+
 def find_root_in_range(lower, upper, f, epsilon):
     mid = (lower + upper) / 2.0
     if upper - lower < epsilon:
