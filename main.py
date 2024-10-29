@@ -61,18 +61,32 @@ def find_quadratic_roots(a, b, c):
                 -b / (2 * a)]
 
 
-def search_root_left(upper, f, epsilon):
-    """search to the left of upper to find an x value for which f(x) is
+def search_root_left(lower, upper, f, epsilon):
+    """search to the left of lower to find an x value for which f(x) is
     sufficiently close to 0."""
-    if f
-    if f(upper) < 0:
-        print("case 2")
-        upper = inflection_points[1]
-        delta = 1
-        while f(upper - delta) < 0:
-            delta *= 2
-        r = find_root_in_range(upper - delta, upper, f, epsilon)
-        return factor_out_quartic_root(r, a, b, c, d)
+    mid = (upper + lower) / 2.0
+    if abs(upper - lower) < epsilon:
+        return mid
+    elif f(upper) * f(lower) <= 0:
+        return find_root_in_range(lower, upper, f, epsilon)
+    else:  # if same sign
+        delta = upper - lower
+        return search_root_left(lower - delta, upper, f, epsilon)
+
+
+def search_root_right(lower, upper, f, epsilon):
+    """search to the right of upper to find an x value for which f(x) is
+    sufficiently close to 0."""
+    mid = (upper + lower) / 2.0
+    if abs(upper - lower) < epsilon:
+        return mid
+    elif f(upper) * f(lower) <= 0:  # if different sign
+        return find_root_in_range(lower, upper, f, epsilon)
+    else:
+        delta = upper - lower
+        return search_root_left(lower, upper + delta, f, epsilon)
+
+
 
 def find_root_in_range(lower, upper, f, epsilon):
     mid = (lower + upper) / 2.0
@@ -85,13 +99,6 @@ def find_root_in_range(lower, upper, f, epsilon):
     else:
         return find_root_in_range(mid, upper, f, epsilon)
 
-
-def find_window(lower, upper, f):
-    if f(lower) * f(upper) < 0:  # different signs at endpoint
-        return [lower, upper]
-    else:
-        delta = upper - lower
-        return find_window(lower - delta, upper + delta, f)
 
 
 def factor_out_cubic_root(r, a, b, c):
