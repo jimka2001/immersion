@@ -48,17 +48,17 @@ def find_quartic_coefficients(r1, r2, r3, r4):
 
 
 def find_quadratic_roots(a, b, c):
-    epsilon = 0.00001
+    epsilon = 0.001
     discriminant = b * b - 4 * a * c
-
-    if abs(discriminant) < epsilon:
-        return []
-    elif discriminant > 0:
+    print(f"{discriminant=}")
+    if discriminant > epsilon:
         return [(-b + sqrt(discriminant)) / (2 * a),
                 (-b - sqrt(discriminant)) / (2 * a)]
-    else:
+    elif abs(discriminant) < epsilon:
         return [-b / (2 * a),
                 -b / (2 * a)]
+    else:
+        return []
 
 
 def search_root_left(lower, upper, f, epsilon):
@@ -106,6 +106,7 @@ def factor_out_cubic_root(r, a, b, c):
     B = b + A * r
     C = c + B * r
     r2r3 = find_quadratic_roots(A, B, C)
+    print(f"quadratic roots: {r2r3=}")
     if r2r3:
         r2, r3 = r2r3
         return [r, r2, r3]
@@ -132,7 +133,7 @@ def find_cubic_roots(a, b, c, d):
         r = search_root_left(-1, 0, f, epsilon)
     else:
         r = search_root_right(0, 1, f, epsilon)
-
+    print(f" found cubic  root: {r=}")
     return factor_out_cubic_root(r, a, b, c)
 
 
@@ -156,6 +157,7 @@ def find_quartic_roots(a, b, c, d, e):
     #  = 4ax^3 + 3bx^2 + 2cx + d
     inflection_points = find_cubic_roots(4 * a, 3 * b, 2 * c, d)
     inflection_points.sort()
+    print(f"cubic roots: {inflection_points=}")
     f = make_quartic(a, b, c, d, e)
 
     print(inflection_points)
