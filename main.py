@@ -118,6 +118,7 @@ def find_cubic_roots(a, b, c, d):
     compute the roots if possible.
     semantics of the coefficients are: ax^3 + bx^2 + cx + d
     """
+    epsilon = 0.00001
     if a == 0:
         return find_quadratic_roots(b, c, d)
     if a < 0:
@@ -125,9 +126,13 @@ def find_cubic_roots(a, b, c, d):
 
     f = make_cubic(a, b, c, d)
 
-    # TODO rename to expand_right_and_left
-    lower, upper = find_window(-1.0, 1.0, f)
-    r = find_root_in_range(lower, upper, f, 0.00001)
+    if f(0.0) == 0.0:
+        r = 0.0
+    elif d > 0: # f(0) = d, so f(-infinity) < 0 and f(infinity) > 0
+        r = search_root_left(-1, 0, f, epsilon)
+    else:
+        r = search_root_right(0, 1, f, epsilon)
+
     return factor_out_cubic_root(r, a, b, c)
 
 
@@ -153,26 +158,14 @@ def find_quartic_roots(a, b, c, d, e):
     inflection_points.sort()
     f = make_quartic(a, b, c, d, e)
 
+    print(inflection_points)
     for i in [0, 1]:
         if f(inflection_points[i]) < 0 < f(inflection_points[i + 1]):
-            print("case 1")
             r = find_root_in_range(inflection_points[i], inflection_points[i + 1], f, epsilon)
             return factor_out_quartic_root(r, a, b, c, d)
-    # TODO refactor into expand_left
     if f(inflection_points[0]) < 0:
-        print("case 2")
-        upper = inflection_points[1]
-        delta = 1
-        while f(upper - delta) < 0:
-            delta *= 2
-        r = find_root_in_range(upper - delta, upper, f, epsilon)
+        r = search_root_left(inflection_points[0], inflection_points[0] - 1, f, epsilon)
         return factor_out_quartic_root(r, a, b, c, d)
-    # TODO refactor into expand_right
     if f(inflection_points[-1]) < 0:
-        print("case 3")
-        lower = inflection_points[-1]
-        delta = 1
-        while f(lower + delta) < 0:
-            delta *= 2
-        r = find_root_in_range(lower, lower + delta, f, epsilon)
+        r = search_root_right(inflection_points[-1], inflection_points[-1] + 1, f, epsilon)
         return factor_out_quartic_root(r, a, b, c, d)

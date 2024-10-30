@@ -14,3 +14,13 @@ r1, r2, r3, r4 = find_quartic_roots(1, -10, 35, -50, 24)
 f = make_quartic(1, -10, 35, -50, 24)
 print([r1, r2, r3, r4])
 print([f(r1), f(r2), f(r3), f(r4)])
+
+for r1 in range(-5, 5):
+    for r2 in range(r1, 5):
+        for r3 in range(r2, 5):
+            for r4 in range(r3, 5):
+                a, b, c, d, e = find_quartic_coefficients(r1, r2, r3, r4)
+                print([r1, r2, r3, r4, a, b, c, d, e])
+                roots = find_quartic_roots(a,b,c,d,e)
+
+
