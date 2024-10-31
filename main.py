@@ -63,21 +63,25 @@ def find_quadratic_roots(a, b, c):
 def search_root_left(lower, upper, f, epsilon):
     """search to the left of lower to find an x value for which f(x) is
     sufficiently close to 0."""
+    assert upper > lower
     if f(upper) * f(lower) < 0:
         return find_root_in_range(lower, upper, f, epsilon)
     else:  # if same sign
         delta = upper - lower
+        assert delta > 0
         return search_root_left(lower - delta, upper, f, epsilon)
 
 
 def search_root_right(lower, upper, f, epsilon):
     """search to the right of upper to find an x value for which f(x) is
     sufficiently close to 0."""
+    assert upper > lower
     if f(upper) * f(lower) < 0:  # if different sign
         return find_root_in_range(lower, upper, f, epsilon)
     else:
         delta = upper - lower
-        return search_root_left(lower, upper + delta, f, epsilon)
+        assert delta > 0
+        return search_root_right(lower, upper + delta, f, epsilon)
 
 
 
