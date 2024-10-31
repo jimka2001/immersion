@@ -158,7 +158,7 @@ def find_quartic_roots(a, b, c, d, e):
             r = find_root_in_range(inflection_points[i], inflection_points[i + 1], f, epsilon)
             return factor_out_quartic_root(r, a, b, c, d)
     if f(inflection_points[0]) < 0:
-        r = search_root_left(inflection_points[0], inflection_points[0] - 1, f, epsilon)
+        r = search_root_left(inflection_points[0] - 1, inflection_points[0], f, epsilon)
         return factor_out_quartic_root(r, a, b, c, d)
     if f(inflection_points[-1]) < 0:
         r = search_root_right(inflection_points[-1], inflection_points[-1] + 1, f, epsilon)
