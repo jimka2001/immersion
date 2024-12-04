@@ -8,25 +8,39 @@ assert find_cubic_coefficients(3, 2, 1) == [1, -6, 11, -6]
 
 
 
-#print(quartic_coefficients_from_roots(1,2,3,4))
-print("============================")
 r1, r2, r3, r4 = find_quartic_roots(1, -10, 35, -50, 24)
 f = make_quartic(1, -10, 35, -50, 24)
-print([r1, r2, r3, r4])
-print([f(r1), f(r2), f(r3), f(r4)])
 
-for r1 in range(-5, 5):
-    for r2 in range(r1, 5):
+bound = 25
+for r1 in range(-bound, bound):
+    print(f"{r1=}")
+    for r2 in range(r1, bound):
         a, b, c = find_quadratic_coefficients(float(r1), float(r2))
-        print([r1, r2, a, b, c])
         roots = find_quadratic_roots(a, b, c)
-        for r3 in range(r2, 5):
+        assert roots
+        roots.sort()
+        assert len(roots) == 2
+        epsilon = 0.01
+        assert abs(roots[0] - r1) < epsilon, f"{roots=}, {r1=}"
+        assert abs(roots[1] - r2) < epsilon, f"{roots=}, {r2=}"
+        for r3 in range(r2, bound):
             a, b, c, d = find_cubic_coefficients(float(r1), float(r2), float(r3))
-            print([r1, r2, r3, a, b, c, d])
             roots = find_cubic_roots(a, b, c, d)
-            for r4 in range(r3, 5):
+            assert roots
+            roots.sort()
+            assert len(roots) == 3
+            epsilon = 0.01
+            assert abs(roots[0] - r1) < epsilon, f"{roots=}, {r1=}"
+            assert abs(roots[1] - r2) < epsilon, f"{roots=}, {r2=}"
+            assert abs(roots[2] - r3) < epsilon, f"{roots=}, {r3=}"
+            for r4 in range(r3, bound):
                 a, b, c, d, e = find_quartic_coefficients(float(r1), float(r2), float(r3), float(r4))
-                print([r1, r2, r3, r4, a, b, c, d, e])
-                roots = find_quartic_roots(a,b,c,d,e)
+                roots = find_quartic_roots(a, b, c, d, e)
 
-
+                assert roots and len(roots) == 4, f"{roots=} failed to find 4 roots of {r1=} {r2=} {r3=} {r4=} {a=} {b=} {c=} {d=} {e=}"
+                roots.sort()
+                epsilon = 0.01
+                assert abs(roots[0] - r1) < epsilon, f"{roots=}, {r1=}"
+                assert abs(roots[1] - r2) < epsilon, f"{roots=}, {r2=}"
+                assert abs(roots[2] - r3) < epsilon, f"{roots=}, {r3=}"
+                assert abs(roots[3] - r4) < epsilon, f"{roots=}, {r4=}"
