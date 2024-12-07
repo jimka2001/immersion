@@ -20,6 +20,10 @@ def find_quadratic_coefficients(r1, r2):
                    -(r1 + r2), 
                    r1 * r2])
 
+def find_x_intercept(b,c):
+    if b == 0:
+        return []
+    return [-c/b]
 
 def find_quadratic_roots(a, b, c):
     """Given the coefficients of a quadratic equation, a, b, and c,
@@ -35,10 +39,8 @@ def find_quadratic_roots(a, b, c):
     In the case that a and b are both zero, return the empty list, []"""
     epsilon = 0.001
     discriminant = b * b - 4 * a * c
-    if a == 0 and b == 0:
-        return []
-    if a == 0:
-        return [-c/b]
+    if a == 0 :
+        return find_x_intercept(b,c)
     if discriminant > epsilon:
         return sorted([(-b + sqrt(discriminant)) / (2 * a),
                        (-b - sqrt(discriminant)) / (2 * a)])

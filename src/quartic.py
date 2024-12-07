@@ -26,6 +26,13 @@ def factor_out_quartic_root(r, a, b, c, d):
 
 
 def find_quartic_roots(a, b, c, d, e):
+    """If p(x) is a quartic polynomial of the form
+    p(x) = ax^4 + bx^3 + cx^2 + dx + e,
+    then it has up to 4 roots.  I.e., there are at most 4 real numbers, x
+    for which p(x) = 0.
+    The goal of this function, find_quartic_roots, is to return a sorted list
+    of as many of those roots as possible.
+    """
     epsilon = 0.00001
     if a == 0:
         return find_cubic_roots(b, c, d, e)
