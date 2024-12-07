@@ -16,9 +16,9 @@ def find_quadratic_coefficients(r1, r2):
     such that the roots of ax^2 + bx + c are r1 and r2.
     I.e., if f(x) = ax^2 + bx + c,
     then f(r1) = f(r2) = 0"""
-    return sort([1, 
-                 -(r1 + r2), 
-                 r1 * r2])
+    return sorted([1, 
+                   -(r1 + r2), 
+                   r1 * r2])
 
 
 def find_quadratic_roots(a, b, c):
@@ -29,9 +29,16 @@ def find_quadratic_roots(a, b, c):
     In the case the quadratic equation has a single double root,
     return a list of that value twice. [r, r].
     Otherwise, return a list of the two real roots in increasing order,
-    i.e., return [r1, r2] where r1 < r2"""
+    i.e., return [r1, r2] where r1 < r2.
+    In the case that a == 0, the equation describes a line,
+    return a list of its x-intercept.
+    In the case that a and b are both zero, return the empty list, []"""
     epsilon = 0.001
     discriminant = b * b - 4 * a * c
+    if a == 0 and b == 0:
+        return []
+    if a == 0:
+        return [-c/b]
     if discriminant > epsilon:
         return sorted([(-b + sqrt(discriminant)) / (2 * a),
                        (-b - sqrt(discriminant)) / (2 * a)])

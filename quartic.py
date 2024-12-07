@@ -21,7 +21,7 @@ def factor_out_quartic_root(r, a, b, c, d):
     B = b + r * A
     C = c + r * B
     D = d + r * C
-    return find_cubic_roots(A, B, C, D) + [r]
+    return sorted(find_cubic_roots(A, B, C, D) + [r])
 
 
 def find_quartic_roots(a, b, c, d, e):
@@ -32,8 +32,7 @@ def find_quartic_roots(a, b, c, d, e):
         return find_quartic_roots(-a, -b, -c, -d, -e)
     # derivative of ax^4 + bx^3 + cx^2 + dx +e
     #  = 4ax^3 + 3bx^2 + 2cx + d
-    inflection_points = find_cubic_roots(4 * a, 3 * b, 2 * c, d)
-    inflection_points.sort()
+    inflection_points = sorted(find_cubic_roots(4 * a, 3 * b, 2 * c, d))
     f = make_quartic(a, b, c, d, e)
 
     for i in [0, 1]:
