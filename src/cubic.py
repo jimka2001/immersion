@@ -21,15 +21,19 @@ def find_cubic_coefficients(r1, r2, r3):
 
 
 def factor_out_cubic_root(r, a, b, c):
+    """Given a, b, c, and a root of a cubic polynomial, ax^3 + bx^2 + cx + d,
+    It is possible to factor the polynomial into (x - r)(Ax^2 + Bx + C)
+    (i.e., a different A, B, C probably not the same as a, b, c.)
+    Then, we can use find_quadratic_roots to find the roots of the
+    quadratic.
+    This function, factor_out_cubic_root, returns a sorted list of the
+    roots obtained by the algorithm described above."""
     A = a
     B = b + A * r
     C = c + B * r
-    r2r3 = find_quadratic_roots(A, B, C)
-    if r2r3:
-        r2, r3 = r2r3
-        return [r, r2, r3]
-    else:
-        return [r]
+    roots = find_quadratic_roots(A, B, C)
+    return sorted([r] + roots)
+
 
 def find_cubic_roots(a, b, c, d):
     """Given the coefficients of a cubic polynomial,
