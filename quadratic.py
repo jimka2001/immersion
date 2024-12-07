@@ -6,7 +6,7 @@ def make_quadratic(a, b, c):
     a floating point number equal to ax^2 + bx + c."""
 
     def f(x):
-        return a * x ** 2 + b * x + c
+        return a * x**2 + b * x + c
 
     return f
 
@@ -16,9 +16,9 @@ def find_quadratic_coefficients(r1, r2):
     such that the roots of ax^2 + bx + c are r1 and r2.
     I.e., if f(x) = ax^2 + bx + c,
     then f(r1) = f(r2) = 0"""
-    return [1,
-            -(r1 + r2),
-            r1 * r2]
+    return sort([1, 
+                 -(r1 + r2), 
+                 r1 * r2])
 
 
 def find_quadratic_roots(a, b, c):
@@ -33,10 +33,10 @@ def find_quadratic_roots(a, b, c):
     epsilon = 0.001
     discriminant = b * b - 4 * a * c
     if discriminant > epsilon:
-        return [(-b + sqrt(discriminant)) / (2 * a),
-                (-b - sqrt(discriminant)) / (2 * a)]
+        return sorted([(-b + sqrt(discriminant)) / (2 * a),
+                       (-b - sqrt(discriminant)) / (2 * a)])
     elif abs(discriminant) < epsilon:
-        return sorted([-b / (2 * a),
-                       -b / (2 * a)])
+        return [-b / (2 * a), 
+                -b / (2 * a)]
     else:
         return []
