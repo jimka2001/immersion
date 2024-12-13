@@ -1,9 +1,13 @@
 import sys
 import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', "tests")))
+
 from common import ImmTestCase
 
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 
 import_exception = None
 try:
