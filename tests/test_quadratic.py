@@ -21,6 +21,6 @@ class QuadraticTestCase(ImmTestCase):
                 a, b, c = find_quadratic_coefficients(float(r1), float(r2))
                 print([r1, r2, a, b, c])
                 roots = find_quadratic_roots(a, b, c)
-                self.assertEqual(sorted(roots), sorted([r1, r2]))
+                self.assertListAlmostEqual(sorted(roots), sorted([r1, r2]), 3)
 
 

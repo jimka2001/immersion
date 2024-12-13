@@ -43,6 +43,10 @@ def find_quartic_roots(a, b, c, d, e):
     inflection_points = sorted(find_cubic_roots(4 * a, 3 * b, 2 * c, d))
     f = make_quartic(a, b, c, d, e)
 
+    for i in inflection_points:
+        if abs(f(i)) < epsilon:
+            return factor_out_quartic_root(i, a, b, c, d)
+
     for i in [0, 1]:
         if f(inflection_points[i]) < 0 < f(inflection_points[i + 1]):
             r = find_root_in_range(inflection_points[i], inflection_points[i + 1], f, epsilon)
@@ -53,3 +57,6 @@ def find_quartic_roots(a, b, c, d, e):
     if f(inflection_points[-1]) < 0:
         r = search_root_right(inflection_points[-1], inflection_points[-1] + 1, f, epsilon)
         return factor_out_quartic_root(r, a, b, c, d)
+
+    print(f"inflection points: {inflection_points}")
+    print([f(i) for i in inflection_points])
