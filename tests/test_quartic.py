@@ -2,11 +2,11 @@ import sys
 import os
 from tests.common import ImmTestCase
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', "src")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import_exception = None
 try:
-    from src.quadratic import find_quadratic_coefficients, find_quadratic_roots
+    from src.quartic import find_quartic_coefficients, find_quartic_roots
 except Exception as e:
     print(e)
     import_exception = e
@@ -14,7 +14,7 @@ except Exception as e:
 
 class QuadraticTestCase(ImmTestCase):
     def test_code_check(self):
-        self.code_check([], import_exception)
+        self.code_check(["quadratic.py"], import_exception)
 
     def test_quartic(self):
         for r1 in range(-5, 5):

@@ -13,7 +13,7 @@ except Exception as e:
 
 class QuadraticTestCase(ImmTestCase):
     def test_code_check(self):
-        self.code_check([], import_exception)
+        self.code_check(["quadratic.py"], import_exception)
 
     def test_quadratic(self):
         for r1 in range(-5, 5):
@@ -21,6 +21,6 @@ class QuadraticTestCase(ImmTestCase):
                 a, b, c = find_quadratic_coefficients(float(r1), float(r2))
                 print([r1, r2, a, b, c])
                 roots = find_quadratic_roots(a, b, c)
-                self.assertEqual(roots, [r1, r2])
+                self.assertEqual(sorted(roots), sorted([r1, r2]))
 
 

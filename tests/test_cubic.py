@@ -15,9 +15,18 @@ class CubicTestCase(ImmTestCase):
     def test_code_check(self):
         self.code_check([], import_exception)
 
-    def test_cubic(self):
+    def test_static_cubic(self):
         assert find_cubic_coefficients(1, 1, 1) == [1, -3, 3, -1]
         assert find_cubic_coefficients(1, 2, 3) == [1, -6, 11, -6]
         assert find_cubic_coefficients(1, 2, 3) == [1, -6, 11, -6]
         assert find_cubic_coefficients(2, 1, 3) == [1, -6, 11, -6]
         assert find_cubic_coefficients(3, 2, 1) == [1, -6, 11, -6]
+
+    def test_quadratic(self):
+        for r1 in range(-5, 5):
+            for r2 in range(r1, 5):
+                for r3 in range(r2, 5):
+                    a, b, c, d = find_cubic_coefficients(float(r1), float(r2), float(r3))
+                    print([r1, r2, r3, a, b, c, d])
+                    roots = find_cubic_roots(a, b, c, d)
+                    self.assertListAlmostEqual(sorted(roots), sorted([r1, r2, r3]), 3)

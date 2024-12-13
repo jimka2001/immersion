@@ -14,7 +14,7 @@ except Exception as e:
 
 class LineTestCase(ImmTestCase):
     def test_code_check(self):
-        self.code_check([], import_exception)
+        self.code_check(["line.py"], import_exception)
 
     def test_no_intercept(self):
         for b in range(-10,10):
