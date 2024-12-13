@@ -1,0 +1,31 @@
+\documentclass[13pt]{article}
+%% usepackage taken from https://tex.stackexchange.com/a/327136/135365
+%%   thanks https://tex.stackexchange.com/users/4427/egreg
+\usepackage[
+  top=2cm,
+  bottom=2cm,
+  left=3cm,
+  right=2cm,
+  headheight=27pt, % as per the warning by fancyhdr
+  %includehead,includefoot,
+  heightrounded, % to avoid spurious underfull messages
+]{geometry} 
+\usepackage{lipsum}
+\usepackage{setspace}
+\title{Day of Immersion}
+\author{Dr. Jim Newton}
+\begin{document}
+\maketitle
+\begin{spacing}{2.23}
+
+\input{sec-github}
+\input{sec-line}
+\input{sec-quadratic}
+\input{sec-cubic}
+\input{sec-quartic}
+\input{sec-quintic}
+
+
+\end{spacing}
+\end{document}
+
