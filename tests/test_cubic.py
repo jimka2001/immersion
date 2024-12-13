@@ -1,8 +1,8 @@
 import sys
 import os
-from tests.common import ImmTestCase
+from common import ImmTestCase
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', "src")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import_exception = None
 try:
@@ -30,3 +30,8 @@ class CubicTestCase(ImmTestCase):
                     print([r1, r2, r3, a, b, c, d])
                     roots = find_cubic_roots(a, b, c, d)
                     self.assertListAlmostEqual(sorted(roots), sorted([r1, r2, r3]), 3)
+
+if __name__ == '__main__':
+    import unittest
+
+    unittest.main()

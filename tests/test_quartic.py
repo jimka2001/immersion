@@ -1,6 +1,6 @@
 import sys
 import os
-from tests.common import ImmTestCase
+from common import ImmTestCase
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -26,3 +26,7 @@ class QuadraticTestCase(ImmTestCase):
                         roots = find_quartic_roots(a,b,c,d,e)
                         self.assertListAlmostEqual(sorted(roots),sorted([r1,r2,r3,r4]),3)
 
+if __name__ == '__main__':
+    import unittest
+
+    unittest.main()

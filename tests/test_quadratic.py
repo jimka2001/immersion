@@ -1,8 +1,8 @@
 import sys
 import os
-from tests.common import ImmTestCase
+from common import ImmTestCase
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', "src")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import_exception = None
 try:
@@ -22,5 +22,11 @@ class QuadraticTestCase(ImmTestCase):
                 print([r1, r2, a, b, c])
                 roots = find_quadratic_roots(a, b, c)
                 self.assertListAlmostEqual(sorted(roots), sorted([r1, r2]), 3)
+
+if __name__ == '__main__':
+    import unittest
+
+    unittest.main()
+
 
 

@@ -1,9 +1,9 @@
 import sys
 import os
-from tests.common import ImmTestCase
+from common import ImmTestCase
 
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', "src")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import_exception = None
 try:
@@ -23,3 +23,8 @@ class LineTestCase(ImmTestCase):
     def test_x_intercept(self):
         for z in range(1,50):
           assert find_x_intercept(z*1, z*2) == [-2]
+
+if __name__ == '__main__':
+    import unittest
+
+    unittest.main()
