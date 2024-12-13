@@ -3,12 +3,30 @@
 
 You will develop the code in \code{src/line.py}.
 
+\begin{listing}{}{code.line}
+\begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
+def find_x_intercept(a,b):
+    if a == 0:
+        ...
+    else:
+        ...
+\end{lstlisting}\end{minipage}\end{listing}
+
+\input{pfg-line}
+
+
 
 A polynomial of degree 1 is a function $P(x)=a x + b$ whose graph is a line.   If $a=0$ the
 line is horizontal an crosses the y-axis at $y=b$; thus if $b\neq 0$ then $P(x)\neq 0$.
 So if $a=0$ we will assume that $P(x)$ has no root.   
 
+Otherwise we have a line as shown in Figure~\ref{fig.line}.
 
 
-Otherwise we have a line as shown in Figure~\ref{fig.line}
-\input{pfg-line}
+You should update the code in the file \code{src/line.py} so that if
+$a$ is 0, then the function returns an empty list and otherwise
+returns a list of the value~$\frac{-a}{b}$.  You must figure out how
+to write that in the Python language.  \Ie, you must figure out how to
+divde two numbers in Python and how to create a list, empty and
+otherwise.
+

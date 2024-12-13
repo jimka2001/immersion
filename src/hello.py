@@ -10,8 +10,8 @@ if __name__ == '__main__':
     # call the function with an argument
     hello("gertrude")
     
-    # second test
+    # second tests
     hello("fred")
     
-    # third test
+    # third tests
     hello(getpass.getuser())
