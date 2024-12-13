@@ -1,5 +1,5 @@
-from cubic import find_cubic_roots
-from search import find_root_in_range, search_root_left, search_root_right
+from src.cubic import find_cubic_roots
+from src.search import find_root_in_range, search_root_left, search_root_right
 
 
 def make_quartic(a, b, c, d, e):
