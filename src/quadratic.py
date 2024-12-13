@@ -1,5 +1,5 @@
 from math import sqrt
-
+from line import find_x_intercept
 
 def make_quadratic(a, b, c):
     """Return a unary function which is callable with x, to return
@@ -19,11 +19,6 @@ def find_quadratic_coefficients(r1, r2):
     return sorted([1, 
                    -(r1 + r2), 
                    r1 * r2])
-
-def find_x_intercept(b,c):
-    if b == 0:
-        return []
-    return [-c/b]
 
 def find_quadratic_roots(a, b, c):
     """Given the coefficients of a quadratic equation, a, b, and c,

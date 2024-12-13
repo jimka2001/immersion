@@ -12,6 +12,7 @@ pdf: polynomials.pdf
 SECTIONS := \
 	definitions.tex \
 	sec-intro.tex \
+	sec-general.tex \
 	sec-github.tex \
 	sec-line.tex \
 	sec-quadratic.tex \

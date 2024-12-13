@@ -1,0 +1,120 @@
+%% The definitions in this file are inspired from stackexchange post
+%% https://tex.stackexchange.com/questions/668903/how-to-prevent-thmbox-from-rendering-over-page-number/668933#668933
+%% Thanks to https://tex.stackexchange.com/users/264024/udi-fogiel
+%% Udi Fogiel
+
+
+\usepackage[most]{tcolorbox}
+
+\newlength{\thmboxvlineindent}
+\setlength{\thmboxvlineindent}{\dimexpr21.14975pt-0.4em-0.3pt}
+
+
+\definecolor{almond}{rgb}{0.94, 0.87, 0.8}
+\definecolor{beige}{rgb}{0.96, 0.96, 0.86}
+\definecolor{blond}{rgb}{0.98, 0.94, 0.75}
+
+\definecolor{dfncolor}{rgb}{1.0, 0.92, 0.85}
+\definecolor{excolor}{rgb}{0.92, 1.0, 0.85}
+\definecolor{thcolor}{rgb}{0.85, 0.92, 1.0}
+
+\definecolor{mint}{rgb}{0.77, 0.94, 0.86}
+\definecolor{propositioncolor}{rgb}{1.0, 0.8, 0.8}%255,204,204
+\tcbset{
+    thmbox/.style={
+        enhanced,
+        breakable,
+        sharp corners=all,
+        fonttitle=\bfseries,
+        fontupper=\normalfont,
+        top=0mm,
+        bottom=0mm,
+        right=0mm,
+        left=\dimexpr\thmboxvlineindent-0.3pt,
+        boxsep=0.4em,
+        colback=white,
+        colframe=black,
+        colbacktitle=white,
+        coltitle=black,
+        attach boxed title to top left,
+        boxed title style={empty, size=minimal, bottom=2.5pt},
+        before upper={\parindent=21.14975pt\noindent},
+        left skip=\parskip,
+        %% overlay unbroken ={
+        %%     \draw[line width=0.6pt] (title.south west)--(title.south east);
+        %%     \draw[line width=0.6pt] ([xshift=\thmboxvlineindent]frame.north west)--([xshift=\thmboxvlineindent]frame.south west)--++(0:0.3pt);
+        %%     \draw[line width=0.6pt] ([xshift=\thmboxvlineindent]frame.south west)--++(0:1cm);},
+        %% overlay first={
+        %%     \draw[line width=0.6pt] (title.south west)--(title.south east); 
+        %%     \draw[line width=0.6pt] ([xshift=\thmboxvlineindent]frame.north west)--([xshift=\thmboxvlineindent]frame.south west);},
+        %% overlay middle={
+        %%     \draw[line width=0.6pt] ([xshift=\thmboxvlineindent]frame.north west)--([xshift=\thmboxvlineindent]frame.south west);},
+        %% overlay last={
+        %%     \draw[line width=0.6pt] ([xshift=\thmboxvlineindent]frame.north west)--([xshift=\thmboxvlineindent]frame.south west)--++(0:0.3pt);
+        %%     \draw[line width=0.6pt] ([xshift=\thmboxvlineindent]frame.south west)--++(0:1cm);}
+    }
+}
+
+\newtcbtheorem[number within=section]
+{theorem}
+{Theorem}
+{thmbox,description font=\itshape,colback=thcolor,description delimiters={{\normalfont\bfseries(}}{\normalfont\bfseries)},separator sign none,label separator=.}{th} % the last argument here, i.e. "theo", is the prefix for the label.
+
+\newtcbtheorem[use counter from=theorem]
+{definition}
+{Definition}
+{thmbox,description font=\itshape,colback=dfncolor,description delimiters={{\normalfont\bfseries(}}{\normalfont\bfseries)},separator sign none,label separator=.}{def}
+
+\newtcbtheorem[use counter from=theorem]
+{example}
+{Example}
+{thmbox,description font=\itshape,colback=excolor,description delimiters={{\normalfont\bfseries(}}{\normalfont\bfseries)},separator sign none,label separator=.}{ex}
+
+\newtcbtheorem[use counter from=theorem]
+{corollary}
+{Corollary}
+{thmbox,description font=\itshape,colback=blond,description delimiters={{\normalfont\bfseries(}}{\normalfont\bfseries)},separator sign none,label separator=.}{cor}
+
+\newtcbtheorem[use counter from=theorem]
+{lemma}
+{Lemma}
+{thmbox,description font=\itshape,colback=mint,description delimiters={{\normalfont\bfseries(}}{\normalfont\bfseries)},separator sign none,label separator=.}{lem}
+
+%% TODO choose color uniquely
+\newtcbtheorem[use counter from=theorem]
+{proposition}
+{Proposition}
+{thmbox,description font=\itshape,colback=propositioncolor,description delimiters={{\normalfont\bfseries(}}{\normalfont\bfseries)},separator sign none,label separator=.}{prop}
+
+\newtcbtheorem[use counter from=theorem]
+{listing}
+{Listing}
+{thmbox,description font=\itshape,description delimiters={{\normalfont\bfseries(}}{\normalfont\bfseries)},separator sign none,label separator=.}{list}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codebackcolor}{rgb}{0.95,0.92,0.92}
+\lstdefinestyle{mypython}{
+    language=Python,
+    backgroundcolor=\color{codebackcolor},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    morekeywords={nonlocal},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mypython}
+
