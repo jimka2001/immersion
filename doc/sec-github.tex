@@ -1,3 +1,186 @@
 \section{GitHub}
 \label{sec.github}
-\lipsum[1-2] %% replace this line with your text
+In this course we will be experimenting with software together.  You
+will be able to share your code with your classmates, and with the
+world.  However, you control when you want to make your code available
+to the world, and when you want to incorporate your classmate's code
+into your development area.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{GitHub-How-to-use-GitHub-Edureka-300x241.png}
+%%  \url{https://www.edureka.co/blog/how-to-use-github/}
+  \caption{GitHub is a cloud service that hosts code repositories.
+    You connect to GitHub either by web browser or directly from
+    \emph{git}.}
+\end{figure}
+
+
+
+
+To achieve this goal we have a central repository of code, hosted by
+GitHub on the cloud.  You will download (clone) a copy of this
+repository, edit existing code, create new code, and then
+occasionally upload your contributions back to the central repository,
+making your contributions available to everyone else.
+
+GitHub is a web based service which hosts thousands of projects, small
+and large, in the cloud.  Typically, users have a development
+environment on their local computer (laptop or desktop) and
+periodically upload and download changes to the cloud.
+
+The URL \url{https://github.com/jimka2001/mgs-2024}, is the public
+entry point to the GitHub project which we will work on in this
+MGS-2024 course.  
+
+You must create an account on GitHub (if you don't have one already).
+This will be done in Section~\ref{sec.setup}.
+
+
+\subsection{Getting Started}
+\label{sec.setup}
+
+I recommend you use the Chrome web browser.
+
+\includegraphics[width=0.8\textwidth]{chrome.png}.
+
+We need to set up the development environment.  Before you can learn
+to use a piece of software, you have to install it. These steps should
+help.
+
+\subsection{Account Creation}
+  
+Create a GitHub account using an abstract user name.  Don't use
+your real name.  This is self explanatory at the URL
+\url{https://github.com/join}.
+
+
+\noindent\includegraphics[width=0.8\textwidth]{github-join.png}
+
+
+
+\subsection{Open the Repository}
+  
+Open \url{https://github.com/jimka2001/immersion} with your web browser.
+
+\noindent\includegraphics[width=0.95\textwidth]{github-immersion.png}
+
+
+
+
+\subsection{Fork yourself a copy}
+
+Fork the repository.  This gives you a private copy.  You can make changes
+  here without disturbing anyone.  
+
+\noindent \includegraphics[width=\textwidth]{github-fork-repo.png}
+
+
+
+\subsection{Open a Python File}
+  
+\begin{itemize}
+\item Navigate to \code{src/hello} to see something like this.
+
+\noindent\includegraphics[width=0.9\textwidth]{find-hello.png}
+
+
+
+\item Click \code{hello.py} to open the file in an editor pane.  You
+  should see something like what is shown here:
+
+\noindent\includegraphics[width=0.9\textwidth]{hello-function.png}
+
+
+\item Open the file using \code{github.dev}
+
+\noindent\includegraphics[width=0.9\textwidth]{github-dev.png}
+
+
+\item Wait while setting up.
+
+\noindent\includegraphics[width=\textwidth]{github-dev-setup.png}
+
+\item If this setup seems to never finish, it may mean you need to use Chrome as your web browser.
+
+
+
+\noindent\includegraphics[width=\textwidth]{github-dev-opened.png}
+
+\item Finally, the GitHub development environment should be opened.
+
+\end{itemize}
+
+\subsection{Set up the Editor}
+  
+\begin{itemize}
+
+\item Now you can edit your code but you cannot run nor test it.
+
+\item Find the icon \includegraphics[width=2cm]{run-debug.png} on the left hand side of the browser window.   Press that icon to see the following message.
+
+\noindent\includegraphics[width=0.8\textwidth]{continue.png}
+
+\item Press continue, and you should see a prompt such as the following to create a code space.   
+
+\noindent\includegraphics[width=0.9\textwidth]{create-code-space.png}
+
+\item Select \includegraphics[width=8cm]{select-create.png}.
+
+\item You may be asked how many cores do you want.
+
+\noindent\includegraphics[width=0.9\textwidth]{select-cores.png}
+
+\item You should select the minimum: \includegraphics[width=7cm]{two-cores.png}.
+
+\item You'll probably now need to reopen the \code{hello.py} file.
+
+\noindent\includegraphics[width=0.9\textwidth]{re-open-python-file.png}
+
+\item You may be asked to install the Python extension.  Press \textbf{Install}.
+
+\noindent\includegraphics[width=0.9\textwidth]{install-python-extension.png}
+
+
+\item When it finishes installing, you should see something like this:
+
+\noindent\includegraphics[width=0.9\textwidth]{python-extension.png}
+
+\item Reopen the explorer: \includegraphics[width=7cm]{explorer2.png}, and select the \code{hello.py} file.
+
+\noindent\includegraphics[width=0.5\textwidth]{explorer.png}
+\end{itemize}
+
+\subsection{Make a Sample Run}
+
+Find the icon \includegraphics[height=1.0cm]{run-triangle.png}
+  in the top-right of the editor window.  Click the triangle, to see a sample run/execution of the code.
+
+\noindent\includegraphics[width=\textwidth]{hello-terminal-output.png}
+
+
+\subsection{Challenges for the Student}
+
+Understanding errors and debugging is difficult, but it is part of programming.
+
+Experiment with the simple pieces of code in the above sections.
+Insert spaces and press the run button.  Look at the error messages
+produced. Remove some quotation marks or parentheses (leaving
+unbalanced quotations marks or parentheses)---again look at what error
+messages you see when you try to run invalid code.
+
+
+\begin{itemize}
+\item remove and add some spaces at the beginning of a line
+\item change the indentation
+\item unbalance the parentheses
+\item unbalance the quotation marks
+\item put extra spaces inside the quotation marks
+\item change the name of the \code{hello} function at definition site or call site.
+\item figure out how to undo your changes in the test editor to make the code work again.
+\end{itemize}
+
+Question:  What is the difference between a synax error and a logical error?
+\clearpage
+

@@ -10,6 +10,7 @@ LATEXMK = latexmk -pvc --pdf
 pdf: polynomials.pdf
 
 SECTIONS := \
+	sec-intro.tex \
 	sec-github.tex \
 	sec-line.tex \
 	sec-quadratic.tex \
