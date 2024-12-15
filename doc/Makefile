@@ -10,7 +10,13 @@ LATEXMK = latexmk -pvc --pdf
 pdf: polynomials.pdf
 
 SECTIONS := \
+	pfg-cubic.tex \
+	pfg-line.tex \
+	pfg-parabola.tex \
+	pfg-quartic-deriv.tex \
+	pfg-quartic.tex \
 	definitions.tex \
+	theorems.tex \
 	sec-intro.tex \
 	sec-general.tex \
 	sec-github.tex \

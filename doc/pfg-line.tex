@@ -3,8 +3,8 @@
 %%     https://tex.stackexchange.com/users/95441/stefan-pinnow
 
 \begin{figure}
-\centering
-\begin{tikzpicture}
+  \centering
+  \begin{tikzpicture}
     \begin{axis}[
         width=3in,
         height=3in,
@@ -13,32 +13,21 @@
         xmax=10,
         ymin=-10,
         ymax=10,
-%        xtick={1,1},
-        % ---------------------------------------------------------------------
-        % you don't want the ticks/tick labels to be scaled
         scaled ticks=false,
-%        % and the tick labels are shown by default the way you want them,
-%        % so you don't need to specify them explicitely
-%        xticklabels={$20000$},
-        % ---------------------------------------------------------------------
-%        ytick={\empty},
         ticklabel style={font=\scriptsize},
         xlabel=$x$,
         ylabel=$y$,
         axis line style={
-            latex-latex,
-            shorten >=-12.5pt,
-            shorten <=-12.5pt,
+          latex-latex,
+          shorten >=-12.5pt,
+          shorten <=-12.5pt,
         },
         xlabel style={at={(ticklabel* cs:1)}, xshift=12.5pt, anchor=north west},
         ylabel style={at={(ticklabel* cs:1)}, yshift=12.5pt, anchor=south west},
-    ]
-
-        \addplot[samples=51,smooth,domain=-10:10,color=blue] {-1.2*x + 3};
+      ]
+      \addplot[samples=51,smooth,domain=-10:10,color=blue] {-1.2*x + 3};
     \end{axis}
-
-\end{tikzpicture}
-
-\caption{Line: $y = P(x) = -1.2*x + 3$}
-\label{fig.line}
+  \end{tikzpicture}
+  \caption{Line: $y = P(x) = -1.2*x + 3$}
+  \label{fig.line}
 \end{figure}
