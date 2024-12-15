@@ -7,3 +7,25 @@ We have a two cubic equations plotted in Figure~\ref{fig.cubic}.
   P_1(x) &= x^3 - 4*x^2 - 2*x - 10\\
   P_2(x) = -P_1(x) &= -x^3 + 4*x^2 + 2*x + 10
 \end{align*}
+
+
+\begin{listing}{Function to compute roots of cubic polynomial.}{code.cubic}
+\begin{minipage}[c]{0.98\textwidth}\begin{lstlisting}
+def find_cubic_roots(a, b, c, d):
+    epsilon = 0.00001
+    if a == 0:
+        return find_quadratic_roots(b, c, d)
+    if a < 0:
+        return find_cubic_roots(-a, -b, -c, -d)
+
+    f = make_cubic(a, b, c, d)
+
+    # f(0) = d
+    if d == 0.0:
+        r = 0.0
+    elif d > 0: # f(0) > d, so f(-infinity) < 0 and f(infinity) > 0
+        r = search_root_left(-1, 0, f, epsilon)
+    else:
+        r = search_root_right(0, 1, f, epsilon)
+    return factor_out_cubic_root(r, a, b, c)
+\end{lstlisting}\end{minipage}\end{listing}
