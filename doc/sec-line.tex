@@ -3,11 +3,11 @@
 
 You will develop the code in \code{src/line.py}.
 
-\begin{listing}{}{code.line}
+\begin{listing}{Python function declaration to find x-intercept of a line.}{code.line}
 \begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
 def find_x_intercept(a,b):
     if a == 0:
-        ...
+        ... 
     else:
         ...
 \end{lstlisting}\end{minipage}\end{listing}
@@ -20,7 +20,13 @@ A polynomial of degree 1 is a function $P(x)=a x + b$ whose graph is a line.   I
 line is horizontal an crosses the y-axis at $y=b$; thus if $b\neq 0$ then $P(x)\neq 0$.
 So if $a=0$ we will assume that $P(x)$ has no root.   
 
-Otherwise we have a line as shown in Figure~\ref{fig.line}.
+Otherwise we have a line as shown in Figure~\ref{fig.line}.   We can solve for the x-intercept by setting y to 0 and solving for x.
+\begin{align*}
+  y &= a x + b\\
+  0 &= a x + b\\
+  -b &= a x\\
+  \frac{-b}{a} &= x
+\end{align*}
 
 
 You should update the code in the file \code{src/line.py} so that if

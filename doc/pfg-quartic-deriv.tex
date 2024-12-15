@@ -35,6 +35,7 @@
     ]
 
         \addplot[samples=51,smooth,domain=-4:12,color=blue] {0.125 * x^4 -2* x^3 + 7 * x^2 + x + 6};
+        \addplot[samples=51,smooth,domain=-4:12,color=orange] {0.5 * x^3 -6* x^2 + 14 * x + 1};
 
     \end{axis}
 
@@ -72,12 +73,13 @@
     ]
 
         \addplot[samples=51,smooth,domain=-4:12,color=blue] {-0.125 * x^4 +2* x^3 - 7 * x^2 - x - 6};
-
+        \addplot[samples=51,smooth,domain=-4:12,color=orange] {-0.5 * x^3 +6* x^2 - 14 * x - 1};
     \end{axis}
 
 
 \end{tikzpicture}
-\caption{Quartics: [left] ${y=P_1(x) = 0.125  x^4 -2 x^3 + 7  x^2 + x + 6}$ \\[2pt]
-[right] ${y=P_2(x) = -P_1(x) = -0.125  x^4 +2 x^3 - 7  x^2 - x - 6}$}
-\label{fig.quartic}
+\caption{Quartics $P_1(x)$ and $P_2(x)$ from Figure~\ref{fig.quartic} and their derivatives.
+\textcolor{blue}{In blue ${y=P_1(x)}$ and ${y=P_2(x)}$}.
+\textcolor{orange}{In orange ${y=-\frac{d}{dx} P_1(x)}$ and ${y=-\frac{d}{dx} P_2(x)}$}}
+\label{fig.quartic.deriv}
 \end{figure}
