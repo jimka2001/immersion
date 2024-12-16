@@ -6,6 +6,11 @@
   \centering
   \begin{tikzpicture}
     \begin{axis}[
+        legend pos=south west,
+        samples=51,
+        smooth,
+        domain=-10:10,
+        line width=2pt,
         width=3in,
         height=3in,
         axis lines=middle,
@@ -25,7 +30,10 @@
         xlabel style={at={(ticklabel* cs:1)}, xshift=12.5pt, anchor=north west},
         ylabel style={at={(ticklabel* cs:1)}, yshift=12.5pt, anchor=south west},
       ]
-      \addplot[samples=51,smooth,domain=-10:10,color=blue] {-1.2*x + 3};
+      \addplot[color=blue] {-1.2*x + 3};
+      \addlegendentry{\(P_1(x)\)}
+      \addplot[color=teal] {6};
+      \addlegendentry{\(P_2(x)\)}
     \end{axis}
   \end{tikzpicture}
   \caption{Line: $y = P(x) = -1.2*x + 3$}

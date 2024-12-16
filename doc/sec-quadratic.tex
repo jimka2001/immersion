@@ -1,10 +1,11 @@
-\section{Quadratic}
+\section{Quadratic: degree=2}
 \label{sec.quadratic}
 
+\input{pfg-parabola}
 
-We have the plots of two quadratic polynomials shown in Figure~\ref{fig.parabola}.
+We have the plots of three quadratic polynomials, $P_1(x)$, $P_2(x)$, and $P_3(x)$, shown in Figure~\ref{fig.parabola}.
 Each plot takes the geometric form of a parabola.  As can be seen in the figure,
-the parabola might intersect the x-axis twice [Left], once [Center], or not at all [Right].
+the parabola might intersect the x-axis twice (\eg, $P_1(x)$), once (\eg, $P_2(x)$, or not at all (\eg, $P_3(x)$).
 
 \begin{align*}
   P_1(x) &= 2x^2 - 2 x - 5\\
@@ -12,29 +13,106 @@ the parabola might intersect the x-axis twice [Left], once [Center], or not at a
   P_3(x) &=  -2x^2 + 2x -2
 \end{align*}
 
-\input{pfg-parabola}
 
-In the case of $P_1$, the two x-intercepts can be found using the quadratic formula, using $a=2$, $b=-2$, and $c=-5$
+\subsection{Mathematically Computing the Roots of a Quadratic}
+
+To determine how many times a parabola touches the x-axis, we need to
+find the roots of the corresponding quadratic (degree 2) polynomial of
+the form $a x^2 + b x + c$.  The formula is called the \emph{quadratic
+formula} is given in Equation~\eqref{eq.quad.formula}.  In particular,
+we need to look at the expression under the square root, called the
+discriminant: $b^2 - 4a c$.
+\begin{itemize}
+\item If the discriminant is positive, then the polynomial has two
+  distinct real roots.
+\item If the discriminant is zero, then the positive and negative
+  square roots are both 0; thus the polynomial has 1 single root.
+\item If the discriminant is negative, then there is a negative under
+  the radical sign; thus the polynomial has no real roots.  The
+  polynomial does have complex roots; however we will ignore complex
+  roots for this atelier.
+\end{itemize}
+
+Example~\ref{ex.degree2.p1} shows the computation of the two distinct roots of $P_1(x)$.
+
+\begin{example}{Explicit Computation of Roots of $P_1(x)$}{degree2.p1}
+  $P_1(x)$, has two roots.  They can be found using the quadratic formula.
+  \begin{align*}
+    a&=2\\
+    b&=-2\\
+    c&=-5\\
+    b^2 - 4a c &= (-2)^2 - 4 (2) (-5)\\
+    &= 4 + 40 = 44\\
+    \sqrt{b^2 - 4a c} &= \sqrt{44} = 2\sqrt{11}
+  \end{align*}
+
+\begin{align}
+  x &= \frac{-b~ \pm \sqrt{b^2 - 4a c}}{2a}\label{eq.quad.formula}\\
+  &= \frac{-(-2)~ \pm 2\sqrt{11}}{(2)(2)}\nonumber\\
+  &= \frac{2 ~\pm 2\sqrt{11}}{4}
+  = \frac{1}{2} \pm \frac{1}{2}\sqrt{11}\nonumber
+\end{align}
+  
+\end{example}
+
+Example~\ref{ex.degree2.p2} shows the computation of the root of $P_2(x)$.
+
+\begin{example}{Explicit Computation of Root of $P_2(x)$}{degree2.p2}
+In the case of $P_2(x) = x^2 -x + \frac{1}{4}$, we do a similar computation.
+
+\begin{align*}
+  a &= 1\\
+  b &= -1\\
+  c &= \frac{1}{4} \\
+  b^2 - 4a c &= (-1)^2 - 4 (1) (\frac{1}{4})\\
+  &= 1 - 1 = 0
+\end{align*}
 
 \begin{align*}
   x &= \frac{-b~ \pm \sqrt{b^2 - 4a c}}{2a}\\
-  &= \frac{-(-2)~ \pm \sqrt{(-2)^2 - 4 (2) (-5)}}{(2)(2)}\\
-  &= \frac{2 ~\pm \sqrt{4 + 40}}{4}
-  = \frac{1}{2} \pm \frac{1}{2}\sqrt{11}
+  &= \frac{-(-1)~ \pm \sqrt{0}}{(2)(1)}\\
+  &= \frac{1}{2}
 \end{align*}
 
-In the case of $P_2$, we do the same, but with $a=1$, $b=-1$, and
-$c=\frac{1}{4}$, where we find the discriminant $b^2 - 4a c = 1^2 -
-(4)(1)(\frac{1}{4}) = 1 - 1 = 0$.  Thus there is exactly one root.
-The existance of a single root can be seen in
-Figure~\ref{fig.parabola}~[Center] by the fact that the parobala
-touches the x-axis tangentially.
 
-Finally, In the case of $P_3$, if we attempty the same, but with $a=-2$, $b=2$, and $c=-2$, we see
-that the discriminant is $b^2 - 4a c = (-2)^2 - (4)(-2)(-2) = 4 - 16 = -12 < 0$.  When the discriminant
+Thus there is exactly one root.  The existance of the single root can be
+seen in Figure~\ref{fig.parabola} by the fact that the
+parobala touches the x-axis tangentially.
+\end{example}
+
+Example~\ref{ex.degree2.p3} examines $P_3(x)$.
+
+\begin{example}{Examination of $P_3(x)$}{degree2.p3}
+  In the case of $P_3(x) = -2x^2 + 2x -2$, we may attempt the same but we have a negative discriminant.
+  \begin{align*}
+    a&=-2\\
+    b&=2\\
+    c&=-2\\
+    b^2 - 4a c  &=(-2)^2 - (4)(-2)(-2)\\
+    &= 4 - 16 = -12 < 0
+  \end{align*}
+
+When the discriminant
 is negative, there are no \emph{real} roots.  This can be seen in
-Figure~\ref{fig.parabola}~[Right] by the fact that the parobola does not
+Figure~\ref{fig.parabola} by the fact that the parobola does not
 touch the x-axis at all.
+\end{example}
+
+\subsection{Programmatically Computing Roots of a Quadratic}
+
+Steps for computing roots of a polynomial of degree 2.
+\begin{enumerate}
+\item Assume the coefficients of $P(x)$ are in the variables \code{a}, \code{b}, and \code{c}.
+\item If \code{a == 0}, then delegate to previous solution by calling the function \code{find\_x\_intercept} and returning its value.  Note that \code{find\_x\_intercept} takes two arguments, which it calls \code{a} and \code{b}, but these are not \code{a} and \code{b} of the quadratic.   In fact for \code{find\_x\_intercept}, \code{a} is the coefficients of $x$ and \code{b} is the bias term of $a x + b$.  However, for the quadratic, \code{a} is the coefficient of $x^2$, and \code{b} is the code of $x$ in $a x^2 + b x + c$.
+\item Compute the discriminant, storing in the variable \code{discriminant}.
+\item Test three conditions.
+  \begin{enumerate}
+  \item If the discriminant is positive, then return a list of the two roots.
+  \item If the discriminant is zero (or very close to zero), then return a list (of length two) of the same root twice.
+  \item If the discriminant is negative ( $< -\varepsilon$), then return an empty list~\code{[]}.
+  \end{enumerate}
+\end{enumerate}
+
 
 \begin{listing}{Function to compute roots of a quadratic polynomial.}{code.quadratic}
 \begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}

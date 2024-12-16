@@ -1,26 +1,43 @@
-\section{The Line}
+\section{The Line: degree=1}
 \label{sec.line}
 
-You will develop the code in \code{src/line.py}.
-
-\begin{listing}{Function declaration to find x-intercept of a line.}{code.line}
-\begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
-def find_x_intercept(a,b):
-    if a == 0:
-        ... 
-    else:
-        ...
-\end{lstlisting}\end{minipage}\end{listing}
-
 \input{pfg-line}
-
-
 
 A polynomial of degree 1 is a function $P(x)=a x + b$ whose graph is a line.   If $a=0$ the
 line is horizontal an crosses the y-axis at $y=b$; thus if $b\neq 0$ then $P(x)\neq 0$.
 So if $a=0$ we will assume that $P(x)$ has no root.   
 
-Otherwise we have a line as shown in Figure~\ref{fig.line}.   We can solve for the x-intercept by setting y to 0 and solving for x.
+\subsection{Mathematical computation of x-intercept of line}
+
+
+Figure~\ref{fig.line} shows the graphs of two polynomials of degree 1.
+
+\begin{align*}
+  P_1(x) &= -1.2 x + 3\\
+  P_2(x) &= 0 x + 6
+\end{align*}
+
+The line representing $P_1(x)$ has an x-intercept computed as in Example~\ref{ex.line}.
+
+
+\begin{example}{Computing x-intercept of a line}{line}
+  \begin{align*}
+  P_1(x) &= a x + b \\
+  0  &= -1.2 x + 3\\
+  x &= \frac{3}{1.2} = 2.5
+  \end{align*}
+\end{example}
+
+We see in Figure~\ref{fig.line} that if the coefficient of $x$ is 0, then the
+line is horizontal and has no x-intercept.  If the horizontal line is coincident
+with the x-axis, \ie, if $a=0$ and $b=0$, then there is no unique x-intercept.
+
+
+
+
+
+Otherwise we have a line as shown in Figure~\ref{fig.line}.  We can
+solve for the x-intercept by setting y to 0 and solving for x.
 \begin{align*}
   y &= a x + b\\
   0 &= a x + b\\
@@ -35,4 +52,18 @@ returns a list of the value~$\frac{-b}{a}$.  You must figure out how
 to write that in the Python language.  \Ie, you must figure out how to
 divde two numbers in Python and how to create a list, empty and
 otherwise.
+
+\subsection{Programmatic computation of x-intercept of line}
+
+You will develop the code in \code{src/line.py}.
+
+\begin{listing}{Function declaration to find x-intercept of a line.}{code.line}
+\begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
+def find_x_intercept(a,b):
+    if a == 0:
+        ... 
+    else:
+        ...
+\end{lstlisting}\end{minipage}\end{listing}
+
 

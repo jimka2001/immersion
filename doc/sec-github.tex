@@ -141,7 +141,7 @@ necessary changes in the code using this private copy.
 
 \item You should select the minimum: \includegraphics[width=7cm]{two-cores.png}.
 
-\item You'll probably now need to reopen the \code{hello.py} file.
+\item You'll probably now need to reopen the \code{src/hello.py} file.
 
 \noindent\includegraphics[width=0.9\textwidth]{re-open-python-file.png}
 
@@ -155,10 +155,34 @@ necessary changes in the code using this private copy.
 
 \noindent\includegraphics[width=0.9\textwidth]{python-extension.png}
 
-\item Reopen the explorer: \includegraphics[width=7cm]{explorer2.png}, and select the \code{hello.py} file.
+\item Reopen the explorer: \includegraphics[width=7cm]{explorer2.png}, and select the \code{src/hello.py} file.
 
 \noindent\includegraphics[width=0.4\textwidth]{explorer.png}
 \end{enumerate}
+
+\subsection{Example the Code}
+Take a look at the Python code in the file \code{src/hello.py}.  In particular there are two sections in the code, 
+\begin{enumerate}
+\item A declaration of the function named \code{hello}, shown in Listing~\ref{list.hello}
+\item Two conditional calls to the function \code{hello}, each time with a different argument, shown in Listing~\ref{list.calls}.
+\end{enumerate}
+
+\begin{listing}{Declaration of Function \code{hello}}{hello}
+\begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
+def hello(name):
+    print("hello " + name + "!")
+\end{lstlisting}\end{minipage}\end{listing}
+
+\begin{listing}{Calls to Function \code{hello}}{calls}
+\begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
+if __name__ == '__main__':
+    # call the function with an argument
+    hello("gertrude")
+    
+    # second test
+    hello("fred")
+\end{lstlisting}\end{minipage}\end{listing}
+
 
 \subsection{Make a Sample Run}
 
