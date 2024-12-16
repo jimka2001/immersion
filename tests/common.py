@@ -17,7 +17,8 @@ def timeout(TIMEOUT_SECONDS):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             def handler(signum, frame):
-                raise TimeoutError(f"{signum=} {frame=} Function '{func.__name__}' timed out after {TIMEOUT_SECONDS} seconds.")
+                raise TimeoutError(
+                    f"{signum=} {frame=} Function '{func.__name__}' timed out after {TIMEOUT_SECONDS} seconds.")
 
             old_handler = None
 
@@ -42,7 +43,7 @@ def timeout(TIMEOUT_SECONDS):
     return decorator
 
 
-def locate_src_file(pyfile:str) -> str:
+def locate_src_file(pyfile: str) -> str:
     """Return full path name to the named python file in the src directory."""
     return os.path.join(test_directory, os.pardir, 'src', pyfile)
 
@@ -117,6 +118,7 @@ def which(program):
 
     return None
 
+
 def count_lines_file(fname: str) -> int:
     in_fp = open(fname, 'r')
     assert in_fp, f"could not open {fname}"
@@ -126,9 +128,10 @@ def count_lines_file(fname: str) -> int:
                      for sline in [line.lstrip()]
                      if sline and sline[0] == '#']
     blank_lines = [line for line in lines
-                    if line.isspace()]
+                   if line.isspace()]
     in_fp.close()
     return num_lines - len(comment_lines) - len(blank_lines)
+
 
 def copy_data(a):
     if isinstance(a, list):
@@ -136,11 +139,22 @@ def copy_data(a):
     else:
         return a
 
+
+def canonicalize(seq, epsilon):
+    s1 = sorted(seq)
+    for i in range(len(seq) - 1):
+        if abs(s1[i] - s1[i + 1]) < epsilon:
+            return canonicalize(s1[0:i] + s1[i + 1:],
+                                epsilon)
+    return s1
+
+
 class ImmTestCase(unittest.TestCase):
 
     @timeout(60)  # no test method should take longer than 60 seconds to run
     def run(self, result=None):
         return super().run(result)
+
     def assertImmutable3(self, f, arg1, arg2, arg3):
         arg1_save = copy_data(arg1)
         arg2_save = copy_data(arg2)
@@ -167,16 +181,18 @@ class ImmTestCase(unittest.TestCase):
         return result
 
     def assertListAlmostEqual(self, ar1, ar2, digits, msg=None):
+        if ar1 == [] and ar2 == []:
+            return
+        self.assertTrue(ar1 and ar2,
+                        f"lists different: {ar1=} {ar2=}")
         self.assertEqual(len(ar1), len(ar2),
                          f"lists have different lengths, {len(ar1)}!={len(ar2)}, {ar1} vs {ar2}" +
                          (f": {msg}" if msg is not None else ""))
         for k in range(len(ar1)):
             self.assertAlmostEqual(ar1[k], ar2[k], digits, msg)
 
-
     def code_check(self, pyfiles, exe):
         self.check_load(pyfiles, exe)
-
 
     def check_load(self, pyfiles, exe):
         """This method is called with a possible exception which

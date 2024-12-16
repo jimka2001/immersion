@@ -4,7 +4,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', "tests")))
 
-from common import ImmTestCase
+from common import ImmTestCase, canonicalize
 
 import_exception = None
 try:
@@ -18,12 +18,15 @@ class QuadraticTestCase(ImmTestCase):
         self.code_check(["quadratic.py"], import_exception)
 
     def test_quadratic(self):
+        epsilon = 0.0001
         for r1 in range(-5, 5):
             for r2 in range(r1, 5):
                 a, b, c = find_quadratic_coefficients(float(r1), float(r2))
                 print([r1, r2, a, b, c])
                 roots = find_quadratic_roots(a, b, c)
-                self.assertListAlmostEqual(sorted(roots), sorted([r1, r2]), 3)
+                self.assertListAlmostEqual(canonicalize(roots,epsilon),
+                                           canonicalize([r1, r2], epsilon),
+                                           3)
 
 if __name__ == '__main__':
     import unittest

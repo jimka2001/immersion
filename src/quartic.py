@@ -22,7 +22,7 @@ def factor_out_quartic_root(r, a, b, c, d):
     C = c + r * B
     D = d + r * C
     roots = find_cubic_roots(A, B, C, D)
-    return sorted([r] + roots)
+    return [r] + roots
 
 
 def find_quartic_roots(a, b, c, d, e):
