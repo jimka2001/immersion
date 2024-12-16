@@ -1,8 +1,12 @@
 \section{Quintic: degree=5}
 \label{sec.quintic}
 
-A quintic polynomial such as $P(x) = a x^5 + b x^4 + c x^3 + d x^2 + e x + f$ has odd degree,
-which means, like the cubic (Section~\ref{sec.cubic}) is guaranteed to have a root because if
+A quintic polynomial has the form $P(x) = a x^5 + b x^4 + c x^3 + d x^2 + e x + f$.
+If $a=0$ than $P(x)$ is really
+a quartic polynomial (degree 4) and can be solved using the techniques described in Section~\ref{sec.quartic}.
+Since a quintic polynomial has odd degree (if $a\neq 0$),
+then, like the cubic (Section~\ref{sec.cubic}), it is guaranteed to have a real root.  This fact
+is guaranteed, because if
 $a>0$ then $P(x)\to \infty$ for $x>>0$ and $P(x)\to -\infty$ for $x<<0$.
 
 Given this fact, we can find a root, $r_5$ using a binary search as we did for the cubic;
