@@ -9,6 +9,9 @@ def find_x_intercept(a,b):
        Otherwise, the x-intercept is given by the formula -b/a.
        """
     if a == 0:
+        # CHALLENGE: student must complete the implementation.
         return []
-    return [-b/a]
+    else:
+        # CHALLENGE: student must complete the implementation.
+        return [-b/a]
 

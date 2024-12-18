@@ -2,26 +2,6 @@ from math import sqrt
 from src.line import find_x_intercept
 
 
-def make_quadratic(a, b, c):
-    """Return a unary function which is callable with x, to return
-    a floating point number equal to ax^2 + bx + c."""
-
-    def f(x):
-        return a * x ** 2 + b * x + c
-
-    return f
-
-
-def find_quadratic_coefficients(r1, r2):
-    """Given two roots of a quadratic equation, find the coefficients, a, b, and c
-    such that the roots of ax^2 + bx + c are r1 and r2.
-    I.e., if f(x) = ax^2 + bx + c,
-    then f(r1) = f(r2) = 0"""
-    return [1,
-            -(r1 + r2),
-            r1 * r2]
-
-
 def find_quadratic_roots(a, b, c):
     """Given the coefficients of a quadratic equation, a, b, and c,
     of the equation ax^2 + bx + c, find all real roots and return them.
@@ -37,11 +17,24 @@ def find_quadratic_roots(a, b, c):
     epsilon = 0.001
     discriminant = b * b - 4 * a * c
     if a == 0:
+        # invoke the previous solution for x-intercept of a line
+        # CHALLENGE: student must complete the implementation.
         return find_x_intercept(b, c)
-    if discriminant > epsilon:
-        return [(-b + sqrt(discriminant)) / (2 * a),
-                (-b - sqrt(discriminant)) / (2 * a)]
-    elif abs(discriminant) < epsilon:
+    if abs(discriminant) < epsilon:
+        # Here we know the discriminant is very close to zero,
+        #   so return a singleton list containing the one root.
+        # CHALLENGE: student must complete the implementation.
         return [-b / (2 * a)]
+    elif discriminant > 0:
+        # Here we know the discriminant is not close to zero,
+        #   and we also know it is positive, so we return a
+        #   list containing the two roots according to the
+        #   quadratic formula.
+        # CHALLENGE: student must complete the implementation.
+        return [(-b + sqrt(discriminant)) / (2 * a),
+                (-b - sqrt(discriminant)) / (2 * a)]        
     else:
+        # Here we know the discriminant is negative, so return an
+        #    empty list of no roots.
+        # CHALLENGE: student must complete the implementation.
         return []

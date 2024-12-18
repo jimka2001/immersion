@@ -1,47 +1,76 @@
 from src.quadratic import find_quadratic_roots
 from src.search import search_root_left, search_root_right
+from src.polynomial import make_cubic
 
-
-def make_cubic(a, b, c, d):
-    def f(x):
-        return a * x ** 3 + b * x ** 2 + c * x + d
-
-    return f
-
-
-def find_cubic_coefficients(r1, r2, r3):
-    """Return an array of 4 numbers which represent
-    coefficients of a polynomial having r1, r2, and r3
-    as roots.  if the array returned is [a,b,c,d],
-    then the polynomial is ax^3 + bx^2 + cx + d"""
-    return [1,
-            -(r1 + r2 + r3),
-            r1 * r2 + r2 * r3 + r1 * r3,
-            -r1 * r2 * r3]
 
 
 def find_cubic_roots(a, b, c, d):
     """Given the coefficients of a cubic polynomial,
     compute the roots if possible.
-    semantics of the coefficients are: ax^3 + bx^2 + cx + d
+    semantics of the coefficients are: P(x) = ax^3 + bx^2 + cx + d
     """
     epsilon = 0.00001
     if a == 0:
-        return find_quadratic_roots(b, c, d)
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal = 1 line
+        raise NotImplementedError()
+
     if a < 0:
-        return find_cubic_roots(-a, -b, -c, -d)
+        # Here we know the leading coefficients is negative,
+        #   so we want to return the roots of -P(x) = -ax^3 - bx^2 - cx -d
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal = 1 line
+        raise NotImplementedError()
 
-    f = make_cubic(a, b, c, d)
+    P = make_cubic(a, b, c, d)
+    def find_one_root():
+        if d == 0.0:
+            # here we know the polynomial is 0 at x=0, P(0)=0, so it has
+            # a root at 0, so return 0.0
+            # CHALLENGE: student must complete the implementation.
+            # HINT: goal = 1 line
+            raise NotImplementedError()
 
-    if f(0.0) == 0.0:
-        r = 0.0
-    elif d > 0:  # f(0) = d, so f(-infinity) < 0 and f(infinity) > 0
-        r = search_root_left(-1, 0, f, epsilon)
-    else:
-        r = search_root_right(0, 1, f, epsilon)
+        elif d > 0:
+            # P(0) = d, so P(-infinity) < 0 and P(infinity) > 0
+            # Here we know the polynomial is strictly positive at x=0,
+            # so the polynomial becomes negative somewhere to the left.
+            # Thus, we perform a search in the leftward direction to find a root.
+            return search_root_left(-1, 0, P, epsilon)
+        else:
+            # P(0) = d, so P(-infinity) < 0 and P(infinity) > 0
+            # Here we know the polynomial is strictly negative at x=0,
+            # so the polynomial becomes positive somewhere to the right.
+            # Thus, we perform a search in the rightward direction to find a root.
+            # CHALLENGE: student must complete the implementation.
+            # HINT: goal = 1 line
+            raise NotImplementedError()
 
-    A = a
-    B = b + A * r
-    C = c + B * r
+    r = find_one_root()
+
+    A = (
+        # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
+        # what is the formula for A?
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal = 1 line
+        raise NotImplementedError()
+
+    )
+    B = (
+        # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
+        # what is the formula for B?
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal = 1 line
+        raise NotImplementedError()
+
+    )
+    C = (
+        # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
+        # what is the formula for C?
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal = 1 line
+        raise NotImplementedError()
+
+    )
 
     return [r] + find_quadratic_roots(A, B, C)

@@ -12,3 +12,4 @@ if __name__ == '__main__':
 
     # add a line so that python will print hello to you, using your name.
     # CHALLENGE: student must complete the implementation.
+    hello("pierre")
