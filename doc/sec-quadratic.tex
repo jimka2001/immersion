@@ -109,7 +109,8 @@ touch the x-axis at all.
 Steps for computing roots of a polynomial of degree 2.
 \begin{enumerate}
 \item Assume the coefficients of $P(x)$ are in the variables \code{a}, \code{b}, and \code{c}.
-\item If \code{a == 0}, then delegate to previous solution by calling the function \code{find\_x\_intercept} and returning its value.  Note that \code{find\_x\_intercept} takes two arguments, which it calls \code{a} and \code{b}, but these are not \code{a} and \code{b} of the quadratic.   In fact for \code{find\_x\_intercept}, \code{a} is the coefficients of $x$ and \code{b} is the bias term of $a x + b$.  However, for the quadratic, \code{a} is the coefficient of $x^2$, and \code{b} is the code of $x$ in $a x^2 + b x + c$.
+\item If \code{a == 0}, then delegate to previous solution by calling the function \code{find\_x\_intercept} and returning its value.  Note that \\
+  \code{find\_x\_intercept} takes two arguments, which it calls \code{a} and \code{b}, but these are not \code{a} and \code{b} of the quadratic.   In fact for \code{find\_x\_intercept}, \code{a} is the coefficients of $x$ and \code{b} is the bias term of $a x + b$.  However, for the quadratic, \code{a} is the coefficient of $x^2$, and \code{b} is the code of $x$ in $a x^2 + b x + c$.
 \item Compute the discriminant, storing in the variable \code{discriminant}.
 \item Test three conditions.
   \begin{enumerate}
@@ -126,32 +127,19 @@ def find_quadratic_roots(a, b, c):
     epsilon = 0.001
     discriminant = b * b - 4 * a * c
     if a == 0:
-        # invoke the previous solution for x-intercept of a line
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
         raise NotImplementedError()
 
     if abs(discriminant) < epsilon:
-        # Here we know the discriminant is very close to zero,
-        #   so return a singleton list containing the one root.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
         raise NotImplementedError()
 
     elif discriminant > 0:
-        # Here we know the discriminant is not close to zero,
-        #   and we also know it is positive, so we return a
-        #   list containing the two roots according to the
-        #   quadratic formula.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal <= 2 lines
         raise NotImplementedError()
 
     else:
-        # Here we know the discriminant is negative, so return an
-        #    empty list of no roots.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
         raise NotImplementedError()
 
 \end{lstlisting}\end{minipage}\end{listing}
