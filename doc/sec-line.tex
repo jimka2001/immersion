@@ -1,7 +1,13 @@
 \section{The Line: degree=1}
 \label{sec.line}
 
-\input{pfg-line}
+\begin{figure}
+  \centering
+  \input{pfg-line}
+  \caption{Line: $y = P(x) = -1.2*x + 3$}
+  \label{fig.line}
+\end{figure}
+
 
 \subsection{Objectives}
 The assignment in this section is:
@@ -9,6 +15,9 @@ The assignment in this section is:
 \item Complete the file \code{src/line.py} by writing a Python
   function which computes and returns the x-intercept of a line whose
   equation is ${y=a x + b}$.
+\item You'll need to replace all occurances of \code{raise NotImplementedError()}
+  with correct python code which passes the tests.
+
 \item Test the function in GitHub Codespaces by running the file\\
   \code{test/test\_line.py}.
 \end{enumerate}

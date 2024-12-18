@@ -1,55 +1,35 @@
 \section{Quartic: degree=4}
 \label{sec.quartic}
 
+\subsection{Objectives}
+The assignment in this section is:
+\begin{enumerate}
+\item Complete the file \code{src/quartic.py} by writing a Python
+  function which computes and returns the x-intercepts of a curve
+  equation is \[y=a x^4 + b x^3 + c x^2 + d x + e\,.\]
+\item You'll need to replace all occurances of \code{raise NotImplementedError()}
+  with correct python code which passes the tests.
+\item Test the function in GitHub Codespaces by running the file\\
+  \code{test/test\_quartic.py}.
+\end{enumerate}
+
+\subsection{Overview}
+
+
 A polynomial of degree 4 has the form $P(x) = a x^4 + b x^3 + c x^2 + d x + e$. If $a=0$ than $P(x)$ is really
 a cubic polynomial (degree 3) and can be solved using the techniques described in Section~\ref{sec.cubic}.
 
 Two quartic equations (for $P_1(x)$ and $P_2(x)$) are plotted in Figure~\ref{fig.quartic}.
+
+\begin{figure}
+\centering
 \input{pfg-quartic}
+\caption{Quartics}
+\label{fig.quartic}
+\end{figure}
 
 \begin{align*}
   P_1(x) &= \frac{1}{8}  x^4 -2 x^3 + 7  x^2 + x + 6\\
   P_2(x) = -P_1(x) &= -\frac{1}{8}  x^4 +2 x^3 - 7  x^2 - x - 6\\
   \frac{d}{dx} P_1(x) &= \frac{1}{2} * x^3 -6* x^2 + 14 * x + 1
 \end{align*}
-
-
-\begin{listing}{Function to compute roots of quartic polynomial.}{code.quartic}
-\begin{minipage}[c]{0.98\textwidth}\begin{lstlisting}
-def find_quartic_roots(a, b, c, d, e):
-    epsilon = 0.00001
-    if a == 0:
-      return find_cubic_roots(b, c, d, e)
-    if a < 0:
-      return find_quartic_roots(-a, -b, -c, -d, -e)
-    # derivative of ax^4 + bx^3 + cx^2 + dx +e
-    #  = 4ax^3 + 3bx^2 + 2cx + d
-    inflection_pts = sorted(find_cubic_roots(4*a, 3*b, 2*c, d))
-    f = make_quartic(a, b, c, d, e)
-
-    for i in inflection_pts:
-      if abs(f(i)) < epsilon:
-        return factor_out_quartic_root(i, a, b, c, d)
-
-    for i in [0, 1]:
-      if f(inflection_pts[i]) < 0 < f(inflection_pts[i + 1]):
-        r = find_root_in_range(inflection_pts[i],
-                               inflection_pts[i + 1],
-                               f,
-                               epsilon)
-            return factor_out_quartic_root(r, a, b, c, d)
-    if f(inflection_pts[0]) < 0:
-      r = search_root_left(inflection_pts[0] - 1, 
-                           inflection_pts[0],
-                           f,
-                           epsilon)
-        return factor_out_quartic_root(r, a, b, c, d)
-    if f(inflection_pts[-1]) < 0:
-      r = search_root_right(inflection_pts[-1],
-                            inflection_pts[-1] + 1, 
-                            f, 
-                            epsilon)
-      return factor_out_quartic_root(r, a, b, c, d)
-
-    return [] # failed to find any roots
-\end{lstlisting}\end{minipage}\end{listing}

@@ -7,13 +7,21 @@ The assignment in this section is:
 \item Complete the file \code{src/quadratic.py} by writing a Python
   function which computes and returns the x-intercepts of a parabola whose
   equation is \[y=a x^2 + b x + c\,.\]
+\item    You'll need to replace all occurances of \code{raise NotImplementedError()}
+  with correct python code which passes the tests.
+
 \item Test the function in GitHub Codespaces by running the file\\
   \code{test/test\_quadratic.py}.
 \end{enumerate}
 
 \subsection{Overview}
 
+\begin{figure}
+\centering
 \input{pfg-parabola}
+\caption{Parabolas}
+\label{fig.parabola}
+\end{figure}
 
 A quadratic polynomial is of the form $P(x)=a x^2 + b x + c$.  If
 $a=0$, then $P(x)$ is actually a first degree polynomial which can be
@@ -28,7 +36,7 @@ parabola might intersect the x-axis twice (\eg, $P_1(x)$), once (\eg,
 $P_2(x)$, or not at all (\eg, $P_3(x)$).
 
 \begin{align*}
-  P_1(x) &= 2x^2 - 2 x - 5\\
+  P_1(x) &= 2x^2 - 2 x - 1\\
   P_2(x) &= x^2 -x + \frac{1}{4}\\
   P_3(x) &=  -2x^2 + 2x -2
 \end{align*}
@@ -39,84 +47,26 @@ $P_2(x)$, or not at all (\eg, $P_3(x)$).
 To determine how many times a parabola touches the x-axis, we need to
 find the roots of the corresponding quadratic (degree 2) polynomial of
 the form $a x^2 + b x + c$.  The formula is called the \emph{quadratic
-formula} is given in Equation~\eqref{eq.quad.formula}.  In particular,
+formula}:
+
+\[x = \frac{-b\pm\sqrt{b^2 - 4a c}}{2a}\]
+
+In particular,
 we need to look at the expression under the square root, called the
 discriminant: $b^2 - 4a c$.
 \begin{itemize}
 \item If the discriminant is positive, then the polynomial has two
   distinct real roots.
 \item If the discriminant is zero, then the positive and negative
-  square roots are both 0; thus the polynomial has 1 single root.
+  square roots $\pm\sqrt{b^2 - 4a c}$ in the quadratic formula are
+  both 0; thus the polynomial has 1 single root where the parabola
+  touches the x-axes tangentially.
+  
 \item If the discriminant is negative, then there is a negative under
   the radical sign; thus the polynomial has no real roots.  The
   polynomial does have complex roots; however we will ignore complex
   roots for this atelier.
 \end{itemize}
-
-Example~\ref{ex.degree2.p1} shows the computation of the two distinct roots of $P_1(x)$.
-
-\begin{example}{Explicit Computation of Roots of $P_1(x)$}{degree2.p1}
-  $P_1(x)$, has two roots.  They can be found using the quadratic formula.
-  \begin{align*}
-    a&=2\\
-    b&=-2\\
-    c&=-5\\
-    b^2 - 4a c &= (-2)^2 - 4 (2) (-5)\\
-    &= 4 + 40 = 44\\
-    \sqrt{b^2 - 4a c} &= \sqrt{44} = 2\sqrt{11}
-  \end{align*}
-
-\begin{align}
-  x &= \frac{-b~ \pm \sqrt{b^2 - 4a c}}{2a}\label{eq.quad.formula}\\
-  &= \frac{-(-2)~ \pm 2\sqrt{11}}{(2)(2)}\nonumber\\
-  &= \frac{2 ~\pm 2\sqrt{11}}{4}
-  = \frac{1}{2} \pm \frac{1}{2}\sqrt{11}\nonumber
-\end{align}
-  
-\end{example}
-
-Example~\ref{ex.degree2.p2} shows the computation of the root of $P_2(x)$.
-
-\begin{example}{Explicit Computation of Root of $P_2(x)$}{degree2.p2}
-In the case of $P_2(x) = x^2 -x + \frac{1}{4}$, we do a similar computation.
-
-\begin{align*}
-  a &= 1\\
-  b &= -1\\
-  c &= \frac{1}{4} \\
-  b^2 - 4a c &= (-1)^2 - 4 (1) (\frac{1}{4})\\
-  &= 1 - 1 = 0
-\end{align*}
-
-\begin{align*}
-  x &= \frac{-b~ \pm \sqrt{b^2 - 4a c}}{2a}\\
-  &= \frac{-(-1)~ \pm \sqrt{0}}{(2)(1)}\\
-  &= \frac{1}{2}
-\end{align*}
-
-
-Thus there is exactly one root.  The existance of the single root can be
-seen in Figure~\ref{fig.parabola} by the fact that the
-parobala touches the x-axis tangentially.
-\end{example}
-
-Example~\ref{ex.degree2.p3} examines $P_3(x)$.
-
-\begin{example}{Examination of $P_3(x)$}{degree2.p3}
-  In the case of $P_3(x) = -2x^2 + 2x -2$, we may attempt the same but we have a negative discriminant.
-  \begin{align*}
-    a&=-2\\
-    b&=2\\
-    c&=-2\\
-    b^2 - 4a c  &=(-2)^2 - (4)(-2)(-2)\\
-    &= 4 - 16 = -12 < 0
-  \end{align*}
-
-When the discriminant
-is negative, there are no \emph{real} roots.  This can be seen in
-Figure~\ref{fig.parabola} by the fact that the parobola does not
-touch the x-axis at all.
-\end{example}
 
 \subsection{Programmatically Computing Roots of a Quadratic}
 

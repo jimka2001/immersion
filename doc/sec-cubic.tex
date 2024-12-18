@@ -7,6 +7,14 @@ The assignment in this section is:
 \item Complete the file \code{src/cubic.py} by writing a Python
   function which computes and returns the x-intercepts of a curve
   equation is \[y=a x^3 + b x^2 + c x + d\,.\]
+\item You'll need to replace all occurances of \code{raise NotImplementedError()}
+  with correct python code which passes the tests.
+
+\item Complete the file \code{src/search.py} by completing the function \\
+  \code{search\_root\_right}
+  which follows a similar pattern to that of \\
+  \code{search\_root\_left} which you have all the code for.
+
 \item Test the function in GitHub Codespaces by running the file\\
   \code{test/test\_cubic.py}.
 \end{enumerate}
@@ -24,7 +32,15 @@ with real coefficients (for which $a\neq 0$) has at least one real root because
 
 
 We have a two cubic equations plotted in Figure~\ref{fig.cubic}.
+
+\begin{figure}
+  \centering
 \input{pfg-cubic}
+  %
+  \caption{Cubics}
+  \label{fig.cubic}
+\end{figure}
+
 \begin{align*}
   P_1(x) &= x^3 - 4*x^2 - 2*x - 10\\
   P_2(x) = -P_1(x) &= -x^3 + 4*x^2 + 2*x + 10
@@ -74,50 +90,54 @@ Steps for computing roots of a cubic polynomial.
   $A x^2 + B x + C$, which you can compute using the techniques in Section~\ref{sec.quadratic}.
 \end{enumerate}
 
-\begin{listing}{Function to compute roots of cubic polynomial.}{code.cubic}
-\begin{minipage}[c]{0.98\textwidth}\begin{lstlisting}
-def find_cubic_roots(a, b, c, d):
-    epsilon = 0.00001
-    if a == 0:
-        # CHALLENGE: student must complete the implementation.
-        raise NotImplementedError()
-
-    if a < 0:
-        # CHALLENGE: student must complete the implementation.
-        raise NotImplementedError()
-
-    P = make_cubic(a, b, c, d)
-    def find_one_root():
-        if d == 0.0:
-            # CHALLENGE: student must complete the implementation.
-            raise NotImplementedError()
-
-        elif d > 0:
-            return search_root_left(-1, 0, P, epsilon)
-        else:
-            # CHALLENGE: student must complete the implementation.
-            raise NotImplementedError()
-
-    r = find_one_root()
-
-    A = (
-        # CHALLENGE: student must complete the implementation.
-        raise NotImplementedError()
-
-    )
-    B = (
-        # CHALLENGE: student must complete the implementation.
-        raise NotImplementedError()
-
-    )
-    C = (
-        # CHALLENGE: student must complete the implementation.
-        raise NotImplementedError()
-
-    )
-
-    return [r] + find_quadratic_roots(A, B, C)
-\end{lstlisting}\end{minipage}\end{listing}
 
 \subsection{Find a root using Binary Search}
 \label{sec.binary.search}
+
+
+\begin{figure}
+  \centering
+\input{pfg-cubic-binary1}
+  %
+  \caption{Expanding Binary Search} 
+  \label{fig.cubic.binary}
+\end{figure}
+
+Consider the graph of the cubic polynomial shown in Figure~\ref{fig.cubic.binary}.  We'd like to
+iteratively find a root; we will use the following steps.
+
+\begin{enumerate}
+\item If $P(0)=0$, then we know the root, $x=0$.
+\item \label{step.2} If $P(0)< 0$, then find a value of $x_{upper}$ (to the right of 0, $x_{upper}>0$) such that either $P(x_{upper})>0$.
+  Now take $x_{lower}=0$.
+  Thus we
+  will know there is a root in the interval $[x_{lower}, x_{upper}]$.
+\item \label{step.3} If $P(0)> 0$, then find a value of $x_{lower}$ (to the left of 0, $x_{lower}<0$) such that either $P(x_{lower})<0$. 
+  Now take $x_{upper}=0$.
+ Thus we
+  will know there is a root in the interval $[x_{lower}, x_{upper}]$.
+\item \label{step.4} Since we know there is a root in the interval
+  $[x_{lower}, x_{upper}]$, we can divide the interval into two
+  intervals.  With the midpoint of the interval, \[x_{mid} =
+  \frac{x_{upper} + x_{lower}}{2}\,,\] we consider two intervals:
+  $[x_{lower}, x_{mid}]$ and $[x_{mid}, x_{upper}]$.  At least one of
+  the following is true:
+  \begin{enumerate}
+  \item $x_{upper} - x_{right} < \varepsilon$, for some small epsilon (\eg, $\varepsilon = 0.00001$),
+    then we know the root is $x_{mid} \pm \varepsilon$, which is good enough.
+  \item $P(x_{mid}) = 0$, then we know the root $x= x_{mid}$.
+  \item There is a root in the interval $[x_{lower}, x_{mid}]$, then
+    we repeat step~\ref{step.4} on the intveral $[x_{lower},
+      x_{mid}]$.
+  \item There is a root in the interval $[x_{mid}, x_{upper}]$, then
+    we repeat step~\ref{step.4} on the interval $[x_{mid},
+      x_{upper}]$.
+  \end{enumerate}
+\end{enumerate}
+
+
+How does step~\ref{step.2} work?  Start with  $x_{upper}=1$, and query whether ${P(x_{upper}) < 0}$.
+If so, then double $x_{upper}$ and try again, until ${P(x_{upper}) > 0}$.  As an example with the polynomial in Figure~\ref{fig.cubic.binary}, we would try ${P(1)< 0}$, ${P(2) < 0}$, ${P(4)<0}$, and finally ${P(8) > 0}$.
+
+Similarly for step~\ref{step.3}?  Start with  $x_{upper}=-1$, and query whether ${P(x_{lower}) > 0}$.
+If so, then double $x_{upper}$ and try again, until ${P(x_{upper}) < 0}$.
