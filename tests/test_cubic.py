@@ -16,7 +16,7 @@ except Exception as e:
 
 class CubicTestCase(ImmTestCase):
     def test_code_check(self):
-        self.code_check([], import_exception)
+        self.code_check(["cubic.py"], import_exception)
 
     def test_static_cubic(self):
         assert find_cubic_coefficients(1, 1, 1) == [1, -3, 3, -1]

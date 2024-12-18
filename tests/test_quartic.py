@@ -14,9 +14,9 @@ except Exception as e:
     import_exception = e
 
 
-class QuadraticTestCase(ImmTestCase):
+class QuarticTestCase(ImmTestCase):
     def test_code_check(self):
-        self.code_check(["quadratic.py"], import_exception)
+        self.code_check(["quartic.py"], import_exception)
 
     def test_quartic(self):
         epsilon = 0.001
