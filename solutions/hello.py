@@ -10,5 +10,5 @@ if __name__ == '__main__':
     # second test
     hello("fred")
 
-    # CHALLENGE: student must complete the implementation.
     # add a line so that python will print hello to you, using your name.
+    # CHALLENGE: student must complete the implementation.

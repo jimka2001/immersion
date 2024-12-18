@@ -1,5 +1,5 @@
 PYTHON = python3
 
 
-src:
+all:
 	${PYTHON} ./bin/filter-challenges.py ./solutions ./src
