@@ -17,6 +17,10 @@ class HelloTestCase(ImmTestCase):
     def test_code_check(self):
         self.code_check(["hello.py"], import_exception)
 
+
+    def test_hello(self):
+        hello("test")
+
 if __name__ == '__main__':
     import unittest
 
