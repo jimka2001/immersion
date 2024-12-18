@@ -1,11 +1,25 @@
 \section{Quadratic: degree=2}
 \label{sec.quadratic}
 
+\subsection{Objectives}
+The assignment in this section is:
+\begin{enumerate}
+\item Complete the file \code{src/quadratic.py} by writing a Python
+  function which computes and returns the x-intercepts of a parabola whose
+  equation is \[y=a x^2 + b x + c\,.\]
+\item Test the function in GitHub Codespaces by running the file\\
+  \code{test/test\_quadratic.py}.
+\end{enumerate}
+
+\subsection{Overview}
+
 \input{pfg-parabola}
 
 A quadratic polynomial is of the form $P(x)=a x^2 + b x + c$.  If
 $a=0$, then $P(x)$ is actually a first degree polynomial which can be
-solved using the techniques described in Section~\ref{sec.line}.
+solved using the techniques described in Section~\ref{sec.line};
+otherwise we need a more elaborate technique which is explained here in
+Section~\ref{sec.quadratic}
 
 We have the plots of three quadratic polynomials, $P_1(x)$, $P_2(x)$,
 and $P_3(x)$, shown in Figure~\ref{fig.parabola}.  Each plot takes the
