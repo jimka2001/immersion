@@ -16,3 +16,8 @@ except Exception as e:
 class HelloTestCase(ImmTestCase):
     def test_code_check(self):
         self.code_check(["hello.py"], import_exception)
+
+if __name__ == '__main__':
+    import unittest
+
+    unittest.main()
