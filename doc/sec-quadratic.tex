@@ -125,15 +125,34 @@ Steps for computing roots of a polynomial of degree 2.
 def find_quadratic_roots(a, b, c):
     epsilon = 0.001
     discriminant = b * b - 4 * a * c
-    if a == 0 :
-        return find_x_intercept(b,c)
-    if discriminant > epsilon:
-        return sorted([(-b + sqrt(discriminant)) / (2 * a),
-                       (-b - sqrt(discriminant)) / (2 * a)])
-    elif abs(discriminant) < epsilon:
-        return [-b / (2 * a), 
-                -b / (2 * a)]
+    if a == 0:
+        # invoke the previous solution for x-intercept of a line
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal = 1 line
+        raise NotImplementedError()
+
+    if abs(discriminant) < epsilon:
+        # Here we know the discriminant is very close to zero,
+        #   so return a singleton list containing the one root.
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal = 1 line
+        raise NotImplementedError()
+
+    elif discriminant > 0:
+        # Here we know the discriminant is not close to zero,
+        #   and we also know it is positive, so we return a
+        #   list containing the two roots according to the
+        #   quadratic formula.
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal <= 2 lines
+        raise NotImplementedError()
+
     else:
-        return []
+        # Here we know the discriminant is negative, so return an
+        #    empty list of no roots.
+        # CHALLENGE: student must complete the implementation.
+        # HINT: goal = 1 line
+        raise NotImplementedError()
+
 \end{lstlisting}\end{minipage}\end{listing}
 

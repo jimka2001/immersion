@@ -35,7 +35,7 @@ def find_quartic_roots(a, b, c, d, e):
         # The student should insert a return and function call to the previously defined
         # function with the correct coefficients of the cubic polynomial.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     if a < 0:
@@ -43,7 +43,7 @@ def find_quartic_roots(a, b, c, d, e):
         # is negative, we instead want to compute the roots of -P(x) = -ax^4 - bx^3 - cx^2 - dx - e.
         # We need to make a recursive call with the arguments negated.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     def find_one_root():
@@ -57,7 +57,7 @@ def find_quartic_roots(a, b, c, d, e):
             #  = 4ax^3 + 3bx^2 + 2cx + d
             #
             # CHALLENGE: student must complete the implementation.
-            # HINT: goal = 1 line
+            # HINT: goal = 1 line of code
             raise NotImplementedError()
 
         )
@@ -72,19 +72,19 @@ def find_quartic_roots(a, b, c, d, e):
         if P(ips[0]) < 0 < P(ips[1]):
             # Find a root between ips[0] and ips[1]
             # CHALLENGE: student must complete the implementation.
-            # HINT: goal = 1 line
+            # HINT: goal = 1 line of code
             raise NotImplementedError()
 
         if P(ips[1]) < 0 < P(ips[2]):
             # Find a root between ips[1] and ips[0]
             # CHALLENGE: student must complete the implementation.
-            # HINT: goal = 1 line
+            # HINT: goal = 1 line of code
             raise NotImplementedError()
 
         if P(ips[0]) < 0:
             # Find a root to the left of ips[0]
             # CHALLENGE: student must complete the implementation.
-            # HINT: goal = 1 line
+            # HINT: goal = 1 line of code
             raise NotImplementedError()
 
         if P(ips[-1]) < 0:
@@ -98,7 +98,7 @@ def find_quartic_roots(a, b, c, d, e):
         # When we factor ax^4 + bx^3 + cx^2 + dx + e = (x-r)(Ax^3 + Bx^2 + Cx + D)
         # what is the formula for A?
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     )
@@ -106,7 +106,7 @@ def find_quartic_roots(a, b, c, d, e):
         # When we factor ax^4 + bx^3 + cx^2 + dx + e = (x-r)(Ax^3 + Bx^2 + Cx + D)
         # what is the formula for B?
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     )
@@ -114,7 +114,7 @@ def find_quartic_roots(a, b, c, d, e):
         # When we factor ax^4 + bx^3 + cx^2 + dx + e = (x-r)(Ax^3 + Bx^2 + Cx + D)
         # what is the formula for C?
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     )
@@ -122,7 +122,7 @@ def find_quartic_roots(a, b, c, d, e):
         # When we factor ax^4 + bx^3 + cx^2 + dx + e = (x-r)(Ax^3 + Bx^2 + Cx + D)
         # what is the formula for D?
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     )

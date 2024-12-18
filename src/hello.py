@@ -12,6 +12,6 @@ if __name__ == '__main__':
 
     # add a line so that python will print hello to you, using your name.
     # CHALLENGE: student must complete the implementation.
-    # HINT: goal = 1 line
+    # HINT: goal = 1 line of code
     raise NotImplementedError()
 

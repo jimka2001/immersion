@@ -12,14 +12,14 @@ def find_cubic_roots(a, b, c, d):
     epsilon = 0.00001
     if a == 0:
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     if a < 0:
         # Here we know the leading coefficients is negative,
         #   so we want to return the roots of -P(x) = -ax^3 - bx^2 - cx -d
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     P = make_cubic(a, b, c, d)
@@ -28,7 +28,7 @@ def find_cubic_roots(a, b, c, d):
             # here we know the polynomial is 0 at x=0, P(0)=0, so it has
             # a root at 0, so return 0.0
             # CHALLENGE: student must complete the implementation.
-            # HINT: goal = 1 line
+            # HINT: goal = 1 line of code
             raise NotImplementedError()
 
         elif d > 0:
@@ -43,7 +43,7 @@ def find_cubic_roots(a, b, c, d):
             # so the polynomial becomes positive somewhere to the right.
             # Thus, we perform a search in the rightward direction to find a root.
             # CHALLENGE: student must complete the implementation.
-            # HINT: goal = 1 line
+            # HINT: goal = 1 line of code
             raise NotImplementedError()
 
     r = find_one_root()
@@ -52,7 +52,7 @@ def find_cubic_roots(a, b, c, d):
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for A?
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     )
@@ -60,7 +60,7 @@ def find_cubic_roots(a, b, c, d):
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for B?
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     )
@@ -68,7 +68,7 @@ def find_cubic_roots(a, b, c, d):
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for C?
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     )

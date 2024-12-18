@@ -10,11 +10,11 @@ def find_x_intercept(a,b):
        """
     if a == 0:
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     else:
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 

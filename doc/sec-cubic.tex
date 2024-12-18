@@ -65,20 +65,44 @@ Steps for computing roots of a cubic polynomial.
 def find_cubic_roots(a, b, c, d):
     epsilon = 0.00001
     if a == 0:
-        return find_quadratic_roots(b, c, d)
+        # CHALLENGE: student must complete the implementation.
+        raise NotImplementedError()
+
     if a < 0:
-        return find_cubic_roots(-a, -b, -c, -d)
+        # CHALLENGE: student must complete the implementation.
+        raise NotImplementedError()
 
-    f = make_cubic(a, b, c, d)
+    P = make_cubic(a, b, c, d)
+    def find_one_root():
+        if d == 0.0:
+            # CHALLENGE: student must complete the implementation.
+            raise NotImplementedError()
 
-    # f(0) = d
-    if d == 0.0:
-        r = 0.0
-    elif d > 0: # f(0) > d, so f(-infinity) < 0 and f(infinity) > 0
-        r = search_root_left(-1, 0, f, epsilon)
-    else:
-        r = search_root_right(0, 1, f, epsilon)
-    return factor_out_cubic_root(r, a, b, c)
+        elif d > 0:
+            return search_root_left(-1, 0, P, epsilon)
+        else:
+            # CHALLENGE: student must complete the implementation.
+            raise NotImplementedError()
+
+    r = find_one_root()
+
+    A = (
+        # CHALLENGE: student must complete the implementation.
+        raise NotImplementedError()
+
+    )
+    B = (
+        # CHALLENGE: student must complete the implementation.
+        raise NotImplementedError()
+
+    )
+    C = (
+        # CHALLENGE: student must complete the implementation.
+        raise NotImplementedError()
+
+    )
+
+    return [r] + find_quadratic_roots(A, B, C)
 \end{lstlisting}\end{minipage}\end{listing}
 
 \subsection{Find a root using Binary Search}

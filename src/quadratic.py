@@ -19,14 +19,14 @@ def find_quadratic_roots(a, b, c):
     if a == 0:
         # invoke the previous solution for x-intercept of a line
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     if abs(discriminant) < epsilon:
         # Here we know the discriminant is very close to zero,
         #   so return a singleton list containing the one root.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     elif discriminant > 0:
@@ -35,13 +35,13 @@ def find_quadratic_roots(a, b, c):
         #   list containing the two roots according to the
         #   quadratic formula.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal <= 2 lines
+        # HINT: goal <= 2 lines of code
         raise NotImplementedError()
 
     else:
         # Here we know the discriminant is negative, so return an
         #    empty list of no roots.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 

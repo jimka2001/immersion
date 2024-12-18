@@ -21,7 +21,7 @@ def search_root_right(lower, upper, P, epsilon):
         #  four correct arguments.  Use the code for search_root_left
         #  as an example.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal = 1 line
+        # HINT: goal = 1 line of code
         raise NotImplementedError()
 
     else:
@@ -31,7 +31,7 @@ def search_root_right(lower, upper, P, epsilon):
         # correct four arguments.  use the code for search_root_left
         # as an example.
         # CHALLENGE: student must complete the implementation.
-        # HINT: goal <= 3 lines
+        # HINT: goal <= 3 lines of code
         raise NotImplementedError()
 
 def find_root_in_range(lower, upper, P, epsilon):

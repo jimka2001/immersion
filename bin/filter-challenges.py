@@ -31,9 +31,9 @@ for f in listdir(in_dir):
     def hint():
         global count_skip, skipping, indent_prefix
         if count_skip <= 1:
-            print(indent_prefix + f"# HINT: goal = 1 line", file=out_fp)
+            print(indent_prefix + f"# HINT: goal = 1 line of code", file=out_fp)
         else:
-            print(indent_prefix + f"# HINT: goal <= {count_skip} lines", file=out_fp)
+            print(indent_prefix + f"# HINT: goal <= {count_skip} lines of code", file=out_fp)
         print(indent_prefix + "raise NotImplementedError()",
               file=out_fp)
         print('', file=out_fp)
