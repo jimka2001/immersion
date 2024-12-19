@@ -1,3 +1,6 @@
+from src.polynomial import make_polynomial
+
+
 def search_root_left(lower, upper, P, epsilon):
     """Search to the left of lower to find an x value for which P(x) is
     sufficiently close to 0."""
@@ -14,6 +17,7 @@ def search_root_right(lower, upper, P, epsilon):
     """search to the right of upper to find an x value for which P(x) is
     sufficiently close to 0."""
     assert upper > lower
+
     if P(upper) * P(lower) < 0:  # if different sign
         # We know the polynomial has different signs at upper and lower,
         #  therefore it crosses the x-axis somewhere between lower and upper.

@@ -1,10 +1,11 @@
-
-def make_quadratic(a, b, c):
-    """Return a unary function which is callable with x, to return
-    a floating point number equal to ax^2 + bx + c."""
+def make_polynomial(coefs):
+    """Given the 5 coefficients of a degree 4 polynomial, return a unary
+    function which will evaluate the polynomial at a given x value."""
+    assert isinstance(coefs, list)
+    degree = len(coefs) - 1
 
     def f(x):
-        return a * x ** 2 + b * x + c
+        return sum(c * x ** (p + degree) for (c, p) in coefs.enumerate())
 
     return f
 
@@ -18,12 +19,6 @@ def find_quadratic_coefficients(r1, r2):
             -(r1 + r2),
             r1 * r2]
 
-def make_cubic(a, b, c, d):
-    def f(x):
-        return a * x ** 3 + b * x ** 2 + c * x + d
-
-    return f
-
 
 def find_cubic_coefficients(r1, r2, r3):
     """Return an array of 4 numbers which represent
@@ -34,16 +29,6 @@ def find_cubic_coefficients(r1, r2, r3):
             -(r1 + r2 + r3),
             r1 * r2 + r2 * r3 + r1 * r3,
             -r1 * r2 * r3]
-
-
-
-def make_quartic(a, b, c, d, e):
-    """Given the 5 coefficients of a degree 4 polynomial, return a unary
-    function which will evaluate the polynomial at a given x value."""
-    def f(x):
-        return a * x ** 4 + b * x ** 3 + c * x ** 2 + d * x + e
-
-    return f
 
 
 def find_quartic_coefficients(r1, r2, r3, r4):
