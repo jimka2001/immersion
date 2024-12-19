@@ -48,6 +48,10 @@ for f in listdir(in_dir):
     indent_prefix = ''
     count_skip = 0
     for line in in_fp.readlines():
+        if line.startswith('from solutions.'):
+            print('from src', end='', file=out_fp)
+            print(line[len('from solutions'):], end='', file=out_fp)
+            continue
         if '# CHALLENGE: ' in line:
             skipping = True
             indent_prefix = line.split('#')[0]
