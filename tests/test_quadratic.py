@@ -5,13 +5,15 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', "tests")))
 
 from common import ImmTestCase, canonicalize
+from src.polynomial import find_quadratic_coefficients
 
 import_exception = None
 try:
-    from src.quadratic import find_quadratic_coefficients, find_quadratic_roots
+    from src.quadratic import find_quadratic_roots
 except Exception as e:
     print(e)
     import_exception = e
+
 
 class QuadraticTestCase(ImmTestCase):
     def test_code_check(self):
@@ -24,14 +26,12 @@ class QuadraticTestCase(ImmTestCase):
                 a, b, c = find_quadratic_coefficients(float(r1), float(r2))
                 print([r1, r2, a, b, c])
                 roots = find_quadratic_roots(a, b, c)
-                self.assertListAlmostEqual(canonicalize(roots,epsilon),
+                self.assertListAlmostEqual(canonicalize(roots, epsilon),
                                            canonicalize([r1, r2], epsilon),
                                            3)
+
 
 if __name__ == '__main__':
     import unittest
 
     unittest.main()
-
-
-
