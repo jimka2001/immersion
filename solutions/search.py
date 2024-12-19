@@ -1,4 +1,4 @@
-from solutions.polynomial import make_polynomial_from_coefficients
+from solutions.polynomial import make_polynomial
 
 
 def search_root_left(lower, upper, P, epsilon):
