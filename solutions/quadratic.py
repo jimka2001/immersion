@@ -1,5 +1,5 @@
 from math import sqrt
-from src.line import find_x_intercept
+from solutions.line import find_x_intercept
 
 
 def find_quadratic_roots(a, b, c):

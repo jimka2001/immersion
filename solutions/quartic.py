@@ -1,14 +1,6 @@
-from src.cubic import find_cubic_roots
-from src.search import find_root_in_range, search_root_left, search_root_right
-
-
-def make_quartic(a, b, c, d, e):
-    """Given the 5 coefficients of a degree 4 polynomial, return a unary
-    function which will evaluate the polynomial at a given x value."""
-    def f(x):
-        return a * x ** 4 + b * x ** 3 + c * x ** 2 + d * x + e
-
-    return f
+from solutions.cubic import find_cubic_roots
+from solutions.polynomial import make_polynomial
+from solutions.search import find_root_in_range, search_root_left, search_root_right
 
 
 def find_quartic_coefficients(r1, r2, r3, r4):
@@ -20,6 +12,7 @@ def find_quartic_coefficients(r1, r2, r3, r4):
             r1 * r2 + r1 * r3 + r1 * r4 + r2 * r3 + r2 * r4 + r3 * r4,
             -(r1 * r2 * r3 + r1 * r2 * r4 + r1 * r3 * r4 + r2 * r3 * r4),
             r1 * r2 * r3 * r4]
+
 
 def find_quartic_roots(a, b, c, d, e):
     """If P(x) is a quartic polynomial of the form
@@ -43,7 +36,6 @@ def find_quartic_roots(a, b, c, d, e):
         # CHALLENGE: student must complete the implementation.
         return find_quartic_roots(-a, -b, -c, -d, -e)
 
-
     def find_one_root():
         ips = sorted(
             # The derivative of a degree 4 polynomial is a degree 3 polynomial.
@@ -57,14 +49,14 @@ def find_quartic_roots(a, b, c, d, e):
             # CHALLENGE: student must complete the implementation.
             find_cubic_roots(4 * a, 3 * b, 2 * c, d)
         )
-        P = make_quartic(a, b, c, d, e)
+        P = make_polynomial([a, b, c, d, e])
 
         for ip in ips:
             # if the polynomial is 0 at one of the inflection points,
             # then the inflection point is the root
             if abs(P(ip)) < epsilon:
                 return ip
-    
+
         if P(ips[0]) < 0 < P(ips[1]):
             # Find a root between ips[0] and ips[1]
             # CHALLENGE: student must complete the implementation.
@@ -94,18 +86,18 @@ def find_quartic_roots(a, b, c, d, e):
         # When we factor ax^4 + bx^3 + cx^2 + dx + e = (x-r)(Ax^3 + Bx^2 + Cx + D)
         # what is the formula for B?
         # CHALLENGE: student must complete the implementation.
-        b + r * A
+            b + r * A
     )
     C = (
         # When we factor ax^4 + bx^3 + cx^2 + dx + e = (x-r)(Ax^3 + Bx^2 + Cx + D)
         # what is the formula for C?
         # CHALLENGE: student must complete the implementation.
-        c + r * B
+            c + r * B
     )
     D = (
         # When we factor ax^4 + bx^3 + cx^2 + dx + e = (x-r)(Ax^3 + Bx^2 + Cx + D)
         # what is the formula for D?
         # CHALLENGE: student must complete the implementation.
-        d + r * C
+            d + r * C
     )
     return [r] + find_cubic_roots(A, B, C, D)

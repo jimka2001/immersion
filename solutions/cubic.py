@@ -1,7 +1,6 @@
-from src.quadratic import find_quadratic_roots
-from src.search import search_root_left, search_root_right
-from src.polynomial import make_cubic
-
+from solutions.quadratic import find_quadratic_roots
+from solutions.search import search_root_left, search_root_right
+from solutions.polynomial import make_polynomial
 
 
 def find_cubic_roots(a, b, c, d):
@@ -19,7 +18,8 @@ def find_cubic_roots(a, b, c, d):
         # CHALLENGE: student must complete the implementation.
         return find_cubic_roots(-a, -b, -c, -d)
 
-    P = make_cubic(a, b, c, d)
+    P = make_polynomial([a,b,c,d])
+
     def find_one_root():
         if d == 0.0:
             # here we know the polynomial is 0 at x=0, P(0)=0, so it has
