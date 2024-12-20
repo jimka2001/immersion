@@ -1,4 +1,4 @@
-epsilon = 0.00001
+epsilon = 0.000001
 
 def find_x_intercept(a,b):
     """Compute the x-intercept of the line whose equation is y=ax=b.

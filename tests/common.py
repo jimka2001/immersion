@@ -142,11 +142,9 @@ def copy_data(a):
 
 def canonicalize(seq, epsilon):
     s1 = sorted(seq)
-    for i in range(len(seq) - 1):
-        if abs(s1[i] - s1[i + 1]) < epsilon:
-            return canonicalize(s1[0:i] + s1[i + 1:],
-                                epsilon)
-    return s1
+    rounded = {int(round(x/epsilon)) for x in s1}
+    return sorted([x*epsilon for x in rounded])
+
 
 
 class ImmTestCase(unittest.TestCase):

@@ -5,10 +5,11 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', "tests")))
 
 from common import ImmTestCase, canonicalize
+from src.polynomial import find_quartic_coefficients
 
 import_exception = None
 try:
-    from src.quartic import find_quartic_coefficients, find_quartic_roots
+    from src.quartic import find_quartic_roots
 except Exception as e:
     print(e)
     import_exception = e

@@ -2,7 +2,7 @@ from solutions.cubic import find_cubic_roots
 from solutions.polynomial import make_polynomial
 from solutions.search import find_root_in_range, search_root_left, search_root_right
 
-epsilon = 0.00001
+epsilon = 0.0000001
 
 
 def find_quartic_roots(a, b, c, d, e):
