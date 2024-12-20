@@ -2,14 +2,15 @@ from src.quadratic import find_quadratic_roots
 from src.search import search_root_left, search_root_right
 from src.polynomial import make_polynomial
 
+epsilon = 0.00001
 
 def find_cubic_roots(a, b, c, d):
     """Given the coefficients of a cubic polynomial,
     compute the roots if possible.
     semantics of the coefficients are: P(x) = ax^3 + bx^2 + cx + d
     """
-    epsilon = 0.00001
-    if a == 0:
+
+    if abs(a) < epsilon:
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
         raise NotImplementedError()
@@ -24,7 +25,7 @@ def find_cubic_roots(a, b, c, d):
     P = make_polynomial([a,b,c,d])
 
     def find_one_root():
-        if d == 0.0:
+        if abs(d) < epsilon:
             # here we know the polynomial is 0 at x=0, P(0)=0, so it has
             # a root at 0, so return 0.0
             # CHALLENGE: student must complete the implementation.

@@ -1,6 +1,7 @@
 from math import sqrt
 from src.line import find_x_intercept
 
+epsilon = 0.001
 
 def find_quadratic_roots(a, b, c):
     """Given the coefficients of a quadratic equation, a, b, and c,
@@ -14,9 +15,9 @@ def find_quadratic_roots(a, b, c):
     In the case that a == 0, the equation describes a line,
     return a list of its x-intercept.
     In the case that a and b are both zero, return the empty list, []"""
-    epsilon = 0.001
+
     discriminant = b * b - 4 * a * c
-    if a == 0:
+    if abs(a) < epsilon:
         # invoke the previous solution for x-intercept of a line
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code

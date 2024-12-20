@@ -5,7 +5,7 @@ def make_polynomial(coefs):
     degree = len(coefs) - 1
 
     def f(x):
-        return sum(c * x ** (p + degree) for (c, p) in coefs.enumerate())
+        return sum(c * (x ** (degree - p)) for (p, c) in enumerate(coefs))
 
     return f
 
