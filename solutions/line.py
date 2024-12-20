@@ -1,4 +1,4 @@
-
+epsilon = 0.00001
 
 def find_x_intercept(a,b):
     """Compute the x-intercept of the line whose equation is y=ax=b.
@@ -8,7 +8,7 @@ def find_x_intercept(a,b):
        we return [], an empty list.
        Otherwise, the x-intercept is given by the formula -b/a.
        """
-    if a == 0:
+    if abs(a) < epsilon:
         # CHALLENGE: student must complete the implementation.
         return []
     else:
