@@ -15,11 +15,35 @@ The assignment in this section is:
 
 \subsection{Overview}
 
+We wish to find the roots of the quartic polynomial given by 
+\[P(x) = ax^4 + b x^3 + c x^2 + d x + e\,.\]
+
+We will do this by first finding
+(approximating) a root, $r$, using a technique called \emph{binary
+seach}.  We will determine which regions to search by examining the derivative
+
+\[\frac{d}{dx} P(x) = 4ax^3 + 3b x^2 + 2c x + d\,.\]
+
+Knowing root $r$, we know that $(x-r)$ is a factor of 
+$a x^4 + b x^3 + c x^2 + d x + e$.  Once $(x-r)$ is factored out of $P(x)$
+what remains is a cubic polynomial of the form $A x^3 + B x^2 + C x + D$.
+We can find the roots of the cubic using the technique
+explained in Section~\ref{sec.cubic}, thus obtaining the roots of
+the quartic polynomial.
+
+
+\subsection{The Math}
+
 
 A polynomial of degree 4 has the form $P(x) = a x^4 + b x^3 + c x^2 + d x + e$. If $a=0$ than $P(x)$ is really
 a cubic polynomial (degree 3) and can be solved using the techniques described in Section~\ref{sec.cubic}.
 
-Two quartic equations (for $P_1(x)$ and $P_2(x)$) are plotted in Figure~\ref{fig.quartic}.
+If $a<0$ then similar to what we did for the cubic polynomial in Section~\ref{sec.cubic.math}, we instead find the
+roots of $-P(x) = -a x^4 - b x^3 - c x^2 - d x - e$.  $P(x)$ and $-P(x)$ are guaranteed to have the same roots,
+but the code in Python will be easier if we know that $a >= 0$.
+
+
+Two polynomial equations (for $P_1(x)$ and $\frac{d}{dx} P_1(x)$) are plotted in Figure~\ref{fig.quartic}.
 
 \begin{figure}
 \centering
@@ -30,6 +54,16 @@ Two quartic equations (for $P_1(x)$ and $P_2(x)$) are plotted in Figure~\ref{fig
 
 \begin{align*}
   P_1(x) &= \frac{1}{8}  x^4 -2 x^3 + 7  x^2 + x + 6\\
-  P_2(x) = -P_1(x) &= -\frac{1}{8}  x^4 +2 x^3 - 7  x^2 - x - 6\\
   \frac{d}{dx} P_1(x) &= \frac{1}{2} * x^3 -6* x^2 + 14 * x + 1
 \end{align*}
+
+Notice that at the extreme left and right, the plot of $P_1(x)$ opens
+upward, and the graph changes direction 3 times.  The values of $x$ at
+which $P_1(x)$ changes direction are called the \emph{inflection
+points}.  The inflection points are local minima of $P_1(x)$, and can
+be computed by finding the values for which $\frac{d}{dx} P_1(x) = 0$.
+Since the derivative of a degree 4 polynomial is a degree 3 (cubic)
+polynomial, we can find where $\frac{d}{dx} P_1(x) = 0$ by using the
+techniques explained in Section~\ref{sec.cubic}.
+
+Once we have determined the 3 inflection points $x_1$, $x_2$, and $x_3$, we can
