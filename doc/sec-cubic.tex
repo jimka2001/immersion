@@ -7,7 +7,7 @@ The assignment in this section is:
 \item Complete the file \code{src/cubic.py} by writing a Python
   function which computes and returns the x-intercepts of a curve
   equation is \[y=a x^3 + b x^2 + c x + d\,.\]
-\item You'll need to replace all occurances of \code{raise NotImplementedError()}
+\item You'll need to replace all occurrences of \code{raise NotImplementedError()}
   with correct python code which passes the tests.
 
 \item Complete the file \code{src/search.py} by completing the function \\
@@ -15,7 +15,7 @@ The assignment in this section is:
   which follows a similar pattern to that of \\
   \code{search\_root\_left} which you have all the code for.
 
-\item Test the function in GitHub Codespaces by running the file\\
+\item Test the function in GitHub Code-Spaces by running the file\\
   \code{test/test\_cubic.py}.
 \end{enumerate}
 
@@ -109,13 +109,13 @@ into $(x-r) (A x^2 + B x + C)$, then working through some tedious algebra.
   &= (x-r) (a x^2 + b x + a r x + c + b r + a r^2)\\
   &= x(a x^2 + b x + a r x + c + b r + a r^2) \\
   &\quad\quad - r (a x^2 + b x + a r x + c + b r + a r^2)\\
-  &= a x^3 + b x^2 + a r x^2 + cx + b r x + a r^2 x\\
+  &= a x^3 + b x^2 + a r x^2 + c x + b r x + a r^2 x\\
   &\quad\quad - a r x^2 - b r x - a r^2 x - c r - b r^2 - a r^3\\
-  &= a x^3 + b x^2 + cx  \\
+  &= a x^3 + b x^2 + c x  \\
   &\quad\quad + a r x^2 + b r x + a r^2 x - ( a r x^2 + b r x + a r^2 x) \\
   &\quad\quad  - c r + b r^2 - a r^3\\
-  &= a x^3 + b x^2 + cx + ( d - d) - c r - b r^2 - a r^3\\
-  &= \underbrace{a x^3 + b x^2 + cx +  d}_{=P(x)} - (\underbrace{d + c r + b r^2 + a r^3}_{=P(r)})\\
+  &= a x^3 + b x^2 + c x + ( d - d) - c r - b r^2 - a r^3\\
+  &= \underbrace{a x^3 + b x^2 + c x +  d}_{=P(x)} - (\underbrace{d + c r + b r^2 + a r^3}_{=P(r)})\\
   &= P(x) - P(r)\\
   &= P(x) 
 \end{align*}
@@ -124,7 +124,7 @@ Since $r$ is assumed to be a root of $P(x)$, then we know that $P(r)=0$.  Thus $
 
 \subsection{The Programming / The Practical}
 
-This challege contains two parts:
+This challenge contains two parts:
 \begin{itemize}
 \item In \textbf{Find a root using Binary Search}, Section~\ref{sec.binary.search}, you will complete the file \code{src/search.py}.
 \item In \textbf{Cubic Roots}, Section~\ref{sec.cubic.roots}, you will complete the file \code{src/cubic.py}.
@@ -172,7 +172,7 @@ iteratively find a root; we will use the following steps.
     then we know the root is $x_{mid} \pm \varepsilon$, which is good enough.
   \item $P(x_{mid}) = 0$, then we know the root $x= x_{mid}$.
   \item There is a root in the interval $[x_{lower}, x_{mid}]$, then
-    we repeat step~\ref{step.4} on the intveral $[x_{lower},
+    we repeat step~\ref{step.4} on the interval $[x_{lower},
       x_{mid}]$.
   \item There is a root in the interval $[x_{mid}, x_{upper}]$, then
     we repeat step~\ref{step.4} on the interval $[x_{mid},
@@ -229,3 +229,5 @@ Steps for computing roots of a cubic polynomial.
 \end{enumerate}
 
 
+
+% LocalWords:  NotImplementedError GitHub

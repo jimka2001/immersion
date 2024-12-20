@@ -7,9 +7,9 @@ The assignment in this section is:
 \item Complete the file \code{src/quartic.py} by writing a Python
   function which computes and returns the x-intercepts of a curve
   equation is \[y=a x^4 + b x^3 + c x^2 + d x + e\,.\]
-\item You'll need to replace all occurances of \code{raise NotImplementedError()}
+\item You'll need to replace all occurrences of \code{raise NotImplementedError()}
   with correct python code which passes the tests.
-\item Test the function in GitHub Codespaces by running the file\\
+\item Test the function in GitHub Code-Spaces by running the file\\
   \code{test/test\_quartic.py}.
 \end{enumerate}
 
@@ -20,9 +20,9 @@ We wish to find the roots of the quartic polynomial given by
 
 We will do this by first finding
 (approximating) a root, $r$, using a technique called \emph{binary
-seach}.  We will determine which regions to search by examining the derivative
+search}.  We will determine which regions to search by examining the derivative
 
-\[\frac{d}{dx} P(x) = 4ax^3 + 3b x^2 + 2c x + d\,.\]
+\[\frac{d}{d x} P(x) = 4ax^3 + 3b x^2 + 2c x + d\,.\]
 
 Knowing root $r$, we know that $(x-r)$ is a factor of 
 $a x^4 + b x^3 + c x^2 + d x + e$.  Once $(x-r)$ is factored out of $P(x)$
@@ -47,7 +47,7 @@ have the same roots, but the code in Python will be easier if we know
 that $a >= 0$.
 
 
-Two polynomial equations (for $P(x)$ and $\frac{d}{dx} P(x)$) are
+Two polynomial equations (for $P(x)$ and $\frac{d}{d x} P(x)$) are
 plotted in Figure~\ref{fig.quartic}.
 
 \begin{figure}
@@ -59,16 +59,16 @@ plotted in Figure~\ref{fig.quartic}.
 
 \begin{align*}
   P(x) &= \frac{1}{8}  x^4 -2 x^3 + 7  x^2 + x + 6\\
-  \frac{d}{dx} P(x) &= \frac{1}{2} * x^3 -6* x^2 + 14 * x + 1
+  \frac{d}{d x} P(x) &= \frac{1}{2} * x^3 -6* x^2 + 14 * x + 1
 \end{align*}
 
 Notice that at the extreme left and right, the plot of $P(x)$ opens
 upward, and the graph changes direction 3 times.  The values of $x$ at
 which $P(x)$ changes direction are called the \emph{inflection
 points}.  The inflection points are local minima of $P(x)$, and can
-be computed by finding the values for which $\frac{d}{dx} P(x) = 0$.
+be computed by finding the values for which $\frac{d}{d x} P(x) = 0$.
 Since the derivative of a degree~4 polynomial is a degree~3 (cubic)
-polynomial, we can find where $\frac{d}{dx} P(x) = 0$ by using the
+polynomial, we can find where $\frac{d}{d x} P(x) = 0$ by using the
 techniques explained in Section~\ref{sec.cubic}.
 
 Once we have determined the 3 inflection points $x_1$, $x_2$, and $x_3$, we can
@@ -120,7 +120,7 @@ Steps for finding the roots of a quartic polynomial.
     root on the negative x-axis.  Find it with a binary search.
   \end{enumerate}
 \item Find the inflection points by finding the roots
-  of \[\frac{d}{dx} P(x) = 4 a x^3 + 3 b x^2 + 2 c x + d\,.\]
+  of \[\frac{d}{d x} P(x) = 4 a x^3 + 3 b x^2 + 2 c x + d\,.\]
   \begin{enumerate}
   \item If $P(x)$ is zero at one of these inflection points, then the
     inflection point is a root.
@@ -128,10 +128,10 @@ Steps for finding the roots of a quartic polynomial.
     both to the right and the left; find with by calling either
     \code{search\_root\_right} or \code{search\_root\_left}.
   \end{enumerate}
-\item Once a root has been found, factor \[P(x) = (x-r)(Ax^3 + Bx^2 +
-  Cx + D)\] by finding the coefficients, $A$, $B$, $C$, and $D$, using
+\item Once a root has been found, factor \[P(x) = (x-r)(A x^3 + B x^2 +
+  C x + D)\] by finding the coefficients, $A$, $B$, $C$, and $D$, using
   Equations~\eqref{eq.7.A} through~\eqref{eq.7.D}.
-\item Find the roots of $Ax^3 + Bx^2 + Cx + D$ using
+\item Find the roots of $A x^3 + B x^2 + C x + D$ using
   \code{find\_cubic\_roots}.
   \item Concatenate the list of all the roots together to obtain the
     roots of the quartic polynomial.
@@ -143,3 +143,5 @@ Steps for finding the roots of a quartic polynomial.
   It is not necessary that your code match exactly.
 
 \end{enumerate}
+
+% LocalWords:  NotImplementedError quartic GitHub Quartics
