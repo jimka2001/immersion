@@ -1,8 +1,23 @@
 \section{Quintic: degree=5}
 \label{sec.quintic}
 
+This exercise is left as an exercise for the student.  However, the following are some
+notes to help lead the student in the right direction.
+
+\begin{figure}
+\centering
+\input{pfg-quintic}
+\caption{Quintic}
+\label{fig.quintic}
+\end{figure}
+
+\begin{align*}
+  P(x) &= x^5 - \frac{1}{2} x^4 + 5 x^3 + \frac{5}{2} x^2 + 4 x - 2
+\end{align*}
+
+
 A quintic polynomial has the form $P(x) = a x^5 + b x^4 + c x^3 + d x^2 + e x + f$.
-If $a=0$ than $P(x)$ is really
+If $a=0$ then $P(x)$ is really
 a quartic polynomial (degree~4) and can be solved using the techniques described in Section~\ref{sec.quartic}.
 Since a quintic polynomial has odd degree (if $a\neq 0$),
 then, like the cubic (Section~\ref{sec.cubic}), it is guaranteed to have a real root.  This fact
@@ -20,7 +35,7 @@ Once the root $r$ is found, factor out $(x-r)$ from $P(x)$ to result in a quarti
 the technique in Section~\ref{sec.quartic}.
 \begin{align*}
   P(x) &= a x^5 + b x^4 + c x^3 + d x^2 + e x + f\\
-  &= (x - r) (Ax^3 + B x^2 + C x + D)
+  &= (x - r) (Ax^4 + B x^3 + C x^2 + D x + E)
 \end{align*}
 
 Where
@@ -41,9 +56,9 @@ Where
 \end{align*}
 
 
-Having determined $A$, $B$, $C$, $D$, and $E$, the roots of $(Ax^3 + Bx^2 + Cx + D)$ can be
+Having determined $A$, $B$, $C$, $D$, and $E$, the roots of $(A x^4 + B x^3 + C x^2 + D x + E)$ can be
 found with a call to \code{find\_quartic\_roots}, which you implemented in Section~\ref{sec.quartic}.
 
-This exercise is left as an exercise for the student.
 
-% LocalWords:  Quintic quintic
+
+% LocalWords:  Quintic quintic quartic

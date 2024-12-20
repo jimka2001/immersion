@@ -15,6 +15,7 @@ SECTIONS := \
 	pfg-parabola.tex \
 	pfg-quartic-deriv.tex \
 	pfg-quartic.tex \
+	pfg-quintic.tex \
 	definitions.tex \
 	theorems.tex \
 	sec-intro.tex \

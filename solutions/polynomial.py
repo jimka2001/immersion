@@ -40,3 +40,36 @@ def find_quartic_coefficients(r1, r2, r3, r4):
             r1 * r2 + r1 * r3 + r1 * r4 + r2 * r3 + r2 * r4 + r3 * r4,
             -(r1 * r2 * r3 + r1 * r2 * r4 + r1 * r3 * r4 + r2 * r3 * r4),
             r1 * r2 * r3 * r4]
+
+def find_quintic_coefficients(r1, r2, r3, r4, r5):
+    """Given 5 roots of a degree 5 polynomial (quintic) return a list
+    of 6 coefficients of a degree 5 polynomial which as those roots.
+    """
+    return [1,
+            -(r1 + r2 + r3 + r4 + r5),
+            ((r1 * r2)
+             + (r1 * r3)
+             + (r1 * r4)
+             + (r1 * r5)
+             + (r2 * r3)
+             + (r2 * r4)
+             + (r2 * r5)
+             + (r3 * r4)
+             + (r3 * r5)
+             + (r4 * r5)),
+            -((r1 * r2 * r3) 
+             + (r1 * r2 * r4)
+             + (r1 * r2 * r5)
+             + (r1 * r3 * r4)
+             + (r1 * r3 * r5)
+             + (r1 * r4 * r5)
+             + (r2 * r3 * r4)
+             + (r2 * r3 * r5)
+             + (r2 * r4 * r5)
+             + (r3 * r4 * r5)),
+            ((r1 * r2 * r3 * r4)
+             + (r1 * r2 * r3 * r5)
+             + (r1 * r2 * r4 * r5)
+             + (r1 * r3 * r4 * r5)
+             + (r2 * r3 * r4 * r5)),
+            - r1 * r2 * r3 * r4 * r5]
