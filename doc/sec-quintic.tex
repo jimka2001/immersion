@@ -9,8 +9,39 @@ then, like the cubic (Section~\ref{sec.cubic}), it is guaranteed to have a real 
 is guaranteed, because if
 $a>0$ then $P(x)\to \infty$ for $x>>0$ and $P(x)\to -\infty$ for $x<<0$.
 
-Given this fact, we can find a root, $r_5$ using a binary search as we did for the cubic;
-factor out $(x-r_5)$ from $P(x)$ to result in a quartic, which we can solve using
+Given this fact, we can find a root, $r$ using a binary search as we did for the cubic.
+Since $P(0) = f$, then we can consider two cases.
+\begin{enumerate}
+\item If $f>0$ then search for a root on the negative x-axis
+\item If $f<0$ then search for a root on the positive x-axis
+\end{enumerate}
+
+Once the root $r$ is found, factor out $(x-r)$ from $P(x)$ to result in a quartic, which we can solve using
 the technique in Section~\ref{sec.quartic}.
+\begin{align*}
+  P(x) &= a x^5 + b x^4 + c x^3 + d x^2 + e x + f\\
+  &= (x - r) (Ax^3 + Bx^2 + Cx + D)
+\end{align*}
+
+Where
+
+\begin{align*}
+  A &= a\\
+  B &= b + a r\\
+   &= b + A r\\
+  C &= c + b r + a r^2\\
+  &= c + (b + a r)r\\
+  &= c + B r\\
+  D &= d + c r + b r^2 + a r^3\\
+  &= d + ( c + b r + a r^2)r\\
+  &= d + C r\\
+  E &= e + d r + c r^2 + b r^3 + a r^4\\
+  &= e + ( d + c r + b r^2 + a r^3)r\\
+  &= e + D r
+\end{align*}
+
+
+Having determined $A$, $B$, $C$, $D$, and $E$, the roots of $(Ax^3 + Bx^2 + Cx + D)$ can be
+found with a call to \code{find\_quartic\_roots}, which you implemented in Section~\ref{sec.quartic}.
 
 This exercise is left as an exercise for the student.
