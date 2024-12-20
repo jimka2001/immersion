@@ -72,25 +72,23 @@ then $P_1(x) = 0$.  Therefore, if $a<0$, we can simply find the roots of $-a x^3
 Given a cubic polynomial and a root, $r$, we may factor the polynomial into
 the product of a monomial $(x-r)$ and a quadratic polynomial.
 
-If $P(x) = a x^3 + b x^2 + c x + d$ has a root at $x=$, then $P(r)=0$.
+If $P(x) = a x^3 + b x^2 + c x + d$ has a root at $x=r$, then $P(r)=0$.
 Consequently, $(x-r)$ is a factor of $a x^3 + b x^2 + c x + d$, and
-$P(x) = (x-r)(A x^2 + B x + C)$ for some $A, B, C$.  Once $A$, $B$,
-and $C$ have been found, then the two remaining roots can be found by
-applying the quadratic formulat to $A x^2 + B x + C$.  So how can we
-determine the values of $A$, $B$, and $C$ given the root $r$ and the
-original coefficients $a$, $b$, $c$, and $d$?
-
-We can determine the values of $A$, $B$, and $C$ by computing the quotient of
-the two polynomials $\frac{a x^3 + b x^2 + c x + d}{x-r}$, either by doing polynomial long division or using a
-more concise technique called synthetic division.
-
-We leave this hand computation as an exercise for the student and simply present the result.
+$P(x) = (x-r)(A x^2 + B x + C)$ for some $A, B, C$.  
 
 \begin{align}
   P(x) &=  (a x^3 + b x^2 + c x + d)\nonumber\\
   &= (x-r) (A x^2 + B x + C)\label{eq.factor.ABC}
 \end{align}
-Where
+
+Once $A$, $B$,
+and $C$ have been found, then the two remaining roots can be found by
+applying the quadratic formula to $A x^2 + B x + C$.  So how can we
+determine the values of $A$, $B$, and $C$ given the root $r$ and the
+original coefficients $a$, $b$, $c$, and $d$?
+
+
+We can verify that $A$, $B$, and $C$ are determined by the following equations.
 \begin{align}
  A &= a\label{eq.6.A}\\
   B &= b + a r\nonumber\\
@@ -99,6 +97,8 @@ Where
   &= c + (b + a r) r\nonumber\\
   &= c + B r\label{eq.6.C}
 \end{align}
+
+
 
 We may verify this factorization by substituting Equations~\eqref{eq.6.A}, \eqref{eq.6.B}, and~\eqref{eq.6.C}
 into $(x-r) (A x^2 + B x + C)$, then working through some tedious algebra.
@@ -115,7 +115,7 @@ into $(x-r) (A x^2 + B x + C)$, then working through some tedious algebra.
   &\quad\quad + a r x^2 + b r x + a r^2 x - ( a r x^2 + b r x + a r^2 x) \\
   &\quad\quad  - c r + b r^2 - a r^3\\
   &= a x^3 + b x^2 + cx + ( d - d) - c r - b r^2 - a r^3\\
-  &= \underbrace{a x^3 + b x^2 + cx +  d}_{=P(x)} - (\underbrace{d + c r - b r^2 - a r^3}_{=P(r)})\\
+  &= \underbrace{a x^3 + b x^2 + cx +  d}_{=P(x)} - (\underbrace{d + c r + b r^2 + a r^3}_{=P(r)})\\
   &= P(x) - P(r)\\
   &= P(x) 
 \end{align*}
@@ -150,6 +150,14 @@ Steps for computing roots of a cubic polynomial.
   in Equations~\eqref{eq.6.A}, \eqref{eq.6.B}, and~\eqref{eq.6.C}.
 \item The roots of the cubic are \code{[r]} concatenated to the roots of the quadratic 
   $A x^2 + B x + C$, which you can compute using the techniques in Section~\ref{sec.quadratic}.
+
+
+\item Test your code by running the pre-defined tests in \code{tests/test\_cubic.py}.
+
+\item Look at the proposed solution in \code{solutions/cubic.py}.  It is not necessary that your code match exactly.
+
+
+
 \end{enumerate}
 
 

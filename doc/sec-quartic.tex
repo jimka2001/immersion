@@ -35,15 +35,20 @@ the quartic polynomial.
 \subsection{The Math}
 
 
-A polynomial of degree 4 has the form $P(x) = a x^4 + b x^3 + c x^2 + d x + e$. If $a=0$ than $P(x)$ is really
-a cubic polynomial (degree 3) and can be solved using the techniques described in Section~\ref{sec.cubic}.
+A polynomial of degree 4 has the form $P(x) = a x^4 + b x^3 + c x^2 +
+d x + e$. If $a=0$ than $P(x)$ is really a cubic polynomial (degree 3)
+and can be solved using the techniques described in
+Section~\ref{sec.cubic}.
 
-If $a<0$ then similar to what we did for the cubic polynomial in Section~\ref{sec.cubic.math}, we instead find the
-roots of $-P(x) = -a x^4 - b x^3 - c x^2 - d x - e$.  $P(x)$ and $-P(x)$ are guaranteed to have the same roots,
-but the code in Python will be easier if we know that $a >= 0$.
+If $a<0$ then similar to what we did for the cubic polynomial in
+Section~\ref{sec.cubic.math}, we instead find the roots of
+$-P(x) = -a x^4 - b x^3 - c x^2 - d x - e$.  $P(x)$ and $-P(x)$ are guaranteed to
+have the same roots, but the code in Python will be easier if we know
+that $a >= 0$.
 
 
-Two polynomial equations (for $P(x)$ and $\frac{d}{dx} P(x)$) are plotted in Figure~\ref{fig.quartic}.
+Two polynomial equations (for $P(x)$ and $\frac{d}{dx} P(x)$) are
+plotted in Figure~\ref{fig.quartic}.
 
 \begin{figure}
 \centering
@@ -79,8 +84,9 @@ to the right and left of $x$.  If we can find that root, then as before
 we can factor out $(x-r)$ to get a cubic polynomial, and then find its roots---
 thus obtaining the roots of the quartic.
 
-Once we have determined a root, $r$ of $P(x)$, then we know (similar to the cubic case in Section~\ref{sec.cubic.math})
-that $P(x)$ factors into $(x-r)(Ax^3 + Bx^2 + Cx + D)$, where
+Once we have determined a root, $r$ of $P(x)$, then we know (similar
+to the cubic case in Section~\ref{sec.cubic.math}) that $P(x)$ factors
+into $(x-r)(Ax^3 + Bx^2 + Cx + D)$, where
 \begin{align}
   A &= a\label{eq.7.A}\\
   B &= b + a r\nonumber\\
@@ -106,20 +112,34 @@ Steps for finding the roots of a quartic polynomial.
   value.  Be careful, \\
   \code{find\_cubic\_roots} accepts 4 input
   parameters.
-\item Since $P(0) = e$, then we can easily evaluate the polynomial at $x=0$ to get its y-intercept.
+\item Since $P(0) = e$, then we can easily evaluate the polynomial at
+  $x=0$ to get its y-intercept.
   \begin{enumerate}
   \item If $e = 0$, then 0 is a root, $P(0) = 0$.
-  \item If $e<0$ then there is a root on the positive x-axis and a root on the negative x-axis.  Find it with a binary search.
+  \item If $e<0$ then there is a root on the positive x-axis and a
+    root on the negative x-axis.  Find it with a binary search.
   \end{enumerate}
-\item Find the inflection points by finding the roots of \[\frac{d}{dx} P(x) = 4 a x^3 + 3 b x^2 + 2 c x + d\,.\]
+\item Find the inflection points by finding the roots
+  of \[\frac{d}{dx} P(x) = 4 a x^3 + 3 b x^2 + 2 c x + d\,.\]
   \begin{enumerate}
-  \item If $P(x)$ is zero at one of these inflection points, then the inflection point is a root.
-  \item If $P(x) < 0$ at an inflection point, then there is a root both to the right and the left;
-    find with by calling either \code{search\_root\_right} or \code{search\_root\_left}.    
+  \item If $P(x)$ is zero at one of these inflection points, then the
+    inflection point is a root.
+  \item If $P(x) < 0$ at an inflection point, then there is a root
+    both to the right and the left; find with by calling either
+    \code{search\_root\_right} or \code{search\_root\_left}.
   \end{enumerate}
-\item Once a root has been found, factor \[P(x) = (x-r)(Ax^3 + Bx^2 + Cx + D)\] by finding the coefficients, $A$, $B$, $C$, and $D$,
-  using Equations~\eqref{eq.7.A} through~\eqref{eq.7.D}.
+\item Once a root has been found, factor \[P(x) = (x-r)(Ax^3 + Bx^2 +
+  Cx + D)\] by finding the coefficients, $A$, $B$, $C$, and $D$, using
+  Equations~\eqref{eq.7.A} through~\eqref{eq.7.D}.
 \item Find the roots of $Ax^3 + Bx^2 + Cx + D$ using
   \code{find\_cubic\_roots}.
-  \item Concatenate the list of all the roots together to obtain the roots of the quartic polynomial.
+  \item Concatenate the list of all the roots together to obtain the
+    roots of the quartic polynomial.
+
+\item Test your code by running the pre-defined tests in
+  \code{tests/test\_quartic.py}.
+
+\item Look at the proposed solution in \code{solutions/quartic.py}.
+  It is not necessary that your code match exactly.
+
 \end{enumerate}

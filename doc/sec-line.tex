@@ -72,15 +72,6 @@ solve for the x-intercept by setting y to 0 and solving for x.
 
 \subsection{The Programming}
 
-You will develop the code in \code{src/line.py}.
-
-You should update the code in the file \code{src/line.py} so that if
-$a$ is 0, then the function returns an empty list and otherwise
-returns a list of the value~$\frac{-b}{a}$.  You must figure out how
-to write that in the Python language.  \Ie, you must figure out how to
-divde two numbers in Python and how to create a list, empty and
-otherwise.
-
 
 \begin{listing}{Function declaration to find x-intercept of a line.}{code.line}
 \begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
@@ -95,3 +86,25 @@ def find_x_intercept(a,b):
 \end{lstlisting}\end{minipage}\end{listing}
 
 
+\begin{enumerate}
+
+\item Open the file \code{src/line.py} in your web-based editor (GitHub Codespaces).
+  You will develop the code in this file.
+
+\item Find the occurances of \code{raise NotImplementedError()}.  This is the code that you must replace with working Python code.
+
+\item You should update the code in the file \code{src/line.py} so that if
+$a$ is 0, then the function returns an empty list and otherwise
+  returns a list of the value~$\frac{-b}{a}$.
+
+\item You must figure out how
+to write that in the Python language.  \Ie, you must figure out how to
+divde two numbers in Python and how to create a list, empty and
+otherwise.
+
+
+\item Test your code by running the pre-defined tests in \code{tests/test\_line.py}.
+
+\item Look at the proposed solution in \code{solutions/line.py}.  It is not necessary that your code match exactly.
+
+\end{enumerate}
