@@ -1,7 +1,7 @@
 from math import sqrt
 from src.line import find_x_intercept
 
-epsilon = 0.001
+epsilon = 0.00001
 
 def find_quadratic_roots(a, b, c):
     """Given the coefficients of a quadratic equation, a, b, and c,

@@ -49,7 +49,7 @@ def find_root_in_range(lower, upper, P, epsilon):
            P(x+epsilon) <= 0 and P(x-epsilon) >= 0
     """
     mid = (lower + upper) / 2.0
-    if upper - lower < epsilon / 2.0:
+    if upper - lower < epsilon / 2.0 and abs(P(lower) - P(upper)) < epsilon:
         return mid
     fl = P(lower)
     fm = P(mid)

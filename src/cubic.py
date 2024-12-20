@@ -2,7 +2,7 @@ from src.quadratic import find_quadratic_roots
 from src.search import search_root_left, search_root_right
 from src.polynomial import make_polynomial
 
-epsilon = 0.00001
+epsilon = 0.0000001
 
 def find_cubic_roots(a, b, c, d):
     """Given the coefficients of a cubic polynomial,
