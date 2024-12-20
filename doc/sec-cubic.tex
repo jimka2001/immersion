@@ -32,12 +32,12 @@ explained in Section~\ref{sec.quadratic}, thus obtaining the roots of
 the cubic polynomial.
 
 
-\subsection{The Math}
+\subsection{The Math / The Theoretical}
 \label{sec.cubic.math}
-A polynomial of degree 3 has the form $P(x) = a x^3 + b x^2 + c x +d$.
-If $a=0$ than $P(x)$ is really a quadratic polynomial (degree 2)
+A polynomial of degree~3 has the form $P(x) = a x^3 + b x^2 + c x +d$.
+If $a=0$ than $P(x)$ is really a quadratic polynomial (degree~2)
 and can be solved using the techniques described in
-Section~\ref{sec.quadratic}.  Every polynomial of degree 3 with real
+Section~\ref{sec.quadratic}.  Every polynomial of degree~3 with real
 coefficients (for which $a\neq 0$) has at least one real root because
 \begin{enumerate}
 \item Either $\lim\limits_{x\to-\infty}P(x) = -\infty$ and $\lim\limits_{x\to\infty}P(x) = \infty$,
@@ -56,14 +56,14 @@ We have a two cubic equations plotted in Figure~\ref{fig.cubic}.
 \end{figure}
 
 \begin{align*}
-  P_1(x) &= x^3 - 4*x^2 - 2*x - 10\\
-  P_2(x) = -P_1(x) &= -x^3 + 4*x^2 + 2*x + 10
+  P(x) &= x^3 - 4*x^2 - 2*x - 10\\
+  -P(x) &= -x^3 + 4*x^2 + 2*x + 10
 \end{align*}
 
-$P_1(x)$ exemplifies the \emph{standard} case where the leading coefficient is positive: $a>0$.
-$P_2(x)$ exemplifies the alternate case where the leading coefficient is negative: $a<0$.
-However, we notice that $P_1(x)$ and $-P_1(x)$ have the exact same roots, because if $P_2(x) = -P_1(x) = 0$,
-then $P_1(x) = 0$.  Therefore, if $a<0$, we can simply find the roots of $-a x^3 -b x^2 - c x - d$;
+$P(x)$ exemplifies the \emph{standard} case where the leading coefficient is positive: $a>0$.
+$-P(x)$ exemplifies the alternate case where the leading coefficient is negative: $a<0$.
+However, we notice that $P(x)$ and $-P(x)$ have the exact same roots, because if $-P(x) = 0$,
+then $P(x) = 0$.  Therefore, if $a<0$, we can simply find the roots of $-a x^3 -b x^2 - c x - d$;
 \ie, we simply negate the coefficients and find the roots of the negated cubic polynomial.
 
 
@@ -122,48 +122,23 @@ into $(x-r) (A x^2 + B x + C)$, then working through some tedious algebra.
 
 Since $r$ is assumed to be a root of $P(x)$, then we know that $P(r)=0$.  Thus $P(x)-P(r)=P(x)$.
 
-\subsection{The Programming}
+\subsection{The Programming / The Practical}
 
-Steps for computing roots of a cubic polynomial.
-
-\begin{enumerate}
-\item Assume the coefficients of $P(x) = a x^3 + b x^2 + c x + d$ are
-  \code{a},  \code{b},  \code{c},  and~\code{d}.
-\item If \code{a==0}, then delegate to the previous solution by
-  calling \\
-  \code{find\_quadratic\_roots} and returning its return
-  value.  Be careful, \code{find\_quadratic\_roots} accepts 3 input
-  parameters.
-\item If $P(x)$ is of the form of $P_2(x)$ in Figure~\ref{fig.cubic},
-  \ie, if $a<0$, then compute and return the roots of $-P(x)$.  To
-  compute the roots of $-P(x)$ we simply return
-  \code{find\_cubic\_roots(-a, -b, -c, -d)}.
-\item Since $P(0) = d$, then we can easily evaluate the polynomial at $x=0$ to get its y-intercept.
-  \begin{enumerate}
-  \item If $d = 0$, then 0 is a root, $P(0) = 0$.
-  \item If $d>0$ then there is a root on the negative x-axis.  Find it with a binary search.
-  \item If $d<0$ then there is a root on the positive x-axis. Find it with a binary search.
-  \end{enumerate}
-\item See Section~\ref{sec.binary.search} to explain the binary search.
-\item Once the root $r$ is found, this means $(x-r)$ factors out $P(x)$. \Ie,
-  ${P(x) = (x-r)(A x^2 + B x + C)}$.  The formulas for $A$, $B$, and $C$ can be found
-  in Equations~\eqref{eq.6.A}, \eqref{eq.6.B}, and~\eqref{eq.6.C}.
-\item The roots of the cubic are \code{[r]} concatenated to the roots of the quadratic 
-  $A x^2 + B x + C$, which you can compute using the techniques in Section~\ref{sec.quadratic}.
-
-
-\item Test your code by running the pre-defined tests in \code{tests/test\_cubic.py}.
-
-\item Look at the proposed solution in \code{solutions/cubic.py}.  It is not necessary that your code match exactly.
-
-
-
-\end{enumerate}
-
+This challege contains two parts:
+\begin{itemize}
+\item In \textbf{Find a root using Binary Search}, Section~\ref{sec.binary.search}, you will complete the file \code{src/search.py}.
+\item In \textbf{Cubic Roots}, Section~\ref{sec.cubic.roots}, you will complete the file \code{src/cubic.py}.
+\end{itemize}
 
 \subsection{Find a root using Binary Search}
 \label{sec.binary.search}
 
+In this section you will complete the code in \code{src/search.py}.
+This code will be reused in Section~\ref{sec.cubic.roots} and again in
+Section~\ref{sec.quartic}.  The purpose of the code is to find one
+root (any root) of a given polynomial.  The purposes of finding one
+root is so we can factor $(x-r)$ out of the polynomial, thus reducing
+a degree~3 polynomial to a degree~2, or in general reducing a degree~$n$ to a degree~$n-1$ polynomial.
 
 \begin{figure}
   \centering
@@ -211,3 +186,46 @@ If so, then double $x_{upper}$ and try again, until ${P(x_{upper}) > 0}$.  As an
 
 Similarly for step~\ref{step.3}?  Start with  $x_{upper}=-1$, and query whether ${P(x_{lower}) > 0}$.
 If so, then double $x_{upper}$ and try again, until ${P(x_{upper}) < 0}$.
+
+
+\subsection{Cubic Roots}
+\label{sec.cubic.roots}
+
+Steps for computing roots of a cubic polynomial.
+
+\begin{enumerate}
+\item Assume the coefficients of $P(x) = a x^3 + b x^2 + c x + d$ are
+  \code{a},  \code{b},  \code{c},  and~\code{d}.
+\item If \code{a==0}, then delegate to the previous solution by
+  calling \\
+  \code{find\_quadratic\_roots} and returning its return
+  value.  Be careful, \code{find\_quadratic\_roots} accepts 3 input
+  parameters.
+\item If $P(x)$ is of the form of $-P(x)$ in Figure~\ref{fig.cubic},
+  \ie, if $a<0$, then compute and return the roots of $-P(x)$.  To
+  compute the roots of $-P(x)$ we simply return
+  \code{find\_cubic\_roots(-a, -b, -c, -d)}.
+\item Since $P(0) = d$, then we can easily evaluate the polynomial at $x=0$ to get its y-intercept.
+  \begin{enumerate}
+  \item If $d = 0$, then 0 is a root, $P(0) = 0$.
+  \item If $d>0$ then there is a root on the negative x-axis.  Find it with a binary search.
+  \item If $d<0$ then there is a root on the positive x-axis. Find it with a binary search.
+  \end{enumerate}
+\item See Section~\ref{sec.binary.search} to explain the binary search.
+\item Once the root $r$ is found, this means $(x-r)$ factors out $P(x)$. \Ie,
+  ${P(x) = (x-r)(A x^2 + B x + C)}$.  The formulas for $A$, $B$, and $C$ can be found
+  in Equations~\eqref{eq.6.A}, \eqref{eq.6.B}, and~\eqref{eq.6.C}.
+\item The roots of the cubic are \code{[r]} concatenated to the roots of the quadratic 
+  $A x^2 + B x + C$, which you can compute using the techniques in Section~\ref{sec.quadratic}.
+
+
+\item Test your code by running the pre-defined tests in \\
+  \code{tests/test\_cubic.py}.
+
+\item Look at the proposed solution in \code{solutions/cubic.py}.  It is not necessary that your code match exactly.
+
+
+
+\end{enumerate}
+
+

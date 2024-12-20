@@ -42,10 +42,10 @@ $P_2(x)$, or not at all (\eg, $P_3(x)$).
 \end{align*}
 
 
-\subsection{The Math}
+\subsection{The Math / The Theoretical}
 
 To determine how many times a parabola touches the x-axis, we need to
-find the roots of the corresponding quadratic (degree 2) polynomial of
+find the roots of the corresponding quadratic (degree~2) polynomial of
 the form $a x^2 + b x + c$.  The formula is called the \emph{quadratic
 formula}:
 
@@ -68,9 +68,9 @@ discriminant: $b^2 - 4a c$.
   roots for this atelier.
 \end{itemize}
 
-\subsection{The Programming}
+\subsection{The Programming / The Practical}
 
-Steps for computing roots of a polynomial of degree 2.
+Steps for computing roots of a polynomial of degree~2.
 \begin{enumerate}
 \item Assume the coefficients of $P(x)$ are in the variables \code{a}, \code{b}, and \code{c}.
 \item If \code{a == 0}, then delegate to previous solution by calling the function \code{find\_x\_intercept} and returning its value.  Note that \\
@@ -83,7 +83,8 @@ Steps for computing roots of a polynomial of degree 2.
   \item If the discriminant is negative ( $< -\varepsilon$), then return an empty list~\code{[]}.
   \end{enumerate}
 
-\item Test your code by running the pre-defined tests in \code{tests/test\_quadratic.py}.
+\item Test your code by running the pre-defined tests in \\
+  \code{tests/test\_quadratic.py}.
 
 \item Look at the proposed solution in \code{solutions/quadratic.py}.  It is not necessary that your code match exactly.
 
