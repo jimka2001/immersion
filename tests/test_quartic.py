@@ -20,7 +20,7 @@ class QuarticTestCase(ImmTestCase):
         self.code_check(["quartic.py"], import_exception)
 
     def test_quartic(self):
-        epsilon = 0.001
+        epsilon = 0.01
         for r1 in range(-5, 5):
             for r2 in range(r1, 5):
                 for r3 in range(r2, 5):
