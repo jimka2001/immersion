@@ -72,21 +72,33 @@ discriminant: $b^2 - 4a c$.
 
 Steps for computing roots of a polynomial of degree~2.
 \begin{enumerate}
-\item Assume the coefficients of $P(x)$ are in the variables \code{a}, \code{b}, and \code{c}.
-\item If \code{a == 0}, then delegate to previous solution by calling the function \code{find\_x\_intercept} and returning its value.  Note that \\
-  \code{find\_x\_intercept} takes two arguments, which it calls \code{a} and \code{b}, but these are not \code{a} and \code{b} of the quadratic.   In fact for \code{find\_x\_intercept}, \code{a} is the coefficients of $x$ and \code{b} is the bias term of $a x + b$.  However, for the quadratic, \code{a} is the coefficient of $x^2$, and \code{b} is the code of $x$ in $a x^2 + b x + c$.
-\item Compute the discriminant, storing in the variable \code{discriminant}.
+\item Assume the coefficients of $P(x)$ are in the variables \code{a},
+  \code{b}, and \code{c}.
+\item If \code{a == 0}, then delegate to previous solution by calling
+  the function \code{find\_x\_intercept} and returning its value.
+  Note that \\ \code{find\_x\_intercept} takes two arguments, which it
+  calls \code{a} and \code{b}, but these are not \code{a} and \code{b}
+  of the quadratic.  In fact for \code{find\_x\_intercept}, \code{a}
+  is the coefficients of $x$ and \code{b} is the bias term of $a x +
+  b$.  However, for the quadratic, \code{a} is the coefficient of
+  $x^2$, and \code{b} is the code of $x$ in $a x^2 + b x + c$.
+\item Compute the discriminant, storing in the variable
+  \code{discriminant}.
 \item Test three conditions.
   \begin{enumerate}
-  \item If the discriminant is positive, then return a list of the two roots.
-  \item If the discriminant is zero (or very close to zero), then return a list (of length two) of the same root twice.
-  \item If the discriminant is negative ( $< -\varepsilon$), then return an empty list~\code{[]}.
+  \item If the discriminant is positive, then return a list of the two
+    roots.
+  \item If the discriminant is zero (or very close to zero), then
+    return a list (of length two) of the same root twice.
+  \item If the discriminant is negative ( $< -\varepsilon$), then
+    return an empty list~\code{[]}.
   \end{enumerate}
 
-\item Test your code by running the pre-defined tests in \\
-  \code{tests/test\_quadratic.py}.
+\item Test your code by running the pre-defined tests in
+  \\ \code{tests/test\_quadratic.py}.
 
-\item Look at the proposed solution in \code{solutions/quadratic.py}.  It is not necessary that your code match exactly.
+\item Look at the proposed solution in \code{solutions/quadratic.py}.
+  It is not necessary that your code match exactly.
 
 
 \end{enumerate}
@@ -116,4 +128,4 @@ def find_quadratic_roots(a, b, c):
 \end{lstlisting}\end{minipage}\end{listing}
 
 
-% LocalWords:  NotImplementedError
+% LocalWords:  NotImplementedError abs elif atelier

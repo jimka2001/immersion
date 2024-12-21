@@ -7,10 +7,11 @@ The assignment in this section is:
 \item Complete the file \code{src/quartic.py} by writing a Python
   function which computes and returns the x-intercepts of a curve
   equation is \[y=a x^4 + b x^3 + c x^2 + d x + e\,.\]
-\item You'll need to replace all occurrences of \code{raise NotImplementedError()}
-  with correct python code which passes the tests.
-\item Test the function in GitHub Code-Spaces by running the file\\
-  \code{test/test\_quartic.py}.
+\item You'll need to replace all occurrences of \code{raise
+  NotImplementedError()} with correct python code which passes the
+  tests.
+\item Test the function in GitHub Code-Spaces by running the
+  file\\ \code{test/test\_quartic.py}.
 \end{enumerate}
 
 \subsection{Overview}
@@ -18,18 +19,18 @@ The assignment in this section is:
 We wish to find the roots of the quartic polynomial given by 
 \[P(x) = ax^4 + b x^3 + c x^2 + d x + e\,.\]
 
-We will do this by first finding
-(approximating) a root, $r$, using a technique called \emph{binary
-search}.  We will determine which regions to search by examining the derivative
+We will do this by first finding (approximating) a root, $r$, using a
+technique called \emph{binary search}.  We will determine which
+regions to search by examining the derivative
 
 \[\frac{d}{d x} P(x) = 4ax^3 + 3b x^2 + 2c x + d\,.\]
 
-Knowing root $r$, we know that $(x-r)$ is a factor of 
-$a x^4 + b x^3 + c x^2 + d x + e$.  Once $(x-r)$ is factored out of $P(x)$
-what remains is a cubic polynomial of the form $A x^3 + B x^2 + C x + D$.
-We can find the roots of the cubic using the technique
-explained in Section~\ref{sec.cubic}, thus obtaining the roots of
-the quartic polynomial.
+Knowing root $r$, we know that $(x-r)$ is a factor of
+$a x^4 + b x^3 + c x^2 + d x + e$.  Once $(x-r)$ is factored out of $P(x)$ what remains
+is a cubic polynomial of the form $A x^3 + B x^2 + C x + D$.  We can
+find the roots of the cubic using the technique explained in
+Section~\ref{sec.cubic}, thus obtaining the roots of the quartic
+polynomial.
 
 
 \subsection{The Math / The Theoretical}
@@ -71,22 +72,23 @@ Since the derivative of a degree~4 polynomial is a degree~3 (cubic)
 polynomial, we can find where $\frac{d}{d x} P(x) = 0$ by using the
 techniques explained in Section~\ref{sec.cubic}.
 
-Once we have determined the 3 inflection points $x_1$, $x_2$, and $x_3$, we can
-simply test $P(x_1)$, $P(x_2)$, $P(x_3)$.  If one if these values is 0, then
-we have found a root, $r$, and we can factor $(x-r)$ out of $P(x)$ to obtain
-a cubic polynomial.  We can find the roots of the cubic using the techniques
-explained in Section~\ref{sec.cubic}.
+Once we have determined the 3 inflection points $x_1$, $x_2$, and
+$x_3$, we can simply test $P(x_1)$, $P(x_2)$, $P(x_3)$.  If one if
+these values is 0, then we have found a root, $r$, and we can factor
+$(x-r)$ out of $P(x)$ to obtain a cubic polynomial.  We can find the
+roots of the cubic using the techniques explained in
+Section~\ref{sec.cubic}.
 
 If none of $P(x_1)$, $P(x_2)$, or $P(x_3)$ is zero, then we check
 whether one of them is negative.  As shown in
 Figure~\ref{fig.quartic}, whenever $P(x)<0$ then there is a root both
-to the right and left of $x$.  If we can find that root, then as before
-we can factor out $(x-r)$ to get a cubic polynomial, and then find its roots---
-thus obtaining the roots of the quartic.
+to the right and left of $x$.  If we can find that root, then as
+before we can factor out $(x-r)$ to get a cubic polynomial, and then
+find its roots--- thus obtaining the roots of the quartic.
 
 Once we have determined a root, $r$ of $P(x)$, then we know (similar
 to the cubic case in Section~\ref{sec.cubic.math}) that $P(x)$ factors
-into $(x-r)(Ax^3 + Bx^2 + Cx + D)$, where
+into $(x-r)(A x^3 + B x^2 + C x + D)$, where
 \begin{align}
   A &= a\label{eq.7.A}\\
   B &= b + a r\nonumber\\
@@ -144,4 +146,4 @@ Steps for finding the roots of a quartic polynomial.
 
 \end{enumerate}
 
-% LocalWords:  NotImplementedError quartic GitHub Quartics
+% LocalWords:  NotImplementedError quartic GitHub Quartics Quartic

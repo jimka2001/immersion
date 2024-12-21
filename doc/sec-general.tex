@@ -1,31 +1,35 @@
 \section{Review of Polynomials (Optional)}
 \label{sec.general}
 
-Your goal in the next several sections is to find \emph{root} of \emph{polynomials}
-But first, what is a polynomial? And then, what is a root?
+Your goal in the next several sections is to find \emph{root} of
+\emph{polynomials} But first, what is a polynomial? And then, what is
+a root?
 
 \begin{definition}{polynomial of degree n}{}
-  A \emph{polynomial} of \emph{degree n} is a function of a single variable, usually $x$,
-  of the form.
+  A \emph{polynomial} of \emph{degree n} is a function of a single
+  variable, usually $x$, of the form.
   \[P(x) = \alpha_n x^n + \alpha_{n-1} x^{n-1} + \cdots + \alpha_2 x^2 + \alpha_1 x + \alpha_0 \]
 
-  where $\alpha_n,  \alpha_{n-1} x^{n-1}, \ldots, \alpha_0$ are called coefficients and may be integers, rational numbers, or real numbers.
+  where $\alpha_n, \alpha_{n-1} x^{n-1}, \ldots, \alpha_0$ are called
+  coefficients and may be integers, rational numbers, or real numbers.
 \end{definition}
 
 An example of a 4th degree polynomial is
 \[P(x) = 2 x^4 + 5 x^3 + x^2 - x + 1\,.\]
 
 
-Any of the coefficients after the leading one may be 0, in which case the term is generally omitted.
-An example of a 3th degree polynomial where the coefficients of the $x^2$ term is 0 is as follows.
+Any of the coefficients after the leading one may be 0, in which case
+the term is generally omitted.  An example of a 3th degree polynomial
+where the coefficients of the $x^2$ term is 0 is as follows.
 \[P(x) = 5 x^3 + x - 1\,.\]
 
 \begin{definition}{root}{}
-  If $P(x)$ is a polynomial, and $r$ is a number for which $P(r)=0$, then $r$ is called a \emph{root}
-  of the polynomial.
+  If $P(x)$ is a polynomial, and $r$ is a number for which $P(r)=0$,
+  then $r$ is called a \emph{root} of the polynomial.
 \end{definition}
 
-The polynomial $P(x) = x^3 - x$ as three roots, 1, -1, and 0.  We know this because
+The polynomial $P(x) = x^3 - x$ as three roots, 1, -1, and 0.  We know
+this because
 \begin{align*}
   P(1) &= (1)^3 - 1 
   = 1 - 1 
@@ -42,13 +46,16 @@ The polynomial $P(x) = x^3 - x$ as three roots, 1, -1, and 0.  We know this beca
   Every non-constant polynomial of degree~1 or higher has a root.
 \end{theorem}
 
-The Fundamental Theorem of Algebra claims that every polynomial.  However, sometimes the root is complex.
-For example the polynomial, $P(x) = x^2 + 1$, has two complex roots.
-In this atelier, we only attempt to determine the real roots, ignoring the complex roots.
-For this reason, we will not be able to find all the roots of some polynomials.
+The Fundamental Theorem of Algebra claims that every polynomial.
+However, sometimes the root is complex.  For example the polynomial,
+$P(x) = x^2 + 1$, has two complex roots.  In this atelier, we only
+attempt to determine the real roots, ignoring the complex roots.  For
+this reason, we will not be able to find all the roots of some
+polynomials.
 
 \begin{corollary}{Roots with Multiplicity}{n.roots}
-  A polynomial of degree $n\ge 1$ has $n$ roots, some of which may be equal.
+  A polynomial of degree $n\ge 1$ has $n$ roots, some of which may be
+  equal.
 \end{corollary}
 \begin{proof}
 
@@ -59,8 +66,9 @@ For this reason, we will not be able to find all the roots of some polynomials.
   \item \textbf{Base case:} If $n=1$, then Theorem~\ref{th.ftoa}
     guarantees it has a root; call it $r_1$.  Thus it is of the form
     $P(x)=\alpha (x-r_1)$.
-  \item \textbf{Inductive case:} Suppose $n>1$.  Suppose every polynomial, $Q(x)$ of degree
-    $n$ has $n$-many roots, $r_1,\ldots,r_n$, and can thus be written as:
+  \item \textbf{Inductive case:} Suppose $n>1$.  Suppose every
+    polynomial, $Q(x)$ of degree $n$ has $n$-many roots,
+    $r_1,\ldots,r_n$, and can thus be written as:
     \[Q(x) = \alpha_1 (x - r_1) (x - r_2) \cdots (x - r_n)\]
     Now consider a polynomial, $P(x)$, of
     degree~$n+1$.  Theorem~\ref{th.ftoa} guarantees $P(x)$ has a root;
