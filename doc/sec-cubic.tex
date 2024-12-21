@@ -98,7 +98,13 @@ We can verify that $A$, $B$, and $C$ are determined by the following equations.
   &= c + B r\label{eq.6.C}
 \end{align}
 
-
+The equations for $A$, $B$, and $C$ follow a regular and predictable
+pattern which may not be immediatly apparent.  However, the pattern
+may become more clear when looking at the analogous derivation for
+the quartic (Equations~\eqref{eq.7.A} through~\eqref{eq.7.D})
+page~\pageref{eq.7.D}, and also for the quintic
+(Equations~\eqref{eq.8.A} through~\eqref{eq.8.E}) page
+~\pageref{eq.8.E}.
 
 We may verify this factorization by substituting Equations~\eqref{eq.6.A}, \eqref{eq.6.B}, and~\eqref{eq.6.C}
 into $(x-r) (A x^2 + B x + C)$, then working through some tedious algebra.
@@ -112,9 +118,9 @@ into $(x-r) (A x^2 + B x + C)$, then working through some tedious algebra.
   &= a x^3 + b x^2 + a r x^2 + c x + b r x + a r^2 x\\
   &\quad\quad - a r x^2 - b r x - a r^2 x - c r - b r^2 - a r^3\\
   &= a x^3 + b x^2 + c x  \\
-  &\quad\quad + a r x^2 + b r x + a r^2 x - ( a r x^2 + b r x + a r^2 x) \\
+  &\quad\quad + \underbrace{a r x^2 + b r x + a r^2 x - ( a r x^2 + b r x + a r^2 x)}_{=0} \\
   &\quad\quad  - c r + b r^2 - a r^3\\
-  &= a x^3 + b x^2 + c x + ( d - d) - c r - b r^2 - a r^3\\
+  &= a x^3 + b x^2 + c x + \underbrace{( d - d)}_{+0} - c r - b r^2 - a r^3\\
   &= \underbrace{a x^3 + b x^2 + c x +  d}_{=P(x)} - (\underbrace{d + c r + b r^2 + a r^3}_{=P(r)})\\
   &= P(x) - P(r)\\
   &= P(x) 
