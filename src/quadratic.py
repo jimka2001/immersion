@@ -5,16 +5,19 @@ epsilon = 0.00001
 
 def find_quadratic_roots(a, b, c):
     """Given the coefficients of a quadratic equation, a, b, and c,
-    of the equation ax^2 + bx + c, find all real roots and return them.
-    In the case the quadratic equation has no real roots,
-    return the empy list, [].
-    In the case the quadratic equation has a single double root,
+    of the equation ax^2 + bx + c, find all real roots and return a list of them.
+    If the quadratic equation has no real roots,
+    return the empty list, [].
+    If the quadratic equation has a single double root,
     return a list of that value: [r].
     Otherwise, return a list of the two real roots in increasing order,
     i.e., return [r1, r2] where r1 < r2.
-    In the case that a == 0, the equation describes a line,
+    If a == 0, then the equation describes a line;
     return a list of its x-intercept.
-    In the case that a and b are both zero, return the empty list, []"""
+    WARNING, do not write more code to compute the x-intercept,
+    you've already written that in a previous function.  Find
+    that function and call it here; return the value which that function returns.
+    If that a and b are both zero, return the empty list, []"""
 
     discriminant = b * b - 4 * a * c
     if abs(a) < epsilon:

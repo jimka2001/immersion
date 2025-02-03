@@ -7,7 +7,12 @@ epsilon = 0.0000001
 def find_cubic_roots(a, b, c, d):
     """Given the coefficients of a cubic polynomial,
     compute the roots if possible.
-    semantics of the coefficients are: P(x) = ax^3 + bx^2 + cx + d
+    semantics of the coefficients are: P(x) = ax^3 + bx^2 + cx + d.
+    If a == 0 (if absolute value of a < epsilon), re-used the function
+    for computing the roots of a quadratic which you've already written.
+    Do not repeat the code here, just call the existing code to get the
+    quadratic roots and return them as a list.
+
     """
 
     if abs(a) < epsilon:
@@ -19,6 +24,8 @@ def find_cubic_roots(a, b, c, d):
         # CHALLENGE: student must complete the implementation.
         return find_cubic_roots(-a, -b, -c, -d)
 
+    # compute a function, P, which can be called with a value of x, e.g., P(x).
+    # P(x) returns the value of the cubic polynomial at x.
     P = make_polynomial([a,b,c,d])
 
     def find_one_root():
@@ -28,7 +35,7 @@ def find_cubic_roots(a, b, c, d):
             # CHALLENGE: student must complete the implementation.
             return 0.0
         elif d > 0:
-            # P(0) = d, so P(-infinity) < 0 and P(infinity) > 0
+            # P(0) = d, so P(-infinity) < 0 and P(infinity) > 0.
             # Here we know the polynomial is strictly positive at x=0,
             # so the polynomial becomes negative somewhere to the left.
             # Thus, we perform a search in the leftward direction to find a root.
@@ -46,20 +53,29 @@ def find_cubic_roots(a, b, c, d):
     A = (
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for A?
+        # The formulas for A, B, and are found in the file polynomials.pdf
+        #   in section 6: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         a
     )
     B = (
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for B?
+        # The formulas for A, B, and are found in the file polynomials.pdf
+        #   in section 6: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         b + A * r
     )
     C = (
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for C?
+        # The formulas for A, B, and are found in the file polynomials.pdf
+        #   in section 6: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         c + B * r
     )
 
+    # Now we have found a root, r.  We simply prepend [r]
+    #  to the list of roots of the polynomial which remains
+    #  after dividing P(x) / (x-r),
     return [r] + find_quadratic_roots(A, B, C)
