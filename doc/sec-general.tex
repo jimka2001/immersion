@@ -5,6 +5,8 @@ Your goal in the next several sections is to find \emph{root} of
 \emph{polynomials} But first, what is a polynomial? And then, what is
 a root?
 
+\subsection{What is a Polynomial?}
+
 \begin{definition}{polynomial of degree n}{}
   A \emph{polynomial} of \emph{degree n} is a function of a single
   variable, usually $x$, of the form.
@@ -22,6 +24,8 @@ Any of the coefficients after the leading one may be 0, in which case
 the term is generally omitted.  An example of a 3th degree polynomial
 where the coefficients of the $x^2$ term is 0 is as follows.
 \[P(x) = 5 x^3 + x - 1\,.\]
+
+\subsection{Fundamental Theorem of Algebra}
 
 \begin{definition}{root}{}
   If $P(x)$ is a polynomial, and $r$ is a number for which $P(r)=0$,
@@ -46,9 +50,9 @@ this because
   Every non-constant polynomial of degree~1 or higher has a root.
 \end{theorem}
 
-The Fundamental Theorem of Algebra claims that every polynomial.
+The Fundamental Theorem of Algebra claims that every polynomial has a root.
 However, sometimes the root is complex.  For example the polynomial,
-$P(x) = x^2 + 1$, has two complex roots.  In this atelier, we only
+$P(x) = x^2 + 1$, has two (and only two) complex roots.  In this atelier, we only
 attempt to determine the real roots, ignoring the complex roots.  For
 this reason, we will not be able to find all the roots of some
 polynomials.
@@ -83,12 +87,19 @@ polynomials.
   \end{itemize}
 \end{proof}
 
-Theorem~\ref{th.n.roots} can be seen as a model of how we will find
-roots in this attempt.  Given a degree~$n$ polynomial (for $2<n\leq
-5$), if we successfully find a root, $r_n$, then we will factor
-$(x-r_n)$ out of the polynomial, giving us new polynomial but with
-degree~$n-1$, which we can solve by the same approach.  This process
-continues until we reach degree~$n=2$ which we solve using the
-quadratic formula.
+\subsection{Algorithm for Finding Roots}
+
+The proof of Theorem~\ref{th.n.roots} gives us the algorithm which we will use to find
+roots in this atelier.  Given a degree~$n$ polynomial (for $2<n\leq5$),
+\begin{enumerate}
+\item If we successfully find a root, $r_n$ of the $n$-degree polynomial
+\item Then we will factor  $(x-r_n)$ out of the polynomial,
+\item Giving us new polynomial but with degree~$n-1$,
+\item Which we can solve by the same approach.  
+\item This process continues until we reach degree~$n=2$ which we
+  solve using the quadratic formula.
+
+\end{enumerate}
+
 
 % LocalWords:  atelier
