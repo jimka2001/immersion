@@ -60,7 +60,7 @@ def find_cubic_roots(a, b, c, d):
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for A?
         # The formulas for A, B, and are found in the file polynomials.pdf
-        #   in section 6: Cubic: degree=3.
+        #   in Section 7: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
         raise NotImplementedError()
@@ -70,7 +70,7 @@ def find_cubic_roots(a, b, c, d):
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for B?
         # The formulas for A, B, and are found in the file polynomials.pdf
-        #   in section 6: Cubic: degree=3.
+        #   in Section 7: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
         raise NotImplementedError()
@@ -80,7 +80,7 @@ def find_cubic_roots(a, b, c, d):
         # When we factor ax^3 + bx^2 + cx + d = (x-r)(Ax^2 + Bx + C)
         # what is the formula for C?
         # The formulas for A, B, and are found in the file polynomials.pdf
-        #   in section 6: Cubic: degree=3.
+        #   in Section 7: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
         raise NotImplementedError()

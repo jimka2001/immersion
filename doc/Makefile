@@ -20,6 +20,7 @@ SECTIONS := \
 	theorems.tex \
 	sec-intro.tex \
 	sec-github.tex \
+	sec-hello.tex \
 	sec-general.tex \
 	sec-line.tex \
 	sec-quadratic.tex \
