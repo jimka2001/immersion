@@ -3,6 +3,8 @@
 # Programming in the Cloud: Roots of Polynomials
 Download the [Handout](polynomials.pdf)
 
+![Quartic](doc/image/quartic-roots.png)
+
 # Overview
 
 In this atelier you will experiment with software development
