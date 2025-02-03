@@ -34,3 +34,6 @@ polynomials.pdf : ${SRC_DIR}/polynomials.tex ${SECTIONS}
 
 clean:
 	rm *.pdf *.aux *.log *.toc *.fls *.fdb_latexmk *.out
+
+install: polynomials.pdf
+	cp polynomials.pdf ../polynomials.pdf
