@@ -15,31 +15,34 @@ The assignment in this section is:
 \item Complete the file \code{src/line.py} by writing a Python
   function which computes and returns the x-intercept of a line whose
   equation is ${y=a x + b}$.
-\item You'll need to replace all occurances of \code{raise NotImplementedError()}
-  with correct python code which passes the tests.
+\item You'll need to replace all occurrences of \code{raise
+  NotImplementedError()} with correct python code which passes the
+  tests.
 
-\item Test the function in GitHub Codespaces by running the file\\
+\item Test the function in GitHub Code-Spaces by running the file\\
   \code{test/test\_line.py}.
 \end{enumerate}
 
 \subsection{Overview}
 
 
-A polynomial of degree 1 is a function $P(x)=a x + b$ whose graph is a line.   If $a=0$ the
-line is horizontal an crosses the y-axis at $y=b$; thus if $b\neq 0$ then $P(x)\neq 0$.
-So if $a=0$ we will assume that $P(x)$ has no root.   
+A polynomial of degree~1 is a function $P(x)=a x + b$ whose graph is a
+line.  If $a=0$ the line is horizontal an crosses the y-axis at $y=b$;
+thus if $b\neq 0$ then $P(x)\neq 0$.  So if $a=0$ we will assume that
+$P(x)$ has no root.
 
-\subsection{The Math}
+\subsection{The Math / The Theoretical}
 
 
-Figure~\ref{fig.line} shows the graphs of two polynomials of degree 1.
+Figure~\ref{fig.line} shows the graphs of two polynomials of degree~1.
 
 \begin{align*}
   P_1(x) &= -1.2 x + 3\\
   P_2(x) &= 0 x + 6
 \end{align*}
 
-The line representing $P_1(x)$ has an x-intercept computed as in Example~\ref{ex.line}.
+The line representing $P_1(x)$ has an x-intercept computed as in
+Example~\ref{ex.line}.
 
 
 \begin{example}{Computing x-intercept of a line}{line}
@@ -50,17 +53,18 @@ The line representing $P_1(x)$ has an x-intercept computed as in Example~\ref{ex
   \end{align*}
 \end{example}
 
-We see in Figure~\ref{fig.line} that if the coefficient of $x$ is 0, then the
-line is horizontal and has no x-intercept. $P_2(x)$ is an example where $a=0$.
-If the horizontal line $P_2(x)$is coincident
-with the x-axis, \ie, if $a=0$ and $b=0$, then there is no unique x-intercept.
+We see in Figure~\ref{fig.line} that if the coefficient of $x$ is 0,
+then the line is horizontal and has no x-intercept. $P_2(x)$ is an
+example where $a=0$.  If the horizontal line $P_2(x)$is coincident
+with the x-axis, \ie, if $a=0$ and $b=0$, then there is no unique
+x-intercept.
 
 
 
 
 
-If $a\neq 0$,  then we have a line as shown in Figure~\ref{fig.line}.  We can
-solve for the x-intercept by setting y to 0 and solving for x.
+If $a\neq 0$, then we have a line as shown in Figure~\ref{fig.line}.
+We can solve for the x-intercept by setting y to 0 and solving for x.
 \begin{align*}
   y &= a x + b\\
   0 &= a x + b\\
@@ -70,7 +74,7 @@ solve for the x-intercept by setting y to 0 and solving for x.
 
 
 
-\subsection{The Programming}
+\subsection{The Programming / The Practical}
 
 
 \begin{listing}{Function declaration to find x-intercept of a line.}{code.line}
@@ -88,23 +92,27 @@ def find_x_intercept(a,b):
 
 \begin{enumerate}
 
-\item Open the file \code{src/line.py} in your web-based editor (GitHub Codespaces).
-  You will develop the code in this file.
+\item Open the file \code{src/line.py} in your web-based editor
+  (GitHub Code-Spaces).  You will develop the code in this file.
 
-\item Find the occurances of \code{raise NotImplementedError()}.  This is the code that you must replace with working Python code.
+\item Find the occurrences of \code{raise NotImplementedError()}.
+  This is the code that you must replace with working Python code.
 
-\item You should update the code in the file \code{src/line.py} so that if
-$a$ is 0, then the function returns an empty list and otherwise
-  returns a list of the value~$\frac{-b}{a}$.
+\item You should update the code in the file \code{src/line.py} so
+  that if $a$ is 0, then the function returns an empty list and
+  otherwise returns a list of the value~$\frac{-b}{a}$.
 
-\item You must figure out how
-to write that in the Python language.  \Ie, you must figure out how to
-divde two numbers in Python and how to create a list, empty and
-otherwise.
+\item You must figure out how to write that in the Python language.
+  \Ie, you must figure out how to divide two numbers in Python and how
+  to create a list, empty and otherwise.
 
 
-\item Test your code by running the pre-defined tests in \code{tests/test\_line.py}.
+\item Test your code by running the pre-defined tests in \\
+  \code{tests/test\_line.py}.
 
-\item Look at the proposed solution in \code{solutions/line.py}.  It is not necessary that your code match exactly.
+\item Look at the proposed solution in \code{solutions/line.py}.  It
+  is not necessary that your code match exactly.
 
 \end{enumerate}
+
+% LocalWords:  GitHub NotImplementedError

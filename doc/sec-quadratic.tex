@@ -7,10 +7,10 @@ The assignment in this section is:
 \item Complete the file \code{src/quadratic.py} by writing a Python
   function which computes and returns the x-intercepts of a parabola whose
   equation is \[y=a x^2 + b x + c\,.\]
-\item    You'll need to replace all occurances of \code{raise NotImplementedError()}
+\item    You'll need to replace all occurrences of \code{raise NotImplementedError()}
   with correct python code which passes the tests.
 
-\item Test the function in GitHub Codespaces by running the file\\
+\item Test the function in GitHub Code-Spaces by running the file\\
   \code{test/test\_quadratic.py}.
 \end{enumerate}
 
@@ -42,10 +42,10 @@ $P_2(x)$, or not at all (\eg, $P_3(x)$).
 \end{align*}
 
 
-\subsection{The Math}
+\subsection{The Math / The Theoretical}
 
 To determine how many times a parabola touches the x-axis, we need to
-find the roots of the corresponding quadratic (degree 2) polynomial of
+find the roots of the corresponding quadratic (degree~2) polynomial of
 the form $a x^2 + b x + c$.  The formula is called the \emph{quadratic
 formula}:
 
@@ -68,24 +68,37 @@ discriminant: $b^2 - 4a c$.
   roots for this atelier.
 \end{itemize}
 
-\subsection{The Programming}
+\subsection{The Programming / The Practical}
 
-Steps for computing roots of a polynomial of degree 2.
+Steps for computing roots of a polynomial of degree~2.
 \begin{enumerate}
-\item Assume the coefficients of $P(x)$ are in the variables \code{a}, \code{b}, and \code{c}.
-\item If \code{a == 0}, then delegate to previous solution by calling the function \code{find\_x\_intercept} and returning its value.  Note that \\
-  \code{find\_x\_intercept} takes two arguments, which it calls \code{a} and \code{b}, but these are not \code{a} and \code{b} of the quadratic.   In fact for \code{find\_x\_intercept}, \code{a} is the coefficients of $x$ and \code{b} is the bias term of $a x + b$.  However, for the quadratic, \code{a} is the coefficient of $x^2$, and \code{b} is the code of $x$ in $a x^2 + b x + c$.
-\item Compute the discriminant, storing in the variable \code{discriminant}.
+\item Assume the coefficients of $P(x)$ are in the variables \code{a},
+  \code{b}, and \code{c}.
+\item If \code{a == 0}, then delegate to previous solution by calling
+  the function \code{find\_x\_intercept} and returning its value.
+  Note that \\ \code{find\_x\_intercept} takes two arguments, which it
+  calls \code{a} and \code{b}, but these are not \code{a} and \code{b}
+  of the quadratic.  In fact for \code{find\_x\_intercept}, \code{a}
+  is the coefficients of $x$ and \code{b} is the bias term of $a x +
+  b$.  However, for the quadratic, \code{a} is the coefficient of
+  $x^2$, and \code{b} is the code of $x$ in $a x^2 + b x + c$.
+\item Compute the discriminant, storing in the variable
+  \code{discriminant}.
 \item Test three conditions.
   \begin{enumerate}
-  \item If the discriminant is positive, then return a list of the two roots.
-  \item If the discriminant is zero (or very close to zero), then return a list (of length two) of the same root twice.
-  \item If the discriminant is negative ( $< -\varepsilon$), then return an empty list~\code{[]}.
+  \item If the discriminant is positive, then return a list of the two
+    roots.
+  \item If the discriminant is zero (or very close to zero), then
+    return a list (of length two) of the same root twice.
+  \item If the discriminant is negative ( $< -\varepsilon$), then
+    return an empty list~\code{[]}.
   \end{enumerate}
 
-\item Test your code by running the pre-defined tests in \code{tests/test\_quadratic.py}.
+\item Test your code by running the pre-defined tests in
+  \\ \code{tests/test\_quadratic.py}.
 
-\item Look at the proposed solution in \code{solutions/quadratic.py}.  It is not necessary that your code match exactly.
+\item Look at the proposed solution in \code{solutions/quadratic.py}.
+  It is not necessary that your code match exactly.
 
 
 \end{enumerate}
@@ -114,3 +127,5 @@ def find_quadratic_roots(a, b, c):
 
 \end{lstlisting}\end{minipage}\end{listing}
 
+
+% LocalWords:  NotImplementedError abs elif atelier
