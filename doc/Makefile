@@ -4,8 +4,8 @@ all: pdf
 
 SRC_DIR  := .
 IMAGE_DIR := $(SRC_DIR)/img
-LATEXMK = latexmk -pvc --pdf
-%%LATEXMK = latexmk --pdf
+%%LATEXMK = latexmk -pvc --pdf
+LATEXMK = latexmk --pdf
 
 pdf: polynomials.pdf
 
