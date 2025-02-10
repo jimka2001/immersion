@@ -46,13 +46,31 @@ this because
   = 0  
 \end{align*}
 
+The fact that $P(x) = x^3 - x$ has \emph{at least} three roots is easy
+to verify simply by evaluating the function $P(x)$ at 1, -1, and 0.
+Theorem~\ref{th.n.roots} claims something stricter; it claims that $P(x)$
+has at most three roots.  But before getting to Theorem~\ref{th.n.roots}, we take a look at Theorem~\ref{th.ftoa}.
+
+
 \begin{theorem}{Fundamental Theorem of Algebra}{ftoa}
   Every non-constant polynomial of degree~1 or higher has a root.
 \end{theorem}
 
 The Fundamental Theorem of Algebra claims that every polynomial has a root.
 However, sometimes the root is complex.  For example the polynomial,
-$P(x) = x^2 + 1$, has two (and only two) complex roots.  In this atelier, we only
+$P(x) = x^2 + 1$, has two (and only two) complex roots, where $i=\sqrt{-1}$.
+
+\begin{align*}
+  P(i) &= i^2 + 1 
+  = -1 - 1 
+  = 0\\[3pt]
+  P(-i) &= (-i)^2 + 1 
+  = (-1)^2(i)^2 + 1 = (1)(-1) + 1
+  = 0
+\end{align*}
+
+
+From this point forward, in this atelier, we only
 attempt to determine the real roots, ignoring the complex roots.  For
 this reason, we will not be able to find all the roots of some
 polynomials.
