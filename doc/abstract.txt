@@ -1,0 +1,17 @@
+~~~EN~~~
+
+In this atelier you will develop a software program in the cloud.
+After setting up your programming environment using GitHub Code
+Spaces, you will develop code to compute roots of polynomial
+functions.  You will write your functions in the Python programming
+language, proceeding step by step starting with polynomials of degree
+1, and ending with polynomials of degree 5.
+
+~~~FR~~~
+
+Dans cet atelier, vous développerez un logiciel dans le cloud.  Après
+avoir configuré votre environnement de programmation sur GitHub Code
+Spaces, vous développerez du code pour calculer les racines des
+fonctions polynomiales. Vous écrirez vos fonctions dans le langage de
+programmation Python, en procédant étape par étape en commençant par
+les polynômes de degré 1 et en terminant par les polynômes de degré 5.
