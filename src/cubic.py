@@ -18,14 +18,14 @@ def find_cubic_roots(a, b, c, d):
     if abs(a) < epsilon:
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
-        raise NotImplementedError()
+        return find_quadratic_roots(b, c, d)
 
     if a < 0:
         # Here we know the leading coefficients is negative,
         #   so we want to return the roots of -P(x) = -ax^3 - bx^2 - cx -d
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
-        raise NotImplementedError()
+        return find_cubic_roots(-a, -b, -c, -d)
 
     # compute a function, P, which can be called with a value of x, e.g., P(x).
     # P(x) returns the value of the cubic polynomial at x.
@@ -37,7 +37,7 @@ def find_cubic_roots(a, b, c, d):
             # a root at 0, so return 0.0
             # CHALLENGE: student must complete the implementation.
             # HINT: goal = 1 line of code
-            raise NotImplementedError()
+            return [0.0]
 
         elif d > 0:
             # P(0) = d, so P(-infinity) < 0 and P(infinity) > 0.
@@ -52,7 +52,7 @@ def find_cubic_roots(a, b, c, d):
             # Thus, we perform a search in the rightward direction to find a root.
             # CHALLENGE: student must complete the implementation.
             # HINT: goal = 1 line of code
-            raise NotImplementedError()
+            raise search_root_right(0, 1, P, epsilon)
 
     r = find_one_root()
 
@@ -63,7 +63,7 @@ def find_cubic_roots(a, b, c, d):
         #   in Section 7: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
-        raise NotImplementedError()
+        a
 
     )
     B = (
@@ -73,7 +73,7 @@ def find_cubic_roots(a, b, c, d):
         #   in Section 7: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
-        raise NotImplementedError()
+        b + A*r
 
     )
     C = (
@@ -83,7 +83,7 @@ def find_cubic_roots(a, b, c, d):
         #   in Section 7: Cubic: degree=3.
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
-        raise NotImplementedError()
+        c + B*r
 
     )
 
