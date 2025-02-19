@@ -11,10 +11,10 @@ def find_x_intercept(a,b):
     if abs(a) < epsilon:
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
-        raise NotImplementedError()
+        return []
 
     else:
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
-        raise NotImplementedError()
+        return [-b/a]
 

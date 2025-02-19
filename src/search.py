@@ -26,7 +26,7 @@ def search_root_right(lower, upper, P, epsilon):
         #  as an example.
         # CHALLENGE: student must complete the implementation.
         # HINT: goal = 1 line of code
-        raise NotImplementedError()
+        return find_root_in_range(lower, upper, P, epsilon)
 
     else:
         # We know the polynomial has the same sign at upper and lower,
@@ -36,7 +36,9 @@ def search_root_right(lower, upper, P, epsilon):
         # as an example.
         # CHALLENGE: student must complete the implementation.
         # HINT: goal <= 3 lines of code
-        raise NotImplementedError()
+        delta = upper - lower
+        assert delta > 0
+        return search_root_right(lower - delta, upper, P, epsilon)
 
 def find_root_in_range(lower, upper, P, epsilon):
     """If we know there is a root of P between lower and upper,
