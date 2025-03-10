@@ -8,7 +8,7 @@ from common import ImmTestCase, canonicalize
 
 import_exception = None
 try:
-    from src.hello import hello
+    from src.hello import hello, hello_pierre
 except Exception as e:
     print(e)
     import_exception = e
@@ -23,7 +23,7 @@ class HelloTestCase(ImmTestCase):
         self.assertEqual(hello("jim"), "Hello, jim!")
 
     def test_pierre(self):
-        self.assertEqual(hello("pierre"), "Hello, pierre!")
+        self.assertEqual(hello_pierre(), "Hello, pierre!")
 
 if __name__ == '__main__':
     import unittest
