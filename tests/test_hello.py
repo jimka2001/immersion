@@ -19,7 +19,11 @@ class HelloTestCase(ImmTestCase):
 
 
     def test_hello(self):
-        hello("test")
+        self.assertEqual(hello("test"), "Hello, test!")
+        self.assertEqual(hello("jim"), "Hello, jim!")
+
+    def test_pierre(self):
+        self.assertEqual(hello("pierre"), "Hello, pierre!")
 
 if __name__ == '__main__':
     import unittest
