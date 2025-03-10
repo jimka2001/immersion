@@ -1,7 +1,7 @@
 PYTHON = python3
 
 
-all:
+all: test-solutions
 	${PYTHON} ./bin/filter-challenges.py ./solutions ./src
 
 
