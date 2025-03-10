@@ -24,7 +24,6 @@ class QuadraticTestCase(ImmTestCase):
         for r1 in range(-5, 5):
             for r2 in range(r1, 5):
                 a, b, c = find_quadratic_coefficients(float(r1), float(r2))
-                print([r1, r2, a, b, c])
                 roots = find_quadratic_roots(a, b, c)
                 self.assertTrue(isinstance(roots, list), "return value of find_quadratic_roots should be a list")
                 self.assertListAlmostEqual(canonicalize(roots, epsilon),

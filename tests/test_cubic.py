@@ -37,7 +37,6 @@ class CubicTestCase(ImmTestCase):
             for r2 in range(r1, 5):
                 for r3 in range(r2, 5):
                     a, b, c, d = find_cubic_coefficients(float(r1), float(r2), float(r3))
-                    print(['test_cubic', r1, r2, r3, a, b, c, d])
                     roots = find_cubic_roots(a, b, c, d)
                     self.assertTrue(isinstance(roots, list),
                                     "return value of find_cubic_roots should be a list")
