@@ -3,5 +3,5 @@ cd tests
 touch x-solution.py
 rm *-solution.py
 foreach test (test_*.py)
-    cat $test | sed -e 's/from src[.]/from solutions./' > ${test:r}-solution.py
+    cat $test | sed -e 's/from src[.]/from solutions./' > ${test:r}_solution.py
 end
