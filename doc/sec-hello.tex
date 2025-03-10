@@ -13,24 +13,30 @@ particular there are two sections in the code,
 \begin{enumerate}
 \item A declaration of the function named \code{hello}, shown in
   Listing~\ref{list.hello}
-\item Two conditional calls to the function \code{hello}, each time
-  with a different argument, shown in Listing~\ref{list.calls}.
-\end{enumerate}
 
 \begin{listing}{Declaration of Function \code{hello}}{hello}
 \begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
 def hello(name):
-    print("hello " + name + "!")
+    return ("Hello, " + name + "!")
+
+def hello_pierre():
+    # CHALLENGE: student must complete the implementation.
+    raise NotImplementedError()
 \end{lstlisting}\end{minipage}\end{listing}
+
+\item Your task it to replace \code{raise NotImplementedError()} with correct python code 
+\item Two conditional calls to the function \code{hello}, each time
+  with a different argument, shown in Listing~\ref{list.calls}.
+\end{enumerate}
 
 \begin{listing}{Calls to Function \code{hello}}{calls}
 \begin{minipage}[c]{0.95\textwidth}\begin{lstlisting}
 if __name__ == '__main__':
     # call the function with an argument
-    hello("gertrude")
+    print(hello("gertrude"))
     
     # second test
-    hello("fred")
+    print(hello("fred"))
 \end{lstlisting}\end{minipage}\end{listing}
 
 
