@@ -26,8 +26,9 @@ class QuarticTestCase(ImmTestCase):
                 for r3 in range(r2, 5):
                     for r4 in range(r3, 5):
                         a, b, c, d, e = find_quartic_coefficients(float(r1), float(r2), float(r3), float(r4))
-                        print([r1, r2, r3, r4, a, b, c, d, e])
                         roots = find_quartic_roots(a, b, c, d, e)
+                        self.assertTrue(isinstance(roots, list),
+                                        "return value of find_quartic_roots should be a list")
                         self.assertListAlmostEqual(canonicalize(roots, epsilon),
                                                    canonicalize([r1, r2, r3, r4], epsilon),
                                                    3)

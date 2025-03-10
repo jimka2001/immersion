@@ -20,11 +20,13 @@ class LineTestCase(ImmTestCase):
 
     def test_no_intercept(self):
         for b in range(-10, 10):
-            assert find_x_intercept(0, b) == []
+            self.assertEqual(find_x_intercept(0, b), [])
 
     def test_x_intercept(self):
-        for z in range(1, 50):
-            assert find_x_intercept(z * 1, z * 2) == [-2]
+        for a in [2,5,10]:
+            for z in range(1, 50):
+                self.assertTrue(isinstance(find_x_intercept(z * 1, z * a), list), "return value of find_x_intercept should be a list")
+                self.assertEqual(find_x_intercept(z * 1, z * a), [-a])
 
 
 if __name__ == '__main__':
