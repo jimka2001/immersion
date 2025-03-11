@@ -28,7 +28,7 @@ search}.  Knowing root $r$, we know that $(x-r)$ is a factor of $a x^3 + b x^2 +
 Once $(x-r)$ is factored out of $a x^3 + b x^2 + c x + d$
 what remains is a quadratic polynomial of the form $A x^2 + B x + C$.
 We can find the roots of the quadratic using the technique
-explained in Section~\ref{sec.quadratic}, thus obtaining the roots of
+explained in \S\ref{sec.quadratic}, thus obtaining the roots of
 the cubic polynomial.
 
 
@@ -37,7 +37,7 @@ the cubic polynomial.
 A polynomial of degree~3 has the form $P(x) = a x^3 + b x^2 + c x +d$.
 If $a=0$ then $P(x)$ is really a quadratic polynomial (degree~2)
 and can be solved using the techniques described in
-Section~\ref{sec.quadratic}.  Every polynomial of degree~3 with real
+\S\ref{sec.quadratic}.  Every polynomial of degree~3 with real
 coefficients (for which $a\neq 0$) has at least one real root because
 \begin{enumerate}
 \item Either $\lim\limits_{x\to-\infty}P(x) = -\infty$ and $\lim\limits_{x\to\infty}P(x) = \infty$,
@@ -45,7 +45,7 @@ coefficients (for which $a\neq 0$) has at least one real root because
 \end{enumerate}
 
 
-We have a two cubic equations plotted in Figure~\ref{fig.cubic}.
+For illustration, two cubic equations, \eqref{eq.1} and \eqref{eq.2}, are plotted in Figure~\ref{fig.cubic}.
 
 \begin{figure}
   \centering
@@ -55,10 +55,10 @@ We have a two cubic equations plotted in Figure~\ref{fig.cubic}.
   \label{fig.cubic}
 \end{figure}
 
-\begin{align*}
-  P(x) &= x^3 - 4 x^2 - 2 x - 10\\
-  -P(x) &= -x^3 + 4 x^2 + 2 x + 10
-\end{align*}
+\begin{align}
+  P(x) &= x^3 - 4 x^2 - 2 x - 10\label{eq.1}\\
+  -P(x) &= -x^3 + 4 x^2 + 2 x + 10\label{eq.2}
+\end{align}
 
 $P(x)$ exemplifies the \emph{standard} case where the leading coefficient is positive: $a>0$.
 $-P(x)$ exemplifies the alternate case where the leading coefficient is negative: $a<0$.
@@ -132,16 +132,16 @@ Since $r$ is assumed to be a root of $P(x)$, then we know that $P(r)=0$.  Thus $
 
 This challenge contains two parts:
 \begin{itemize}
-\item In \textbf{Find a root using Binary Search}, Section~\ref{sec.binary.search}, you will complete the file \code{src/search.py}.
-\item In \textbf{Cubic Roots}, Section~\ref{sec.cubic.roots}, you will complete the file \code{src/cubic.py}.
+\item In \textbf{Find a root using Binary Search}, \S\ref{sec.binary.search}, you will complete the file \code{src/search.py}.
+\item In \textbf{Cubic Roots}, \S\ref{sec.cubic.roots}, you will complete the file \code{src/cubic.py}.
 \end{itemize}
 
 \subsection{Find a root using Binary Search}
 \label{sec.binary.search}
 
 In this section you will complete the code in \code{src/search.py}.
-This code will be reused in Section~\ref{sec.cubic.roots} and again in
-Section~\ref{sec.quartic}.  The purpose of the code is to find one
+This code will be reused in \S\ref{sec.cubic.roots} and again in
+\S\ref{sec.quartic}.  The purpose of the code is to find one
 root (any root) of a given polynomial.  The purposes of finding one
 root is so we can factor $(x-r)$ out of the polynomial, thus reducing
 a degree~3 polynomial to a degree~2, or in general reducing a degree~$n$ to a degree~$n-1$ polynomial.
@@ -217,12 +217,12 @@ Steps for computing roots of a cubic polynomial.
   \item If $d>0$ then there is a root on the negative x-axis.  Find it with a binary search.
   \item If $d<0$ then there is a root on the positive x-axis. Find it with a binary search.
   \end{enumerate}
-\item See Section~\ref{sec.binary.search} to explain the binary search.
+\item See \S\ref{sec.binary.search} to explain the binary search.
 \item Once the root $r$ is found, this means $(x-r)$ factors out $P(x)$. \Ie,
   ${P(x) = (x-r)(A x^2 + B x + C)}$.  The formulas for $A$, $B$, and $C$ can be found
   in Equations~\eqref{eq.6.A}, \eqref{eq.6.B}, and~\eqref{eq.6.C}.
 \item The roots of the cubic are \code{[r]} concatenated to the roots of the quadratic 
-  $A x^2 + B x + C$, which you can compute using the techniques in Section~\ref{sec.quadratic}.
+  $A x^2 + B x + C$, which you can compute using the techniques in \S\ref{sec.quadratic}.
 
 
 \item Test your code by running the pre-defined tests in \\
