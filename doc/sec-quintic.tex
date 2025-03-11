@@ -20,8 +20,8 @@ direction.
 A quintic polynomial has the form $P(x) = a x^5 + b x^4 + c x^3 + d x^2 + e x + f$.
 If $a=0$ then $P(x)$ is really a quartic polynomial
 (degree~4) and can be solved using the techniques described in
-\S~\ref{sec.quartic}.  Since a quintic polynomial has odd degree
-(if $a\neq 0$), then, like the cubic (\S~\ref{sec.cubic}), it is
+\S\ref{sec.quartic}.  Since a quintic polynomial has odd degree
+(if $a\neq 0$), then, like the cubic (\S\ref{sec.cubic}), it is
 guaranteed to have a real root.  This fact is guaranteed, because if
 $a>0$ then $P(x)\to \infty$ for $x>>0$ and $P(x)\to -\infty$ for
 $x<<0$.
@@ -35,7 +35,7 @@ did for the cubic.  Since $P(0) = f$, then we can consider two cases.
 
 Once the root $r$ is found, factor out $(x-r)$ from $P(x)$ to result
 in a quartic, which we can solve using the technique in
-\S~\ref{sec.quartic}.
+\S\ref{sec.quartic}.
 \begin{align*}
   P(x) &= a x^5 + b x^4 + c x^3 + d x^2 + e x + f\\
   &= (x - r) (Ax^4 + B x^3 + C x^2 + D x + E)
@@ -62,7 +62,7 @@ Where
 Having determined $A$, $B$, $C$, $D$, and $E$, the roots of
 \[A x^4 + B x^3 + C x^2 + D x + E\] can be
 found with a call to \code{find\_quartic\_roots}, which you
-implemented in \S~\ref{sec.quartic}.
+implemented in \S\ref{sec.quartic}.
 
 
 
