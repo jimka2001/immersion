@@ -4,8 +4,11 @@ all: pdf
 
 SRC_DIR  := .
 IMAGE_DIR := $(SRC_DIR)/img
-%%LATEXMK = latexmk -pvc --pdf
-LATEXMK = latexmk --pdf
+# The variable LATEX_OPTS was suggested by chatgpt.
+# to include the -pvc option, run as follows
+# make LATEX_OPTS=-pvc
+LATEX_OPTS ?=
+LATEXMK := latexmk --pdf $(LATEX_OPTS)
 
 pdf: polynomials.pdf
 
